@@ -1,6 +1,6 @@
+import { CogIcon } from "@/components/ui/Icons/CogIcon";
 import { PenIcon } from "@/components/ui/Icons/PenIcon";
 import { SearchIcon } from "@/components/ui/Icons/SearchIcon";
-import { SettingsIcon } from "@/components/ui/Icons/SettingsIcon";
 import { TrendingDownIcon } from "@/components/ui/Icons/TrendingDownIcon";
 import { TrendingUpIcon } from "@/components/ui/Icons/TrendingUpIcon";
 
@@ -19,7 +19,7 @@ export default function Home() {
             Home
           </h2>
           <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-black">
-            Subscriptions
+            Add
           </h2>
         </div>
       </div>
@@ -68,10 +68,10 @@ export default function Home() {
       </div>
 
 
-      <div className="grid grid-cols-2 w-full h-full mt-10 gap-4">
+      <div className="grid grid-cols-2 w-full h-full mt-10 gap-4 lg:px-4">
         <div className="w-full flex items-center gap-4">
           <div className="w-fit whitespace-nowrap h-full px-7 py-2 border font-sans font-medium tracking-tight rounded-full">
-          All
+            All Subs
         </div>
           <div className="w-fit whitespace-nowrap h-full px-5 py-2 border font-sans font-medium tracking-tight rounded-full">
             Cloud 
@@ -89,31 +89,16 @@ export default function Home() {
         <div className="w-full flex items-end justify-end gap-6">
           <PenIcon />
           <SearchIcon />
-          <SettingsIcon />
-
         </div>
       </div>
 
-      <div className="w-full h-full flex flex-col gap-8 mt-10">
-        <h4 className="text-lg px-1 font-medium mb-0 font-serif tracking-normal text-gray-400">
+      <div className="w-full h-full flex flex-col gap-0 mt-10 lg:px-4">
+        <h4 className="text-lg px-1 font-medium mb-4 font-sans tracking-tight text-gray-400">
           Your Subscriptions
         </h4>
 
-        <div className="w-full h-full px-1 flex items-center justify-between  rounded-xl">
-          <div className="flex flex-col gap-1.5">
-            <h2 className="text-lg font-medium font-sans tracking-tight text-black">
-              Vercel
-            </h2>
-            <h1 className="text-base font-normal font-sans tracking-tight text-gray-400">
-              £18.88 /  Monthly
-            </h1>
-          </div>
-
-
-        </div>
-
-        <div className="w-full h-full px-1 flex items-center justify-between  rounded-xl">
-          <div className="flex flex-col gap-1.5">
+        <div className="w-full h-full px-1 flex items-center border-b pb-4 pt-4 justify-between  ">
+          <div className="flex flex-col gap-1">
             <h2 className="text-lg font-medium font-sans tracking-tight text-black">
               Dynamics 365
             </h2>
@@ -121,27 +106,62 @@ export default function Home() {
               £18.88 /  Monthly
             </h1>
           </div>
+
+          <div className="flex items-center gap-2">
+            <div className="text-gray-400 hover:text-black cursor-pointer transition-all ease-linear duration-300">
+              <CogIcon />
+            </div>
+          </div>
         </div>
 
-        <div className="w-full h-full px-1 flex items-center justify-between  rounded-xl">
-          <div className="flex flex-col gap-1.5">
+        <div className="w-full h-full px-1 flex items-center border-b pb-4 pt-4 justify-between  ">
+          <div className="flex flex-col gap-1">
             <h2 className="text-lg font-medium font-sans tracking-tight text-black">
-              Azure
+              Dynamics 365
             </h2>
             <h1 className="text-base font-normal font-sans tracking-tight text-gray-400">
               £18.88 /  Monthly
             </h1>
           </div>
+
+          <div className="flex items-center gap-2">
+            <div className="text-gray-400 hover:text-black cursor-pointer transition-all ease-linear duration-300">
+              <CogIcon />
+            </div>
+          </div>
         </div>
 
-        <div className="w-full h-full border px-7 py-4 flex items-center justify-between  rounded-xl">
-          <div className="flex flex-col gap-1.5">
+        <div className="w-full h-full px-1 flex items-center border-b pb-4 pt-4 justify-between  ">
+          <div className="flex flex-col gap-1">
             <h2 className="text-lg font-medium font-sans tracking-tight text-black">
-              Google Analytics 4
+              Dynamics 365
             </h2>
             <h1 className="text-base font-normal font-sans tracking-tight text-gray-400">
               £18.88 /  Monthly
             </h1>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <div className="text-gray-400 hover:text-black cursor-pointer transition-all ease-linear duration-300">
+              <CogIcon />
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full h-full px-1 flex items-center border-b pb-4 pt-4 justify-between  ">
+          <div className="flex flex-col gap-1">
+            <h2 className="text-lg font-medium font-sans tracking-tight text-black">
+              Dynamics 365
+            </h2>
+            <h1 className="text-base font-normal font-sans tracking-tight text-gray-400">
+              £18.88 /  Monthly
+            </h1>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <div className="text-gray-400 hover:text-black cursor-pointer transition-all ease-linear duration-300">
+              <CogIcon />
+            </div>
           </div>
         </div>
       </div>
