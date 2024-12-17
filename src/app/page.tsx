@@ -22,7 +22,7 @@ export default function Home() {
       </div>
 
       <div className="w-full h-full grid lg:grid-cols-3 gap-6 mt-16">
-        <div className="w-full h-full bg-violet-50 shadow-sm px-7 border border-violet-100 py-7 rounded-2xl flex flex-col gap-4 relative justify-between">
+        <div className="w-full h-full bg-white shadow-sm px-7 border border-violet-100 py-7 rounded-2xl flex flex-col gap-4 relative justify-between">
           <h1 className="text-4xl font-medium font-serif tracking-tight text-black border-b border-violet-100 pb-6">
             £100.22
           </h1>
@@ -35,7 +35,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="w-full h-full bg-orange-50 shadow-sm px-7 py-7 border border-orange-100 rounded-2xl flex flex-col gap-4 relative justify-between">
+        <div className="w-full h-full bg-white shadow-sm px-7 py-7 border border-orange-100 rounded-2xl flex flex-col gap-4 relative justify-between">
           <h1 className="text-4xl font-medium font-serif tracking-tight text-black border-b border-orange-100 pb-6">
             £2400.02
           </h1>
@@ -49,7 +49,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full h-full bg-cyan-50 shadow-sm px-7 py-7 rounded-2xl border border-cyan-100 flex flex-col gap-4 relative justify-between">
+        <div className="w-full h-full bg-white shadow-sm px-7 py-7 rounded-2xl border border-cyan-100 flex flex-col gap-4 relative justify-between">
           <h1 className="text-4xl font-medium font-serif tracking-tight text-black border-b border-cyan-100 pb-6">
             18
           </h1>
