@@ -1,5 +1,4 @@
 import { CogIcon } from "@/components/ui/Icons/CogIcon";
-import { PenIcon } from "@/components/ui/Icons/PenIcon";
 import { SearchIcon } from "@/components/ui/Icons/SearchIcon";
 import { TrendingDownIcon } from "@/components/ui/Icons/TrendingDownIcon";
 import { TrendingUpIcon } from "@/components/ui/Icons/TrendingUpIcon";
@@ -70,24 +69,23 @@ export default function Home() {
 
       <div className="grid grid-cols-2 w-full h-full mt-10 gap-4 lg:px-4">
         <div className="w-full flex items-center gap-4">
-          <div className="w-fit whitespace-nowrap h-full px-7 py-2 border font-sans font-medium tracking-tight rounded-full">
+          <div className="w-fit whitespace-nowrap h-full lg:px-7 lg:py-3 text-center p-2 text-sm border font-sans font-medium tracking-tight rounded-2xl">
             All Subs
         </div>
-          <div className="w-fit whitespace-nowrap h-full px-5 py-2 border font-sans font-medium tracking-tight rounded-full">
+          <div className="w-fit whitespace-nowrap h-full px-5 py-2 bg-blue-50 border border-blue-200 font-sans text-blue-600 font-medium tracking-tight rounded-2xl">
             Cloud 
         </div>
 
-          <div className="w-fit whitespace-nowrap h-full px-5 py-2 border font-sans font-medium tracking-tight rounded-full">
+          <div className="w-fit whitespace-nowrap h-full px-5 py-2 bg-yellow-50 border border-yellow-300 font-sans text-yellow-600 font-medium tracking-tight rounded-2xl">
           Marketing
         </div>
 
-          <div className="w-fit whitespace-nowrap h-full px-5 py-2 border font-sans font-medium tracking-tight rounded-full">
+          <div className="w-fit whitespace-nowrap h-full px-5 py-2 bg-fuchsia-50 border border-fuchsia-300 font-sans text-fuchsia-600 font-medium tracking-tight rounded-2xl">
           SEO
           </div>
         </div>
 
         <div className="w-full flex items-end justify-end gap-6">
-          <PenIcon />
           <SearchIcon />
         </div>
       </div>
