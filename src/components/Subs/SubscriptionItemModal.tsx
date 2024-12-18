@@ -2,19 +2,19 @@
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useRef } from 'react'
 
-function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: any }) {
-    const startDatePicker = useRef<any>(null);
-    const endDatePicker = useRef<any>(null);
+function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () => void }) {
+    const startDatePicker = useRef<HTMLInputElement>(null);
+    const endDatePicker = useRef<HTMLInputElement>(null);
 
     const handleShowStartPicker = () => {
         if (startDatePicker.current) {
-            startDatePicker.current?.showPicker(); // Trigger the date picker
+            startDatePicker.current?.showPicker();
         }
     };
 
     const handleShowEndPicker = () => {
         if (endDatePicker.current) {
-            endDatePicker.current?.showPicker(); // Trigger the date picker
+            endDatePicker.current?.showPicker(); 
         }
     };
 
@@ -75,8 +75,6 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: any 
                                 </div>
 
                                 <div className='flex w-full items-center justify-between border-b border-dashed'
-
-                                    onClick={handleShowEndPicker}
                                 >
                                     <select className='px-5 py-2 text-sm outline-none'>
                                         <option value={'monthy'}>Monthly</option>

@@ -25,10 +25,10 @@ export default function PillFilter() {
 
     return (
         <Combobox value={selected} onChange={(value) => setSelected(value)} onClose={() => setQuery('')}>
-            <div className="relative">
+            <div className="relative h-full w-fit ">
                 <ComboboxInput
                     className={clsx(
-                        'w-full rounded-xl font-sans  border text-black font-medium py-1.5 pr-8 px-4 text-sm/6 ',
+                        'w-full  font-sans bg-neutral-50  px-8 text-black font-medium border-r py-4 pr-6 text-sm/6',
                         'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
                     )}
                     displayValue={(person: any) => person?.name}
@@ -43,7 +43,7 @@ export default function PillFilter() {
                 anchor="bottom"
                 transition
                 className={clsx(
-                    'w-[var(--input-width)] rounded-xl border bg-white/60 mt-2 backdrop-blur-sm  p-1 [--anchor-gap:var(--spacing-1)] empty:invisible',
+                    'w-[var(--input-width)] border bg-white/60 mt-2 backdrop-blur-md  [--anchor-gap:var(--spacing-1)] empty:invisible',
                     'transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0'
                 )}
             >
@@ -51,10 +51,11 @@ export default function PillFilter() {
                     <ComboboxOption
                         key={person.id}
                         value={person}
-                        className="group flex cursor-default items-center gap-2 rounded-lg py-1.5 px-3 select-none data-[focus]:bg-neutral-200"
+                        className="group flex cursor-default items-center gap-2  py-1.5 px-3 select-none
+                         data-[focus]:bg-black data-[focus]:cursor-pointer data-[focus]:text-white text-black "
                     >
-                        <CheckIcon className="invisible size-4 text-black group-data-[selected]:visible" />
-                        <div className="text-sm/6 text-black">{person.name}</div>
+                        <CheckIcon className="invisible size-4   group-data-[selected]:visible" />
+                        <div className="text-sm/6 ">{person.name}</div>
                     </ComboboxOption>
                 ))}
             </ComboboxOptions>
