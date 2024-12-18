@@ -14,6 +14,7 @@ const people = [
 
 export default function PillFilter() {
     const [query, setQuery] = useState('')
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [selected, setSelected] = useState<any>(people[0])
 
     const filteredPeople =
@@ -28,9 +29,10 @@ export default function PillFilter() {
             <div className="relative h-full w-fit ">
                 <ComboboxInput
                     className={clsx(
-                        'w-full  font-sans bg-neutral-50  px-8 text-black font-medium border-r py-4 pr-6 text-sm/6',
+                        'w-full border font-sans bg-white  px-8 text-black font-medium border-r py-4 pr-6 text-sm/6',
                         'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
                     )}
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     displayValue={(person: any) => person?.name}
                     onChange={(event) => setQuery(event.target.value)}
                 />
@@ -43,7 +45,7 @@ export default function PillFilter() {
                 anchor="bottom"
                 transition
                 className={clsx(
-                    'w-[var(--input-width)] border bg-white/60 mt-2 backdrop-blur-md  [--anchor-gap:var(--spacing-1)] empty:invisible',
+                    'w-[var(--input-width)] border bg-white/60 mt-2  ml-4 backdrop-blur  [--anchor-gap:var(--spacing-1)] empty:invisible',
                     'transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0'
                 )}
             >

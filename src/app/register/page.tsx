@@ -28,7 +28,7 @@ function Page() {
               Register for a free account to start your journey
             </p>
           </div>
-          <div className=''>
+          <div className='px-8'>
             <Register />
           </div>
           <div className='flex flex-col w-full items-center justify-center'>

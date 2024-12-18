@@ -27,7 +27,7 @@ function Page() {
               Login to your account to continue where you left off.
             </p>
           </div>
-          <div className='px-0 pb-8'>
+          <div className='px-8 pb-8'>
             <LoginForm />
           </div>
           <div className='flex flex-col w-full items-center justify-center'>

@@ -7,9 +7,9 @@ export default function ItemControls() {
     return (
         <Menu>
             <MenuButton className="inline-flex items-center text-sm/6 
-        font-semibold text-white focus:outline-none border p-2 rounded-lg">
+        font-semibold text-white focus:outline-none  ">
 
-                <Ellipsis className="text-gray-400 hover:text-black transition-all ease-in-out duration-300" size={16} />
+                <Ellipsis className="text-gray-400 hover:text-black transition-all ease-in-out duration-300" size={19} />
             </MenuButton>
 
             <MenuItems
