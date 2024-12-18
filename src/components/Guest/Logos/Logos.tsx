@@ -7,7 +7,7 @@ function Logos() {
   return (
     <>
       <div className=' absolute -top-20 rotate-6 left-20'>
-        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'
+        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ type: 'spring', stiffness: 50, damping: 10, delay: 0.5 }}
@@ -28,8 +28,7 @@ function Logos() {
 
 
       <div className=' absolute top-[0rem] rotate-[-4deg] left-0 lg:left-4'>
-        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"
-          className='lg:w-[60] lg:h-[60] w-[40] h-[40]'
+        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ type: 'spring', stiffness: 50, damping: 10 }}
@@ -51,7 +50,7 @@ function Logos() {
 
 
       <div className=' absolute top-[6rem] rotate-[14deg] left-20'>
-        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'
+        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ type: 'spring', stiffness: 50, damping: 10, delay: 0.88 }}
@@ -77,7 +76,7 @@ function Logos() {
 
 
       <div className=' absolute right-0 rotate-12 '>
-        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'
+        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ type: 'spring', stiffness: 50, damping: 10, delay: 0.98 }}
@@ -101,7 +100,7 @@ function Logos() {
 
 
       <div className=' absolute right-20 top-[6rem] lg:top-[4rem] rotate-6 '>
-        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'
+        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ type: 'spring', stiffness: 50, damping: 10, delay: 0.78 }}
@@ -124,7 +123,7 @@ function Logos() {
 
 
       <div className='absolute right-20 top-[-4rem] rotate-[-4deg] '>
-        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'
+        <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ type: 'spring', stiffness: 50, damping: 10, delay: 0.48 }}
