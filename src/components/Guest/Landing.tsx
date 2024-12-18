@@ -2,25 +2,62 @@ import React from 'react'
 
 function Landing() {
   return (
-    <div className='w-full h-full min-h-screen bg-white p-8 flex flex-col items-center justify-center max-w-[80%] mx-auto'>
+    <div className='w-full h-full min-h-screen bg-white flex flex-col overflow-x-hidden items-center justify-center '>
 
-      <div className='flex flex-col w-full h-full gap-4 items-center relative'>
-        <h1 className='lg:text-6xl text-4xl font-sans tracking-tighter font-normal text-gray-400 '>
-          Azure, OpenAI, AWS, Google Analytics
+      <div className='flex flex-col w-full h-full gap-2  items-center relative lg:max-w-[80%] mx-auto'>
+        <h1 className='lg:text-6xl text-3xl font-serif tracking-tighter font-normal text-gray-400 '>
+          Azure, OpenAI, Oracle, Adobe..
         </h1>
-        <h1 className='lg:text-6xl text-4xl italic font-serif tracking-normal font-medium text-black '>
-          we organize your subscriptions
+        <h1 className='lg:text-6xl text-3xl italic font-serif tracking-normal font-medium text-black '>
+          We organize your subscriptions
         </h1>
 
-        <div className=' absolute -top-20 rotate-6 '>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60} className='rot'>
+        <div className=' absolute -top-20 rotate-6 left-20'>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
             <g clipPath="url(#a)">
-              <path d="M0 0h18v18H0V0Z" />
-              <path fill="#fff" d="M12.615 10.597a4.92 4.92 0 0 1-.645 1.287c-.256.363-.466.614-.626.753-.25.23-.518.347-.805.353-.206 0-.455-.059-.744-.177a2.135 2.135 0 0 0-.8-.176c-.255 0-.529.058-.822.176-.294.118-.531.18-.712.186-.274.012-.55-.108-.823-.362-.175-.151-.393-.412-.655-.78a5.383 5.383 0 0 1-.693-1.37A4.991 4.991 0 0 1 5 8.857c0-.603.131-1.124.393-1.56a2.36 2.36 0 0 1 .829-.832c.338-.2.72-.306 1.107-.31.22 0 .506.068.862.2.355.133.582.2.682.2.076 0 .329-.079.758-.236.406-.145.75-.205 1.03-.182.76.062 1.332.36 1.712.898-.68.41-1.017.985-1.01 1.722.006.574.215 1.053.626 1.432.187.176.395.312.626.409v-.001ZM10.702 4c.006.06.01.12.01.18 0 .45-.166.87-.495 1.26-.397.462-.878.73-1.4.687a1.391 1.391 0 0 1-.01-.17c0-.433.19-.895.524-1.273.168-.192.381-.35.639-.478A1.93 1.93 0 0 1 10.702 4Z" />
+              <path fill="#FA0C00" d="M0 0h18v18H0V0Z" />
+              <path fill="#fff" d="M7.7 4.5H4v8.85L7.7 4.5Zm2.604 0H14v8.85L10.304 4.5ZM9.002 7.762l2.356 5.588H9.812l-.704-1.78H7.385l1.617-3.808Z" />
             </g>
             <defs>
               <clipPath id="a">
                 <path fill="#fff" d="M0 0h18v18H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+
+        </div>
+
+
+        <div className=' absolute top-[0rem] rotate-[-4deg] left-4'>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
+            <g clipPath="url(#a)">
+              <path d="M0 0h18v18H0V0Z" />
+              <path fill="#fff" d="M12.237 10.734c-.259-.327-.458-.56-.458-1.189V7.46c0-.88-.06-1.703-.708-2.306-.519-.478-1.373-.654-2.047-.654-1.425 0-2.698.58-3.01 2.137-.026.177.104.252.207.278l1.351.123c.13 0 .208-.125.234-.25.104-.529.572-.972 1.09-.972.285 0 .848.287.848.89v.754c-.83 0-1.757.056-2.483.357-.855.353-1.586 1.028-1.586 2.11 0 1.382 1.064 2.137 2.204 2.137.96 0 1.482-.25 2.232-.979.235.352.38.603.82.979.105.051.234.051.31-.024.26-.228.712-.703.996-.929.13-.102.104-.252 0-.377ZM9.744 8.775c0 .502-.098 1.756-1.368 1.756-.653 0-.666-.769-.666-.769 0-.988 1.049-1.317 2.034-1.317v.33Z" />
+              <path fill="#FFB300" d="M12.917 12.952C11.862 13.601 10.284 14 9.005 14a7.818 7.818 0 0 1-4.713-1.551c-.101-.084 0-.168.1-.126 1.432.685 3 1.036 4.587 1.026 1.154 0 2.609-.209 3.787-.628.174-.042.325.126.15.231Zm.376-.44c-.125-.147-.878-.063-1.204-.043-.101 0-.125-.062-.025-.125.576-.357 1.554-.252 1.655-.126.1.126-.026.943-.577 1.32-.076.064-.176.021-.126-.04.126-.253.402-.84.276-.987Z" />
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h18v18H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+
+
+        <div className=' absolute top-[6rem] rotate-[14deg] left-20'>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
+            <g clipPath="url(#a)">
+              <path fill="#2660F5" d="M0 0h18v18H0V0Z" />
+              <g clipPath="url(#b)">
+                <path fill="#F7F5F2" d="M6.08 4.128 3.191 5.965l2.89 1.837L8.97 5.965l2.889 1.837 2.889-1.837-2.89-1.837L8.97 5.965 6.08 4.128Zm0 7.349L3.191 9.64l2.89-1.837L8.97 9.64l-2.89 1.837ZM8.97 9.64l2.889-1.837 2.889 1.837-2.89 1.837L8.97 9.64Zm0 4.286L6.08 12.09l2.89-1.837 2.889 1.837-2.89 1.837Z" />
+              </g>
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h18v18H0z" />
+              </clipPath>
+              <clipPath id="b">
+                <path fill="#fff" d="M3 4h12v10H3z" />
               </clipPath>
             </defs>
           </svg>
@@ -47,7 +84,7 @@ function Landing() {
         </div>
 
 
-        <div className=' absolute right-20 top-10 rotate-6 '>
+        <div className=' absolute right-20 top-[4rem] rotate-6 '>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
             <g clipPath="url(#a)">
               <path fill="#B9503C" d="M0 0h18v18H0V0Z" />
@@ -65,15 +102,26 @@ function Landing() {
         </div>
 
 
-        <div className='absolute right-20 top-[-4rem] rotate-[12deg]'>
+        <div className='absolute right-20 top-[-4rem] rotate-[-4deg] '>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
-            <path fill="#fff" d="M0 0h18v18H0z" />
-            <path fill="#4285F4" d="M13.8 9.114c0-.355-.032-.696-.09-1.023H9v1.936h2.69a2.306 2.306 0 0 1-1.004 1.505v1.259h1.623c.946-.873 1.491-2.155 1.491-3.677Z" />
-            <path fill="#34A853" d="M9 14c1.35 0 2.482-.445 3.31-1.209l-1.624-1.26c-.445.3-1.013.483-1.686.483-1.3 0-2.405-.878-2.8-2.06H4.536v1.291A4.995 4.995 0 0 0 9 14Z" />
-            <path fill="#FBBC05" d="M6.2 9.95c-.1-.3-.16-.618-.16-.95 0-.332.06-.65.16-.95V6.759H4.536a4.938 4.938 0 0 0 0 4.482l1.296-1.01.368-.281Z" />
-            <path fill="#EA4335" d="M9 5.99c.736 0 1.39.255 1.914.746l1.431-1.431C11.477 4.495 10.35 4 9 4a4.991 4.991 0 0 0-4.464 2.76L6.2 8.05C6.595 6.868 7.7 5.99 9 5.99Z" />
+            <g clipPath="url(#a)">
+              <path fill="#F06A69" d="M0 0h18v18H0V0Z" />
+              <path fill="#fff" d="M11.548 8.851a1.951 1.951 0 1 0 0 3.903 1.951 1.951 0 0 0 0-3.903Zm-5.07 0a1.951 1.951 0 1 0-.054 3.903 1.951 1.951 0 0 0 .055-3.902Zm4.487-2.439a1.951 1.951 0 1 1-3.903 0 1.951 1.951 0 0 1 3.903 0Z" />
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h18v18H0z" />
+              </clipPath>
+            </defs>
           </svg>
 
+
+        </div>
+
+        <div className='w-full flex items-center gap-4 justify-center mt-6'>
+          <button className='text-gray-400 font-medium italic font-serif text-2xl underline tracking-tight px-4 py-1.5'>
+            Get Started
+          </button>
         </div>
       </div>
 
