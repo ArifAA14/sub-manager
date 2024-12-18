@@ -13,7 +13,7 @@ function Landing() {
         </h1>
 
         <div className=' absolute -top-20 rotate-6 left-20'>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'>
             <g clipPath="url(#a)">
               <path fill="#FA0C00" d="M0 0h18v18H0V0Z" />
               <path fill="#fff" d="M7.7 4.5H4v8.85L7.7 4.5Zm2.604 0H14v8.85L10.304 4.5ZM9.002 7.762l2.356 5.588H9.812l-.704-1.78H7.385l1.617-3.808Z" />
@@ -28,8 +28,8 @@ function Landing() {
         </div>
 
 
-        <div className=' absolute top-[0rem] rotate-[-4deg] left-4'>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
+        <div className=' absolute top-[0rem] rotate-[-4deg] left-0 lg:left-4'>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'>
             <g clipPath="url(#a)">
               <path d="M0 0h18v18H0V0Z" />
               <path fill="#fff" d="M12.237 10.734c-.259-.327-.458-.56-.458-1.189V7.46c0-.88-.06-1.703-.708-2.306-.519-.478-1.373-.654-2.047-.654-1.425 0-2.698.58-3.01 2.137-.026.177.104.252.207.278l1.351.123c.13 0 .208-.125.234-.25.104-.529.572-.972 1.09-.972.285 0 .848.287.848.89v.754c-.83 0-1.757.056-2.483.357-.855.353-1.586 1.028-1.586 2.11 0 1.382 1.064 2.137 2.204 2.137.96 0 1.482-.25 2.232-.979.235.352.38.603.82.979.105.051.234.051.31-.024.26-.228.712-.703.996-.929.13-.102.104-.252 0-.377ZM9.744 8.775c0 .502-.098 1.756-1.368 1.756-.653 0-.666-.769-.666-.769 0-.988 1.049-1.317 2.034-1.317v.33Z" />
@@ -45,7 +45,7 @@ function Landing() {
 
 
         <div className=' absolute top-[6rem] rotate-[14deg] left-20'>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'>
             <g clipPath="url(#a)">
               <path fill="#2660F5" d="M0 0h18v18H0V0Z" />
               <g clipPath="url(#b)">
@@ -66,7 +66,7 @@ function Landing() {
 
 
         <div className=' absolute right-0 rotate-12 '>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'>
             <g clipPath="url(#a)">
               <path fill="#040404" d="M0 0h18v18H0V0Z" />
               <path fill="#F35325" d="M4.5 4.5h4.286v4.286H4.5V4.5Z" />
@@ -84,8 +84,8 @@ function Landing() {
         </div>
 
 
-        <div className=' absolute right-20 top-[4rem] rotate-6 '>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
+        <div className=' absolute right-20 top-[6rem] lg:top-[4rem] rotate-6 '>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'>
             <g clipPath="url(#a)">
               <path fill="#B9503C" d="M0 0h18v18H0V0Z" />
               <path fill="#fff" fillRule="evenodd" d="M7 6.75a2.25 2.25 0 0 0 0 4.5h4a2.25 2.25 0 0 0 0-4.5H7ZM3.25 
@@ -103,7 +103,7 @@ function Landing() {
 
 
         <div className='absolute right-20 top-[-4rem] rotate-[-4deg] '>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width={60} height={60}>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60] lg:h-[60] w-[40] h-[40]'>
             <g clipPath="url(#a)">
               <path fill="#F06A69" d="M0 0h18v18H0V0Z" />
               <path fill="#fff" d="M11.548 8.851a1.951 1.951 0 1 0 0 3.903 1.951 1.951 0 0 0 0-3.903Zm-5.07 0a1.951 1.951 0 1 0-.054 3.903 1.951 1.951 0 0 0 .055-3.902Zm4.487-2.439a1.951 1.951 0 1 1-3.903 0 1.951 1.951 0 0 1 3.903 0Z" />
