@@ -25,7 +25,7 @@ export default function Home() {
 
       <div className="w-full h-full grid lg:grid-cols-3 gap-6 mt-16">
         <Card amount={'£100.22'} trend={1.2} text="This Month" />
-        <Card amount={"£2400"} trend={-4.4} text="This Year" />
+        <Card amount={"£2422"} trend={-4.4} text="This Year" />
         <Card amount={16} trend={-1} text="# Subscriptions" />
       </div>
 
@@ -40,7 +40,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="w-full h-full flex flex-col gap-4 mt-10 lg:px-0">
+      <div className="w-full h-full flex flex-col gap-0 mt-10 lg:px-0">
         <h4 className="text-lg px-1 font-medium mb-4 font-sans tracking-tight text-gray-400">
           Your Subscriptions
         </h4>
