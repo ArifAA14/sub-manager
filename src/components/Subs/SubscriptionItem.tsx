@@ -1,24 +1,29 @@
 import React from 'react'
-import { CogIcon } from '../ui/Icons/CogIcon'
+import { Ellipsis, EllipsisVertical } from 'lucide-react'
+import ItemControls from './ItemControls'
 
-function SubscriptionItem({title, amount, type}: {title: string, amount: string, type: string}) {
+function SubscriptionItem({ title, amount, type, category }: { title: string, amount: string, type: string, category: string }) {
   return (
-    <div className="w-full h-full px-1 flex items-center border-b pb-4 pt-4 justify-between  ">
-    <div className="flex flex-col gap-1">
-      <h2 className="text-lg font-medium font-sans tracking-tight text-black">
-        {title}
-      </h2>
-      <h1 className="text-base font-normal font-sans tracking-tight text-gray-400">
-       {amount} / {type}
-      </h1>
-    </div>
+    <div className="w-full h-full  flex items-center  px-2 group cursor-pointer pb-2 pt-2 justify-between"
+      key={title}
+    >
+      <div className="flex flex-col  items-baseline gap-0.5">
+        <h2 className="text-lg font-medium font-sans tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
+          {title}
+        </h2>
+        <h1 className="text-base font-medium font-sans tracking-tight text-gray-500 transition-all ease-linear duration-300">
+          {category}
+        </h1>
+        <h1 className="text-base font-normal font-sans tracking-tight text-gray-400 group-hover:text-gray-600 transition-all ease-linear duration-300">
+          {amount} / {type}
+        </h1>
+      </div>
 
-    <div className="flex items-center gap-2">
-      <div className="text-gray-400 hover:text-black cursor-pointer transition-all ease-linear duration-300">
-        <CogIcon />
+      <div className="flex items-center">
+
+        <ItemControls />
       </div>
     </div>
-  </div>
   )
 }
 
