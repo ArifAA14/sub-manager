@@ -45,7 +45,7 @@ export default function Home() {
       </div>
 
         <div className="w-full h-full flex flex-col gap-0 ">
-          <div className="flex w-full items-center justify-between border-b mb-0 px-8 py-4">
+          <div className="flex w-full items-center justify-between border-b mb-0 px-7 py-4">
             <h4 className="text-lg font-medium  font-sans tracking-tight text-gray-600">
           Your Subscriptions
             </h4>
