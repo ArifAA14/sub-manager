@@ -46,7 +46,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       const dbUser = await dbService.getUserByEmail(token.email);
       // TODO: Extend to enable account verification through email
       if (dbUser) {
-        session.user.id = dbUser.id;
+        session.user.id = dbUser.id as string;
       }
 
       return session;
