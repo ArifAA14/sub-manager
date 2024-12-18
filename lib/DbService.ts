@@ -1,7 +1,10 @@
-import { Tasks, User } from "@/types/types";
+import { User } from "next-auth";
 import { turso } from "./client";
 
-
+interface UserType extends User {
+  password: string;
+  emailVerified: boolean;
+}
 
 class DbService {
   private static instance: DbService;
@@ -29,7 +32,7 @@ class DbService {
     return result;
   }
 
-  public async getUserByEmail(email: string | unknown): Promise<User | null> {
+  public async getUserByEmail(email: string | unknown): Promise<UserType | null> {
 
     if (typeof email !== "string") {
       throw new Error("Invalid email");
@@ -45,7 +48,7 @@ class DbService {
     }
 
 
-    const userData = result.rows[0] as unknown as User;
+    const userData = result.rows[0] as unknown as UserType;
 
     return {
       id: userData.id,
@@ -55,79 +58,6 @@ class DbService {
       image: userData.image,
       emailVerified: userData.emailVerified,
     };
-  }
-
-  public async createTask(task: Tasks): Promise<{ success: boolean; message?: string }> {
-    const result = await turso.execute({
-      sql: `INSERT INTO tasks (id, task, user_id, createdAt, description, dueDate) VALUES (?, ?, ?, ?, ?, ?);`,
-      args: [task.id, task.task, task.user_id, task.createdAt, task.description, task.dueDate],
-    });
-
-    if (result.rowsAffected === 0) {
-      return { success: false, message: "Failed to create task." };
-    }
-    return { success: true, message: "Task created successfully." };
-  }
-
-  public async getTasks(userId: string): Promise<Tasks[] | null> {
-    const result = await turso.execute({
-      sql: `SELECT * FROM tasks WHERE user_id = ?;`,
-      args: [userId],
-    });
-
-    if (result.rows.length === 0) {
-      return null;
-    }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const tasks = result.rows.map((row: any) => {
-      return {
-        id: row.id,
-        task: row.task,
-        user_id: row.user_id,
-        completed: row.completed,
-        createdAt: row.createdAt,
-        dueDate: row.dueDate,
-        description: row.description,
-      };
-    });
-
-    return tasks;
-  }
-
-  public async setTaskCompleted(taskId: string, completed: number): Promise<{ success: boolean; message?: string }> {
-    const result = await turso.execute({
-      sql: `UPDATE Tasks SET completed = ? WHERE id = ?;`,
-      args: [completed, taskId],
-    });
-
-    if (result.rowsAffected === 0) {
-      return { success: false, message: "Failed to update task." };
-    }
-    return { success: true, message: "Task updated successfully." };
-  }
-
-  public async deleteTask(taskId: string): Promise<{ success: boolean; message?: string }> {
-    const result = await turso.execute({
-      sql: `DELETE FROM Tasks WHERE id = ?;`,
-      args: [taskId],
-    });
-
-    if (result.rowsAffected === 0) {
-      return { success: false, message: "Failed to delete task." };
-    }
-    return { success: true, message: "Task deleted successfully." };
-  }
-
-  public async updateTask(task: Tasks): Promise<{ success: boolean; message?: string }> {
-    const result = await turso.execute({
-      sql: `UPDATE Tasks SET task = ?, description = ?, dueDate = ? WHERE id = ?;`,
-      args: [task.task, task.description, task.dueDate, task.id],
-    });
-
-    if (result.rowsAffected === 0) {
-      return { success: false, message: "Failed to update task." };
-    }
-    return { success: true, message: "Task updated successfully." };
   }
 }
 

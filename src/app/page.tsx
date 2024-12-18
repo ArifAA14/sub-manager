@@ -3,8 +3,15 @@ import SubscriptionItem from "@/components/Subs/SubscriptionItem";
 import { SearchIcon } from "@/components/ui/Icons/SearchIcon";
 import PillFilter from "@/components/ui/Pills/PillFilter";
 import { FilterIcon } from "lucide-react";
+import { auth } from "../../auth";
+import Landing from "@/components/Guest/Landing";
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth()
+  if (!session) {
+    return <Landing />
+  }
+
   return (
     <div className="w-full h-full bg-white min-h-screen   flex flex-col  font-[family-name:var(--font-geist-sans)]">
 

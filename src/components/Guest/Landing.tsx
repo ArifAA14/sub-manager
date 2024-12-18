@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import React from 'react'
 import Logos from './Logos/Logos'
+import Link from 'next/link'
 
 function Landing() {
   return (
@@ -17,10 +18,12 @@ function Landing() {
         <Logos />
 
         <div className='w-full flex items-center gap-4 justify-center mt-6'>
+          <Link href='/register'>
           <button className='text-white flex items-center gap-2 rounded-xl bg-black 
           hover:bg-black/80 transition-all ease-linear duration-150 font-medium  font-sans text-base  tracking-tight px-5 py-1.5'>
             Join Now <ArrowRight size={17} />
-          </button>
+            </button>
+          </Link>
           <button className='text-gray-400 font-medium  font-sans text-base  tracking-tight '>
             Dashboard
           </button>
