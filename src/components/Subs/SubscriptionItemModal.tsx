@@ -27,9 +27,6 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: any 
                         className="max-h-[85vh] w-[90vw] max-w-[450px] border rounded-md bg-white data-[state=open]:animate-contentShow overflow-hidden shadow-sm"
                     >
                         <DialogTitle as="div" className="text-base/7 font-medium flex text-black w-full h-full items-center justify-between">
-                            {/* <h3>Dynamics 365</h3>
-
-                            <h3 className='text-gray-400'>£3650 / Yearly</h3> */}
                         </DialogTitle>
 
                         <div className='flex flex-col w-full h-full justify-between px-0 py-2'>
@@ -76,6 +73,17 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: any 
                                     />
                                     <p className='text-sm w-full flex items-end justify-end px-5 text-gray-400 font-sans'>End Date</p>
                                 </div>
+
+                                <div className='flex w-full items-center justify-between border-b border-dashed'
+
+                                    onClick={handleShowEndPicker}
+                                >
+                                    <select className='px-5 py-2 text-sm outline-none'>
+                                        <option value={'monthy'}>Monthly</option>
+                                        <option value={'monthy'}>Yearly</option>
+                                    </select>
+                                    <p className='text-sm w-full flex items-end justify-end px-5 text-gray-400 font-sans'>Type</p>
+                                </div>
                             </div>
 
 
@@ -85,6 +93,7 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: any 
 
                                 <div className='flex items-center gap-2'>
                                     <button className='border text-gray-600 font-medium tracking-tight text-sm px-2.5 py-1 rounded-lg shadow-sm'
+                                        onClick={close}
                                     >
                                         Cancel
                                     </button>
