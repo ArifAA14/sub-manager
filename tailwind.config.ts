@@ -14,6 +14,7 @@ export default {
       },
       fontFamily: {
         serif: ['IBM Plex Serif', 'serif'],
+        sans: ['Geist', 'sans-serif'],
       },
     },
   },

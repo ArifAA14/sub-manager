@@ -15,7 +15,7 @@ export default function ItemControls() {
             <MenuItems
                 transition
                 anchor="bottom end"
-                className="w-48 max-h-fit mt-2 origin-top-right  border  
+                className="w-48 max-h-fit mt-2 origin-top-right  border  rounded-xl
                 backdrop-blur-sm  shadow text-sm/6 text-gray-400 relative overflow-clip transition
                  duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
             >
@@ -33,7 +33,7 @@ export default function ItemControls() {
 
                 <MenuItem>
                     <button className="group relative flex font-normal font-sans hover:bg-black z-[100] transition-all ease-in-out duration-300
-             w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-black hover:text-white ">
+             w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-red-600 hover:text-red-500 ">
 
                         <TrashIcon className="size-4 text-red-600" size={12} />
                         Delete

@@ -23,12 +23,12 @@ export default async function Home() {
   }
 
   return (
-    <div className="w-full h-full bg-white min-h-screen   flex flex-col  font-[family-name:var(--font-geist-sans)]">
+    <div className="w-full h-full bg-white min-h-screen   flex flex-col">
 
-      <div className="w-full h-full border-b">
+      <div className="w-full h-full ">
 
-        <div className="w-full h-full flex items-center border-l border-r lg:max-w-[80%] mx-auto  px-8 py-4  justify-between">
-          <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-gray-400">
+        <div className="w-full h-full flex items-center  mt-4 rounded-xl  lg:max-w-[80%] mx-auto px-4 lg:px-2 py-4  justify-between">
+          <h2 className="lg:text-lg text-base font-medium font-serif tracking-tight text-black">
             Hello {session?.user?.name}!
         </h2>
 
@@ -42,9 +42,9 @@ export default async function Home() {
 
       </div>
 
-      <div className="w-full h-full lg:max-w-[80%] mx-auto   border-l-0 border-r-0">
+      <div className="w-full h-full lg:max-w-[80%] mx-auto border-l-0 border-r-0 lg:px-0 px-4">
 
-        <div className="w-full h-full grid lg:grid-cols-3 gap-0 border-l border-r">
+        <div className="w-full h-full grid lg:grid-cols-3 lg:border-b-0 gap-6  mt-10">
         <Card amount={'£100.22'} trend={1.2} text="This Month" />
         <Card amount={"£2422"} trend={-4.4} text="This Year" />
         <Card amount={16} trend={-1} text="# Subscriptions" />
@@ -58,16 +58,16 @@ export default async function Home() {
         </div>
       </div>
 
-        <div className="grid lg:grid-cols-3 mt-6 grid-cols-1 gap-0 lg:gap-6  w-full">
+        <div className="grid lg:grid-cols-3 mt-6 grid-cols-1  gap-6  w-full">
           {
             subscriptions.map((subscription, index) => (
               <SubscriptionItem key={index} {...subscription} />
             ))
           }
-          <div className="w-full h-full col-span-fill cursor-pointer flex-col gap-2 p-6 border-b lg:border flex items-center justify-center">
-            <PlusIcon className="text-gray-400 transition-all ease-linear duration-300 cursor-pointer" size={20} />
-            <h1 className="text-lg font-medium font-serif tracking-tight text-gray-400">
-              Add New
+          <div className="w-full h-full group col-span-fill cursor-pointer flex-col gap-2 p-6 border-b border rounded-xl flex items-center justify-center">
+            <PlusIcon className="text-gray-400  cursor-pointer group-hover:text-black transition-all ease-linear duration-300" size={20} />
+            <h1 className="text-lg font-medium font-sans tracking-tight text-gray-400 group-hover:text-black transition-all ease-linear duration-300">
+              New Subscription
             </h1>
           </div>
         </div>

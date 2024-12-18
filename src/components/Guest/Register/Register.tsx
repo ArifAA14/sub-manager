@@ -48,7 +48,7 @@ function Register() {
       </div>
 
 
-      <button type="submit" className='font-medium text-lg mt-4 px-6 py-2 w-full bg-black 
+      <button type="submit" className='font-medium text-lg mt-4 px-6 rounded-xl py-2 w-full bg-black 
        text-white shadow-sm'>
         Register
       </button>
