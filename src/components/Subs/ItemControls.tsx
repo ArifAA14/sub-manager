@@ -7,7 +7,7 @@ export default function ItemControls() {
     return (
         <Menu>
             <MenuButton className="inline-flex items-center text-sm/6 
-        font-semibold text-white focus:outline-none ">
+        font-semibold text-white focus:outline-none border p-2 rounded-lg">
 
                 <Ellipsis className="text-gray-400 hover:text-black transition-all ease-in-out duration-300" size={16} />
             </MenuButton>
@@ -15,7 +15,7 @@ export default function ItemControls() {
             <MenuItems
                 transition
                 anchor="bottom end"
-                className="w-48 max-h-fit origin-top-right rounded-xl border border-gray-300  backdrop-blur-md  shadow p-1 text-sm/6 text-gray-400 relative overflow-clip
+                className="w-48 max-h-fit mt-2 origin-top-right rounded-xl border  backdrop-blur-sm  shadow p-1 text-sm/6 text-gray-400 relative overflow-clip
           transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
             >
 

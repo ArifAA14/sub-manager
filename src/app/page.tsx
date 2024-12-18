@@ -1,10 +1,7 @@
 import Card from "@/components/Dashboard/Card";
 import SubscriptionItem from "@/components/Subs/SubscriptionItem";
-import { CogIcon } from "@/components/ui/Icons/CogIcon";
 import { SearchIcon } from "@/components/ui/Icons/SearchIcon";
-import { TrendingDownIcon } from "@/components/ui/Icons/TrendingDownIcon";
-import { TrendingUpIcon } from "@/components/ui/Icons/TrendingUpIcon";
-import Pill from "@/components/ui/Pills/Pill";
+import PillFilter from "@/components/ui/Pills/PillFilter";
 
 export default function Home() {
   return (
@@ -35,10 +32,7 @@ export default function Home() {
 
       <div className="grid grid-cols-2 w-full h-full mt-10 gap-4 lg:px-2">
         <div className="w-full flex items-center gap-4">
-          <Pill category="Filter" />
-          <Pill category="Cloud" />
-          <Pill category="Marketing" />
-          <Pill category="APIs" />
+          <PillFilter />
         </div>
 
         <div className="w-full flex items-end justify-end gap-6">

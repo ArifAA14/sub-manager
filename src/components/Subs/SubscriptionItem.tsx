@@ -8,7 +8,7 @@ function SubscriptionItem({ title, amount, type, category }: { title: string, am
       key={title}
     >
       <div className="flex flex-col  items-baseline gap-0.5">
-        <h2 className="text-lg font-medium font-sans tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
+        <h2 className="text-lg font-medium font-serif tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
           {title}
         </h2>
         <h1 className="text-base font-medium font-sans tracking-tight text-gray-500 transition-all ease-linear duration-300">
