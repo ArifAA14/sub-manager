@@ -39,7 +39,7 @@ function LoginForm() {
   };
 
   return (
-    <form action={handleSubmit} className=' w-full flex flex-col gap-5 h-full'>
+    <form action={handleSubmit} className=' w-full flex flex-col gap-6 h-full'>
       <div className='flex flex-col gap-1 '>
         <label htmlFor='email' className='px-2 font-light text-gray-500 text-sm lowercase'>
           Email
@@ -72,8 +72,8 @@ function LoginForm() {
 
 
 
-      <button type="submit" className='font-medium flex items-center text-lg mt-4 px-6 py-2 w-full bg-black 
-       text-white rounded-lg shadow-sm disabled:opacity-50 h-[40px] '
+      <button type="submit" className='font-medium flex items-center text-lg mt-0 px-6 py-2 w-full bg-black 
+       text-white  shadow-sm disabled:opacity-50 h-[40px] '
       >
         <AnimatePresence initial={false} mode='wait'>
           {optimisticMessages.length > 0 ? <motion.div
@@ -111,7 +111,7 @@ function LoginForm() {
 
       {/* Display error message */}
       <AnimatePresence mode='wait'>
-        {error && <motion.p className="text-red-600 underline font-sans text-sm font-medium"
+        {error && <motion.p className="text-red-600  font-sans text-sm font-medium"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 1, y: -50 }}

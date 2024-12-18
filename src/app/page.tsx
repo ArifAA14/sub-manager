@@ -5,6 +5,7 @@ import PillFilter from "@/components/ui/Pills/PillFilter";
 import { FilterIcon } from "lucide-react";
 import { auth } from "../../auth";
 import Landing from "@/components/Guest/Landing";
+import { Logout } from "@/components/Guest/Logout/Logout";
 
 export default async function Home() {
   const session = await auth()
@@ -18,17 +19,15 @@ export default async function Home() {
       <div className="w-full h-full border-b">
 
         <div className="w-full h-full flex items-center border-l border-r lg:max-w-[80%] mx-auto  px-8 py-4  justify-between">
-          <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-black">
-          Lubab
+          <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-gray-400">
+            Hello {session?.user?.name}!
         </h2>
 
           <div className="flex items-center gap-6 ">
-          <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-black">
-            Home
-          </h2>
-          <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-black">
-            Add
+            <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-black">
+              Add
             </h2>
+            <Logout />
           </div>
         </div>
 
