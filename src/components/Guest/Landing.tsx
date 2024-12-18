@@ -7,11 +7,11 @@ function Landing() {
   return (
     <div className='w-full h-full min-h-screen bg-white flex flex-col overflow-x-hidden items-center justify-center '>
 
-      <div className='flex flex-col w-full h-full gap-2  items-center relative lg:max-w-[80%] mx-auto'>
-        <h1 className='lg:text-6xl text-3xl font-serif tracking-tighter font-normal text-gray-400 '>
+      <div className='flex flex-col w-full h-full gap-2  items-center relative lg:max-w-[80%] lg:mx-auto'>
+        <h1 className='lg:text-6xl text-3xl font-serif text-center tracking-tighter font-normal text-gray-400 '>
           Azure, OpenAI, Oracle, Adobe..
         </h1>
-        <h1 className='lg:text-6xl text-3xl italic font-serif tracking-normal font-medium text-black '>
+        <h1 className='lg:text-6xl text-center text-3xl italic font-serif tracking-normal font-medium text-black '>
           We organize your subscriptions
         </h1>
 
@@ -24,9 +24,11 @@ function Landing() {
             Join Now <ArrowRight size={17} />
             </button>
           </Link>
+          <Link href='/login'>
           <button className='text-gray-400 font-medium  font-sans text-base  tracking-tight '>
             Dashboard
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
 

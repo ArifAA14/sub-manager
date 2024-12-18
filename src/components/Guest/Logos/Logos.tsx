@@ -6,7 +6,7 @@ function Logos() {
 
   return (
     <>
-      <div className=' absolute -top-20 rotate-6 left-20'>
+      <div className=' absolute -top-20 rotate-6  left-14 lg:left-20'>
         <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -27,7 +27,7 @@ function Logos() {
       </div>
 
 
-      <div className=' absolute top-[0rem] rotate-[-4deg] left-0 lg:left-4'>
+      <div className=' absolute top-10 lg:top-[0rem] rotate-[-4deg] left-0 lg:left-4'>
         <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -49,7 +49,7 @@ function Logos() {
       </div>
 
 
-      <div className=' absolute top-[6rem] rotate-[14deg] left-20'>
+      <div className=' absolute top-[10rem] lg:top-[6rem] rotate-[14deg] lg:left-20 left-4'>
         <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -99,7 +99,7 @@ function Logos() {
       </div>
 
 
-      <div className=' absolute right-20 top-[6rem] lg:top-[4rem] rotate-6 '>
+      <div className=' absolute right-6 lg:right-20 top-[6rem] lg:top-[4rem] rotate-6 '>
         <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" className='lg:w-[60px] lg:h-[60px] w-[40px] h-[40px]'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

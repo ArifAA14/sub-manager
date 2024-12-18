@@ -73,7 +73,7 @@ function LoginForm() {
 
 
       <button type="submit" className='font-medium flex items-center text-lg mt-0 px-6 py-2 w-full bg-black 
-       text-white rounded-xl  shadow-sm disabled:opacity-50 h-[40px] '
+       text-white rounded-xl  shadow-sm disabled:opacity-50 overflow-clip h-[40px]'
       >
         <AnimatePresence initial={false} mode='wait'>
           {optimisticMessages.length > 0 ? <motion.div

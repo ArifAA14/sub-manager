@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { CalendarClock } from 'lucide-react'
 import ItemControls from './ItemControls'
-import SubscriptionItemModal from './SubscriptionItemModal'
+import SubscriptionItemModal from './Modal/SubscriptionItemModal'
 
 
 
