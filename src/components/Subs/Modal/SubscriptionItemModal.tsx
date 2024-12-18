@@ -1,11 +1,26 @@
 'use client'
 import { Input } from '@/components/ui/Inputs/Input';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import TypePicker from './TypePicker';
 import CategoryPicker from './CategoryPicker';
+import { SubscriptionI } from '../../../../lib/types';
 
 function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () => void }) {
+
+    const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
+        id: '',
+        title: '',
+        description: '',
+        subscription_type: '',
+        category: '',
+        start_date: '',
+        end_date: '',
+        amount: 0,
+        user_id: '',
+    })
+
+
     const startDatePicker = useRef<HTMLInputElement>(null);
     const endDatePicker = useRef<HTMLInputElement>(null);
 
@@ -21,6 +36,7 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () =
         }
     };
 
+    console.log(subscriptionObject)
     return (
         <Dialog open={isOpen} as="div" className="relative z-10 focus:outline-none" onClose={close}>
             <div className="fixed inset-0 z-0 w-screen overflow-y-auto">
@@ -37,29 +53,48 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () =
 
                         <div className='flex flex-col w-full h-full justify-between px-0 mt-4 py-2'>
                             <div className='flex flex-col gap-4' >
-                                <Input placeholder='Title' type='text' required />
-                                <Input placeholder='Description..' type='text' required />
-                                <Input placeholder='Amount' type='number' min={0} required />
+                                <Input placeholder='Title' type='text' required
+                                    value={subscriptionObject.title}
+                                    onChange={(e) => setSubscriptionObject({ ...subscriptionObject, title: e.target.value })}
+                                />
+                                <Input placeholder='Description..' type='text' required
+                                    value={subscriptionObject.description}
+                                    onChange={(e) => setSubscriptionObject({ ...subscriptionObject, description: e.target.value })}
+                                />
+                                <Input placeholder='Amount' type='number' min={0} required
+                                    value={subscriptionObject.amount}
+                                    onChange={(e) => setSubscriptionObject({ ...subscriptionObject, amount: e.target.value as unknown as number })}
+                                />
                                 <div className='flex w-full items-center justify-between relative'
                                     onClick={handleShowStartPicker}
                                 >
                                     <Input placeholder='Start Date' type='date' name='Start Date' ref={startDatePicker}
                                         className='w-full placeholder:text-gray-400'
+                                        value={subscriptionObject.start_date}
+                                        onChange={(e) => setSubscriptionObject({ ...subscriptionObject, start_date: e.target.value })}
                                     />
                                     <p className='text-sm  absolute right-0 px-5 text-gray-400 font-sans'>Start Date</p>
                                 </div>
 
                                 <div className='flex w-full items-center justify-between relative'
                                     onClick={handleShowEndPicker}
-                                >
-                                    <Input placeholder='Start Date' type='date' name='Start Date' ref={endDatePicker} className='w-full placeholder:text-gray-400'
 
+                                >
+                                    <Input placeholder='Start Date' type='date' name='Start Date'
+                                        ref={endDatePicker} className='w-full placeholder:text-gray-400'
+                                        value={subscriptionObject.end_date}
+                                        onChange={(e) => setSubscriptionObject({ ...subscriptionObject, end_date: e.target.value })}
                                     />
                                     <p className='text-sm  absolute right-0 px-5 text-gray-400 font-sans'>End Date</p>
                                 </div>
 
-                                <TypePicker />
-                                <CategoryPicker />
+                                <TypePicker value={subscriptionObject.subscription_type}
+                                    setSubscriptionObject={setSubscriptionObject}
+                                />
+                                <CategoryPicker value={subscriptionObject.category}
+                                    setSubscriptionObject={setSubscriptionObject}
+                                />
+
 
 
                             </div>

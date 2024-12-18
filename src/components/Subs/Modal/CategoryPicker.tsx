@@ -1,62 +1,90 @@
-'use client'
-import { CheckIcon } from 'lucide-react'
-import { useState } from 'react'
-import { Select, SelectIcon, SelectInput, SelectOption, SelectOptions } from '../../ui/Selects/Select'
-
+'use client';
+import { CheckIcon } from 'lucide-react';
+import { Dispatch, SetStateAction, useState } from 'react';
+import { SubscriptionI } from '../../../../lib/types';
+import { Select, SelectIcon, SelectInput, SelectOption, SelectOptions } from '../../ui/Selects/Select';
 
 interface TypeOptionsI {
-  id: number | null
-  name: string
+  name: string;
 }
 
-const categories = [
-  { id: 1, name: 'Cloud' },
-  { id: 2, name: 'APIs' },
+const typeOptions = [
+  { name: 'Cloud' },
+  { name: 'Marketing' },
 ];
 
-export default function CategoryPicker() {
-  const [query, setQuery] = useState('')
-  const [selected, setSelected] = useState<TypeOptionsI>({
-    id: null,
-    name: 'Category'
-  })
+export default function CategoryPicker({
+  value,
+  setSubscriptionObject,
+}: {
+  value: string;
+  setSubscriptionObject: Dispatch<SetStateAction<SubscriptionI>>;
+}) {
+  const [query, setQuery] = useState('');
+  const [selected, setSelected] = useState<TypeOptionsI | null>(
+    typeOptions.find((opt) => opt.name === value) || null
+  );
 
-  const filtered =
-    query === ''
-      ? categories
-      : categories.filter((category) => {
-        return category.name.toLowerCase().includes(query.toLowerCase())
-      })
+  // const filtered =
+  //   query === ''
+  //     ? typeOptions
+  //     : typeOptions.filter((option) =>
+  //       option.name.toLowerCase().includes(query.toLowerCase())
+  //     );
+
+  const handleChange = (newValue: TypeOptionsI) => {
+    setSelected(newValue);
+    setQuery(''); // Clear query after selection
+    setSubscriptionObject((prev) => ({
+      ...prev,
+      category: newValue && newValue.name,
+    }));
+  };
+
+  const handleInputFocus = () => {
+    if (!selected) {
+      setQuery(' '); // Clear input for typing if no valid selection exists
+    }
+  };
 
   return (
-    <Select value={selected} onChange={(value: TypeOptionsI) => setSelected(value)} onClose={() => setQuery('')}>
-      <div className="relative h-full w-full ">
+    <Select immediate value={selected} onChange={handleChange} onClose={() => setQuery('')}>
+      <div className="relative h-full w-full">
         <SelectInput
-          displayValue={(category: TypeOptionsI) => category?.name}
-          onChange={(event) => setQuery(event.target.value)}
+          displayValue={(option: TypeOptionsI | null) =>
+            option?.name || (query ? query : 'Begin typing or select...')
+          }
+          onFocus={handleInputFocus} // Clear the placeholder when focused
+          onChange={(e) => setQuery(e.target.value)} // Allow typing
+          className="w-full placeholder:text-gray-400"
         />
         <SelectIcon />
       </div>
 
-      <SelectOptions
-      >
-
-        {query.length > 0 && (
-          <SelectOption value={{ id: null, name: query }} className="data-[focus]:bg-blue-100">
+      <SelectOptions className="absolute mt-1 max-h-60 w-full overflow-auto border rounded bg-white shadow-lg">
+        {/* Show query as a selectable option */}
+        {query.length > 3 && (
+          <SelectOption
+            value={{ name: query }}
+            className="group flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-gray-100"
+          >
+            <CheckIcon className="invisible size-4 group-data-[selected]:visible" />
             <span className="text-sm/6">{query}</span>
           </SelectOption>
         )}
 
-        {filtered.map((f) => (
+        {/* Render filtered existing options */}
+        {typeOptions.map((f) => (
           <SelectOption
-            key={f.id}
+            key={f.name}
             value={f}
+            className="group flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-gray-100"
           >
-            <CheckIcon className="invisible size-4   group-data-[selected]:visible" />
-            <div className="text-sm/6 ">{f.name}</div>
+            <CheckIcon className="invisible size-4 group-data-[selected]:visible" />
+            <div className="text-sm">{f.name}</div>
           </SelectOption>
         ))}
       </SelectOptions>
     </Select>
-  )
+  );
 }

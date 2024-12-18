@@ -20,7 +20,7 @@ export default async function Home() {
 
         <div className="w-full h-full flex items-center  mt-4 rounded-xl  lg:max-w-[80%] mx-auto px-4 lg:px-2 py-4  justify-between">
           <h2 className="lg:text-lg text-base font-medium font-serif tracking-tight text-black">
-            Hello {session?.user?.name}!
+            Hello {session?.user?.id}!
         </h2>
 
           <div className="flex items-center gap-6 ">
