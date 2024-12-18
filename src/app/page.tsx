@@ -24,9 +24,9 @@ export default function Home() {
       </div>
 
       <div className="w-full h-full grid lg:grid-cols-3 gap-6 mt-16">
-        <Card color="border-violet-100" amount={'£100.22'} trend={1.2} text="Monthly" />
-        <Card color="border-blue-100" amount={"£2400"} trend={-4.4} text="Yearly" />
-        <Card color="border-pink-100" amount={16} trend={-1} text="Subscriptions" />
+        <Card amount={'£100.22'} trend={1.2} text="This Month" />
+        <Card amount={"£2400"} trend={-4.4} text="This Year" />
+        <Card amount={16} trend={-1} text="# Subscriptions" />
       </div>
 
 
