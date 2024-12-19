@@ -2,9 +2,10 @@ import Card from "@/components/Dashboard/Card";
 import Landing from "@/components/Guest/Landing";
 import { Logout } from "@/components/Guest/Logout/Logout";
 import SubscriptionItems from "@/components/Subs/SubscriptionItems";
-import { SearchIcon } from "@/components/ui/Icons/SearchIcon";
 import PillFilter from "@/components/Dashboard/Pills/PillFilter";
 import { auth } from "../../auth";
+import { Input } from "@/components/ui/Inputs/Input";
+import { SearchIcon } from "lucide-react";
 
 
 export default async function Home() {
@@ -42,10 +43,11 @@ export default async function Home() {
       </div>
 
 
-        <div className="grid grid-cols-2 w-full h-full py-0 mt-10 border-t-0 gap-4  px-0">
+        <div className="flex items-center justify-between w-full h-full py-0 mt-10 border-t-0 gap-4  px-0">
           <PillFilter />
-          <div className="w-full flex items-center justify-end gap-6 px-0">
-          <SearchIcon />
+          <div className="w-full max-w-[200px] flex items-center justify-end gap-0 px-0 relative">
+            <SearchIcon className="absolute left-2 text-gray-400" size={14} />
+            <Input type="text" placeholder="Search" className="w-full max-w-[200px] !py-2 px-7 " />
         </div>
       </div>
 

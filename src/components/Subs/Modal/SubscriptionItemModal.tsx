@@ -16,7 +16,12 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () =
         end_date: '',
         amount: 0,
         user_id: '',
+        currency: '',
     })
+
+    async function handleSave() {
+        console.log(subscriptionObject)
+    }
 
     return (
         <Dialog open={isOpen} as="div" className="relative z-10 focus:outline-none" onClose={close}>
@@ -32,7 +37,12 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () =
                             New Subscription
                         </DialogTitle>
 
-                        <SubscriptionModelFields subscriptionObject={subscriptionObject} setSubscriptionObject={setSubscriptionObject} close={close} />
+                        <SubscriptionModelFields
+                            subscriptionObject={subscriptionObject}
+                            setSubscriptionObject={setSubscriptionObject}
+                            close={close}
+                            handleSave={handleSave}
+                        />
 
                     </DialogPanel>
                 </div>

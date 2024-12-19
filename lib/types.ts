@@ -8,4 +8,5 @@ export interface SubscriptionI {
   end_date: string;
   amount: number;
   user_id: string;
+  currency?: string;
 }

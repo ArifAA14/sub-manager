@@ -9,28 +9,24 @@ interface TypeOptionsI {
 }
 
 const typeOptions = [
-  { name: 'Cloud' },
-  { name: 'Marketing' },
-  { name: 'Sales Tools' },
-  { name: 'Databases' },
-  { name: 'Analytics' },
-  { name: 'CRM' },
-  { name: 'Emails' },
-  { name: 'ORMs' },
+  { name: 'USD' },
+  { name: 'GBP' },
+  { name: 'SAR' },
+  { name: 'INR' },
 ];
 
-export default function CategoryPicker({
+export default function CurrencyPicker({
   value,
   setSubscriptionObject,
 }: {
-  value: string;
+  value: string | undefined;
   setSubscriptionObject: Dispatch<SetStateAction<SubscriptionI>>;
 }) {
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<TypeOptionsI | null>(
     typeOptions.find((opt) => opt.name === value) || null
   );
-  const [placeholder, setPlaceholder] = useState('Select a category or create new..');
+  const [placeholder, setPlaceholder] = useState('GBP');
 
   // const filtered =
   //   query === ''
@@ -44,7 +40,7 @@ export default function CategoryPicker({
     setQuery('');
     setSubscriptionObject((prev) => ({
       ...prev,
-      category: newValue && newValue.name,
+      currency: newValue && newValue.name,
     }));
   };
 
@@ -54,13 +50,13 @@ export default function CategoryPicker({
 
   const handleInputBlur = () => {
     if (!selected && query === '') {
-      setPlaceholder('Select a category or create new..');
+      setPlaceholder('GBP');
     }
   }
 
   return (
     <Select immediate value={selected} onChange={handleChange} onClose={() => setQuery('')}>
-      <div className="relative h-full w-full">
+      <div className="relative h-full w-full flex-1">
         <SelectInput
           displayValue={(option: TypeOptionsI | null) =>
             option?.name || (query ? query : '')
@@ -68,10 +64,10 @@ export default function CategoryPicker({
           onFocus={handleInputFocus}
           onChange={(e) => setQuery(e.target.value)}
           onBlur={handleInputBlur}
-          className='w-full border font-sans bg-white  rounded-lg px-4  font-medium border-r  shadow-sm pr-6  lg:text-sm
-      focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25 text-base z-[10] py-3'
+          className='w-full border font-sans bg-white  rounded-lg px-4  font-medium border-r flex items-center  shadow-sm pr-6  lg:text-sm
+      focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25 text-base z-[10] lg:py-3.5 py-3'
         />
-        <p className='group absolute select-none z-[0] pointer-events-none inset-y-0 left-0 text-sm/6 text-gray-500 font-sans py-2.5 px-4'>
+        <p className='group absolute select-none z-[0] pointer-events-none inset-y-0 left-0 text-xs lg:text-sm/6 text-gray-500 font-sans py-4 lg:py-3 px-4'>
           {
             value ? '' : placeholder
           }

@@ -30,6 +30,8 @@ export default function PillFilter() {
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     displayValue={(person: any) => person?.name}
                     onChange={(event) => setQuery(event.target.value)}
+                    className='w-full border font-sans bg-white  rounded-lg px-4  font-medium border-r  shadow-sm pr-6  lg:text-sm
+      focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25 text-base z-[10] py-2'
                 />
                 <SelectIcon />
             </div>

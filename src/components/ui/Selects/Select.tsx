@@ -17,10 +17,6 @@ const Select = Combobox;
 const SelectInput = React.forwardRef<HTMLInputElement, React.ComponentProps<typeof ComboboxInput>>(
   ({ ...props }, ref) => {
     return <ComboboxInput ref={ref} {...props}
-      className={clsx(
-        'w-full border font-sans bg-white  rounded-xl px-4  font-medium border-r py-3 shadow-sm pr-6 text-base lg:text-sm',
-        'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
-      )}
     />;
   }
 );
