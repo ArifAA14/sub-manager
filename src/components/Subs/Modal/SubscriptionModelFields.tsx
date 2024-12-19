@@ -1,9 +1,9 @@
 import { Input } from '@/components/ui/Inputs/Input';
+import DatePicker from '@/components/ui/Selects/Datepicker';
 import React from 'react';
 import { SubscriptionI } from '../../../../lib/types';
-import SubscriptionType from './SubscriptionType';
 import CategoryPicker from './CategoryPicker';
-import DatePicker from '@/components/ui/Selects/Datepicker';
+import SubscriptionTypePicker from './SubscriptionTypePicker';
 
 function SubscriptionModelFields({
   subscriptionObject,
@@ -54,7 +54,7 @@ function SubscriptionModelFields({
           onChange={handleChange('end_date')}
           min={subscriptionObject.start_date ? subscriptionObject.start_date : ''}
         />
-        <SubscriptionType setSubscriptionObject={setSubscriptionObject} />
+        <SubscriptionTypePicker setSubscriptionObject={setSubscriptionObject} />
         <CategoryPicker value={subscriptionObject.category} setSubscriptionObject={setSubscriptionObject} />
       </div>
       <div className="flex items-center justify-end gap-2 mt-6">

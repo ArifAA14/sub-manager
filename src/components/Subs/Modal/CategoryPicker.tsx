@@ -71,7 +71,9 @@ export default function CategoryPicker({
           className="w-full placeholder:text-gray-400 text-base z-[10]"
         />
         <p className='group absolute select-none z-[0] pointer-events-none inset-y-0 left-0 text-sm/6 text-gray-500 font-sans py-2.5 px-4'>
-          {placeholder}
+          {
+            value ? '' : placeholder
+          }
         </p>
         <SelectIcon />
       </div>
