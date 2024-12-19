@@ -18,7 +18,7 @@ const SelectInput = React.forwardRef<HTMLInputElement, React.ComponentProps<type
   ({ ...props }, ref) => {
     return <ComboboxInput ref={ref} {...props}
       className={clsx(
-        'w-full border font-sans bg-white  rounded-xl px-4 text-black font-medium border-r py-2 shadow-sm pr-6 text-sm/6',
+        'w-full border font-sans bg-white  rounded-xl px-4  font-medium border-r py-2 shadow-sm pr-6 text-sm/6',
         'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
       )}
     />;
@@ -51,7 +51,7 @@ const SelectOptions = React.forwardRef<HTMLUListElement, React.ComponentProps<ty
         anchor="bottom"
         transition
         className={clsx(
-          'w-[var(--input-width)] border rounded-xl bg-white/60 mt-2  ml-4 backdrop-blur  [--anchor-gap:var(--spacing-1)] empty:invisible',
+          'w-[var(--input-width)] border rounded-xl bg-white/60 mt-2  ml-0 backdrop-blur  [--anchor-gap:var(--spacing-1)] empty:invisible',
           'transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0'
         )}
       >

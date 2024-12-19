@@ -11,6 +11,12 @@ interface TypeOptionsI {
 const typeOptions = [
   { name: 'Cloud' },
   { name: 'Marketing' },
+  { name: 'Sales Tools' },
+  { name: 'Databases' },
+  { name: 'Analytics' },
+  { name: 'CRM' },
+  { name: 'Emails' },
+  { name: 'ORMs' },
 ];
 
 export default function CategoryPicker({
@@ -34,7 +40,7 @@ export default function CategoryPicker({
 
   const handleChange = (newValue: TypeOptionsI) => {
     setSelected(newValue);
-    setQuery(''); // Clear query after selection
+    setQuery('');
     setSubscriptionObject((prev) => ({
       ...prev,
       category: newValue && newValue.name,
@@ -43,7 +49,7 @@ export default function CategoryPicker({
 
   const handleInputFocus = () => {
     if (!selected) {
-      setQuery(' '); // Clear input for typing if no valid selection exists
+      setQuery(' '); 
     }
   };
 
@@ -52,17 +58,16 @@ export default function CategoryPicker({
       <div className="relative h-full w-full">
         <SelectInput
           displayValue={(option: TypeOptionsI | null) =>
-            option?.name || (query ? query : 'Begin typing or select...')
+            option?.name || (query ? query : 'Select a category or create..')
           }
-          onFocus={handleInputFocus} // Clear the placeholder when focused
-          onChange={(e) => setQuery(e.target.value)} // Allow typing
+          onFocus={handleInputFocus}
+          onChange={(e) => setQuery(e.target.value)}
           className="w-full placeholder:text-gray-400"
         />
         <SelectIcon />
       </div>
 
       <SelectOptions className="absolute mt-1 max-h-60 w-full overflow-auto border rounded bg-white shadow-lg">
-        {/* Show query as a selectable option */}
         {query.length > 3 && (
           <SelectOption
             value={{ name: query }}
@@ -73,7 +78,6 @@ export default function CategoryPicker({
           </SelectOption>
         )}
 
-        {/* Render filtered existing options */}
         {typeOptions.map((f) => (
           <SelectOption
             key={f.name}
