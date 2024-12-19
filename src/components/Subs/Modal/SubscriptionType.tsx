@@ -1,6 +1,6 @@
 'use client'
 import { Radio, RadioGroup } from '@headlessui/react'
-import { CheckCircleIcon } from 'lucide-react'
+import { CheckIcon } from 'lucide-react'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { SubscriptionI } from '../../../../lib/types'
 
@@ -41,7 +41,7 @@ function SubscriptionType({ setSubscriptionObject }: { setSubscriptionObject: Di
                 <div className="text-sm/6">
                   <p className="font-normal ">{type.name}</p>
                 </div>
-                <CheckCircleIcon className=" opacity-0 transition ease-linear group-data-[checked]:opacity-100" size={16} />
+                <CheckIcon className=" opacity-0 transition ease-linear group-data-[checked]:opacity-100" size={16} />
               </div>
             </Radio>
           ))}

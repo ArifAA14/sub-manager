@@ -62,7 +62,7 @@ export default function CategoryPicker({
           }
           onFocus={handleInputFocus}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full placeholder:text-gray-400"
+          className="w-full placeholder:text-gray-400 text-base"
         />
         <SelectIcon />
       </div>

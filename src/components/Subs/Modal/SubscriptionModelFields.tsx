@@ -52,15 +52,16 @@ function SubscriptionModelFields({
           label="End Date"
           value={subscriptionObject.end_date}
           onChange={handleChange('end_date')}
+          min={subscriptionObject.start_date ? subscriptionObject.start_date : ''}
         />
         <SubscriptionType setSubscriptionObject={setSubscriptionObject} />
         <CategoryPicker value={subscriptionObject.category} setSubscriptionObject={setSubscriptionObject} />
       </div>
       <div className="flex items-center justify-end gap-2 mt-6">
-        <button className="border text-gray-600 font-medium px-2.5 py-1 rounded-lg shadow-sm" onClick={close}>
+        <button className="border text-gray-600 font-normal px-3.5 py-1.5 rounded-lg font-sans  " onClick={close}>
           Cancel
         </button>
-        <button className="bg-black text-white font-medium px-2.5 py-1 rounded-lg shadow-sm">
+        <button className="bg-black text-white font-normal px-3.5 py-1.5 hover:bg-black/90 transition-all ease-in-out duration-300 rounded-lg shadow-sm">
           Save
         </button>
       </div>

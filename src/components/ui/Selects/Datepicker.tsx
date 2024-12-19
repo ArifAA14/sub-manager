@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Input } from '../Inputs/Input'
 
-function Datepicker({ label, value, onChange }: { label: string, value: string, onChange: (value: string) => void }) {
+function Datepicker({ label, value, onChange, min }: { label: string, value: string, onChange: (value: string) => void, min?: string | number }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const showPicker = () => inputRef.current?.showPicker();
@@ -17,7 +17,8 @@ function Datepicker({ label, value, onChange }: { label: string, value: string, 
         value={value}
         onChange={(e) => onChange(e.target.value)}
         ref={inputRef as React.Ref<HTMLInputElement>}
-        className="w-full placeholder:text-gray-400"
+        className="w-full placeholder:text-gray-400 text-base"
+        min={min}
       />
       <p className="absolute right-0 px-5 text-sm text-gray-400">{label}</p>
     </div>
