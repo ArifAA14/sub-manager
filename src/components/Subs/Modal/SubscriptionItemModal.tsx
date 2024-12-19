@@ -2,7 +2,9 @@
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { useState } from 'react';
 import { SubscriptionI } from '../../../../lib/types';
+import { addSubscriptionSchema } from '../../../../lib/zod/schema';
 import SubscriptionModelFields from './SubscriptionModelFields';
+
 
 function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () => void }) {
 
@@ -20,7 +22,11 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () =
     })
 
     async function handleSave() {
-        console.log(subscriptionObject)
+        try {
+            await addSubscriptionSchema.parseAsync(subscriptionObject)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (

@@ -24,36 +24,38 @@ function SubscriptionModelFields({
   return (
     <div className="flex flex-col w-full h-full justify-between mt-4 py-2">
       <div className="flex flex-col gap-4">
+        <div className='flex flex-col gap-1.5'>
+          <label className='text-sm font-sans font-medium text-gray-400 px-1'>Title</label>
         <Input
           placeholder="Title"
           type="text"
           required
           value={subscriptionObject.title}
           onChange={(e) => handleChange('title')(e.target.value)}
-        />
-        <Input
-          placeholder="Description"
-          type="text"
-          required
-          value={subscriptionObject.description}
-          onChange={(e) => handleChange('description')(e.target.value)}
-        />
-        <div className='w-full grid grid-cols-5 gap-4'>
-          <div className='w-full col-span-4'>
+          />
+        </div>
+
+        <div className='w-full  flex flex-col gap-1.5'>
+          <label className='text-sm font-sans font-medium text-gray-400 px-1'>Subscription Amount</label>
             <Input
               placeholder="Amount"
               type="number"
               required
               min={0}
-              className='col-span-4'
+            className='w-full'
               value={subscriptionObject.amount}
               onChange={(e) => handleChange('amount')(Number(e.target.value))}
             />
-          </div>
-          <div className='w-full col-span-1'>
-            <CurrencyPicker value={subscriptionObject.currency} setSubscriptionObject={setSubscriptionObject} />
-          </div>
         </div>
+
+        <div className='flex flex-col gap-1.5'>
+          <label className='text-sm font-sans font-medium text-gray-400 px-1'>Currency</label>
+          <CurrencyPicker value={subscriptionObject.currency} setSubscriptionObject={setSubscriptionObject} />
+        </div>
+
+        <div className='w-full h-full flex flex-col gap-1.5'>
+          <label className='text-sm font-sans font-medium text-gray-400 px-1'>Dates</label>
+          <div className='grid lg:grid-cols-2 gap-4'>
         <DatePicker
           label="Start Date"
           value={subscriptionObject.start_date}
@@ -64,9 +66,18 @@ function SubscriptionModelFields({
           value={subscriptionObject.end_date}
           onChange={handleChange('end_date')}
           min={subscriptionObject.start_date ? subscriptionObject.start_date : ''}
-        />
-        <SubscriptionTypePicker setSubscriptionObject={setSubscriptionObject} />
-        <CategoryPicker value={subscriptionObject.category} setSubscriptionObject={setSubscriptionObject} />
+            />
+          </div>
+        </div>
+        <div className='flex flex-col gap-1.5'>
+          <label className='text-sm font-sans font-medium text-gray-400 px-1'>Subscription Type</label>
+
+          <SubscriptionTypePicker setSubscriptionObject={setSubscriptionObject} />
+        </div>
+        <div className='flex flex-col gap-1.5'>
+          <label className='text-sm font-sans font-medium text-gray-400 px-1'>Subscription Category</label>
+          <CategoryPicker value={subscriptionObject.category} setSubscriptionObject={setSubscriptionObject} />
+        </div>
       </div>
       <div className="flex items-center justify-end gap-2 mt-6">
         <button className="border text-gray-600 font-normal px-3.5 py-1.5 rounded-lg font-sans  " onClick={close}>
