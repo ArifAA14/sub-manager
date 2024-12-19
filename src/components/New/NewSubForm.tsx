@@ -1,10 +1,15 @@
 'use client'
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { ZodError } from 'zod'
 import { SubscriptionI } from '../../../lib/types'
 import { addSubscriptionSchema } from '../../../lib/zod/schema'
 import NewFormFields from './NewFormFields'
+import { create } from '@/app/actions/SubscriptionService'
+import { useRouter } from 'next/navigation'
 
-function NewSubForm() {
+function NewSubForm({ userId }: { userId: string }) {
+  const router = useRouter()
+
   const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
     id: '',
     title: '',
@@ -14,21 +19,26 @@ function NewSubForm() {
     start_date: '',
     end_date: '',
     amount: 0,
-    user_id: '',
+    user_id: userId,
     currency: '',
   })
+
 
   async function handleSave() {
     try {
       await addSubscriptionSchema.parseAsync(subscriptionObject)
-      console.log(subscriptionObject)
-    } catch (error) {
-      console.log(error)
+      await create(subscriptionObject);
+      router.push(`/`)
+      router.refresh()
+    } catch (error: unknown) {
+      if (error instanceof ZodError) {
+        console.log(error.format())
+      }
     }
   }
 
   return (
-    <div className='flex flex-col w-full h-full px-1 gap-6 mt-10 ' >
+    <div className='flex flex-col w-full h-full px-1 gap-6 mt-10 '>
       <NewFormFields subscriptionObject={subscriptionObject}
         setSubscriptionObject={setSubscriptionObject}
       />
@@ -39,7 +49,7 @@ function NewSubForm() {
         Continue
       </button>
 
-    </div >
+    </div>
   )
 }
 

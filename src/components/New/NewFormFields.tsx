@@ -18,6 +18,12 @@ function NewFormFields({
     setSubscriptionObject((prev) => ({ ...prev, [key]: value }));
   };
 
+  const handleNumberInput = (value: string, callback: (value: number) => void) => {
+    const number = Number(value);
+    if (isNaN(number)) return;
+    callback(number);
+  };
+
 
   return (
     <>
@@ -28,7 +34,8 @@ function NewFormFields({
         id='subscription-name'
         value={subscriptionObject.title}
         onChange={(e) => handleChange('title')(e.target.value)}
-
+        required
+        name='subscription-name'
       />
 
       <div className='flex flex-col gap-2'>
@@ -42,7 +49,9 @@ function NewFormFields({
           key={'subscription-amount'}
           id='subscription-amount'
           value={subscriptionObject.amount}
-          onChange={(e) => handleChange('amount')(Number(e.target.value))}
+          onChange={(e) => handleNumberInput(e.target.value, handleChange('amount'))}
+          required
+          name='subscription-amount'
         />
       </div>
 

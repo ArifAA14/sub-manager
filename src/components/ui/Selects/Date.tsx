@@ -75,6 +75,7 @@ export function HeadlessDate({ value, onChange, min }: { value: string, onChange
         // @ts-expect-error -- type issue.. to be fixed.
         disabled={min ? { before: calculateMin() } : undefined}
         excludeDisabled
+        required
 
       />
     </>

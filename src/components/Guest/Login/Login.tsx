@@ -1,6 +1,6 @@
 'use client'
 import { signinUser } from '@/app/actions/signin';
-import { Input } from '@/components/ui/Inputs/Input';
+import { Input } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { LoaderCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -50,6 +50,8 @@ function LoginForm() {
           placeholder='Email'
           required
           type='email'
+          className='w-full h-full bg-neutral-50 text-black placeholder:text-sm placeholder:text-gray-400 rounded-lg px-4 py-3 
+          outline-none font-sans font-medium font-base tracking-tight'
         />
       </div>
 
@@ -63,6 +65,8 @@ function LoginForm() {
           placeholder='Password'
           required
           type='password'
+          className='w-full h-full bg-neutral-50 text-black placeholder:text-sm placeholder:text-gray-400 rounded-lg px-4 py-3 
+          outline-none font-sans font-medium font-base tracking-tight'
         />
 
       </div>
@@ -73,7 +77,7 @@ function LoginForm() {
 
 
       <button type="submit" className='font-medium flex items-center text-lg mt-0 px-6 py-2 w-full bg-black 
-       text-white rounded-xl  shadow-sm disabled:opacity-50 overflow-clip h-[40px]'
+       text-white rounded-lg  shadow-sm disabled:opacity-50 overflow-clip h-[40px]'
       >
         <AnimatePresence initial={false} mode='wait'>
           {optimisticMessages.length > 0 ? <motion.div

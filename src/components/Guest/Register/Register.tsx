@@ -1,5 +1,5 @@
 import { registerUser } from '@/app/actions/register'
-import { Input } from '@/components/ui/Inputs/Input'
+import { Input } from '@headlessui/react'
 import React from 'react'
 
 function Register() {
@@ -15,6 +15,8 @@ function Register() {
           placeholder='Full Name'
           required
           type='text'
+          className='w-full h-full bg-neutral-50 text-black placeholder:text-sm placeholder:text-gray-400 rounded-lg px-4 py-3 
+          outline-none font-sans font-medium font-base tracking-tight'
         />
 
       </div>
@@ -28,6 +30,8 @@ function Register() {
           placeholder='Email'
           required
           type='email'
+          className='w-full h-full bg-neutral-50 text-black placeholder:text-sm placeholder:text-gray-400 rounded-lg px-4 py-3 
+          outline-none font-sans font-medium font-base tracking-tight'
         />
       </div>
 
@@ -41,6 +45,8 @@ function Register() {
           placeholder='Password'
           required
           type='password'
+          className='w-full h-full bg-neutral-50 text-black placeholder:text-sm placeholder:text-gray-400 rounded-lg px-4 py-3 
+          outline-none font-sans font-medium font-base tracking-tight'
         />
         <p className='text-gray-400 mt-2 text-sm px-2'>
           Password must be at least 8 characters long.

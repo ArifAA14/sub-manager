@@ -1,8 +1,13 @@
 import NewSubForm from '@/components/New/NewSubForm'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { auth } from '../../../auth'
 
-function Page() {
+async function Page() {
+  const user = await auth()
+  if (!user) return
+  const userId = user.user?.id
+  if (!userId) return
   return (
     <div className="w-full h-full bg-white min-h-screen px-6 lg:px-2 py-4   flex flex-col lg:max-w-[75%] mx-auto">
 
@@ -19,7 +24,7 @@ function Page() {
         </div>
 
       </div>
-      <NewSubForm />
+      <NewSubForm userId={userId} />
     </div>
   )
 }

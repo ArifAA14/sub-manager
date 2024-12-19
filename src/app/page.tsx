@@ -6,6 +6,7 @@ import PillFilter from "@/components/Dashboard/Pills/PillFilter";
 import { auth } from "../../auth";
 import { SearchIcon } from "lucide-react";
 import { Input } from "@headlessui/react";
+import Link from "next/link";
 
 
 export default async function Home() {
@@ -20,14 +21,17 @@ export default async function Home() {
       <div className="w-full h-full ">
 
         <div className="w-full h-full flex items-center  mt-4 rounded-xl   px-4 lg:px-2 py-4  justify-between">
-          <h2 className="lg:text-lg text-base font-medium font-serif tracking-tight text-black">
-            Hello {session?.user?.id}!
+          <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-black">
+            Hello {session?.user?.name}!
         </h2>
 
           <div className="flex items-center gap-6 ">
-            <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-black">
+            <Link href={'/new'}>
+              <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-gray-400 hover:text-black
+              transition duration-200 ease-in-out">
               Add
-            </h2>
+              </h2>
+            </Link>
             <Logout />
           </div>
         </div>
