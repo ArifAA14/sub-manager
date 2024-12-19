@@ -13,8 +13,8 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        serif: ['IBM Plex Serif', 'serif'],
-        sans: ['Geist', 'sans-serif'],
+        serif: ['var(--font-playfair)'],
+        sans: ['var(--font-geist)'],
       },
     },
   },

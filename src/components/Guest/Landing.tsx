@@ -9,7 +9,7 @@ function Landing() {
 
       <div className='flex flex-col w-full h-full gap-2  items-center relative lg:max-w-[80%] lg:mx-auto'>
         <h1 className='lg:text-6xl text-3xl font-serif text-center tracking-tighter font-normal text-gray-400 '>
-          Azure, OpenAI, Oracle, Adobe..
+          Azure, OpenAI, Oracle, Adobe
         </h1>
         <h1 className='lg:text-6xl text-center text-3xl italic font-serif tracking-normal font-medium text-black '>
           We organize your subscriptions
