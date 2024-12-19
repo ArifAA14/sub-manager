@@ -35,7 +35,7 @@ const SelectIcon = React.forwardRef<HTMLButtonElement, React.ComponentProps<type
         className="group absolute inset-y-0 right-0 px-2.5"
         {...props} // Pass through all props
       >
-        <ChevronDownIcon className="size-4 text-gray-300 group-hover:text-black" />
+        <ChevronDownIcon className="size-4 text-gray-600 group-hover:text-black" />
       </ComboboxButton>
     );
   }

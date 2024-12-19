@@ -27,8 +27,6 @@ function SubscriptionType({ setSubscriptionObject }: { setSubscriptionObject: Di
   };
 
   return (
-    <div className="w-full">
-      <div className="mx-auto w-full max-w-md">
         <RadioGroup by="name" value={selected} onChange={handleChange} aria-label="Subscription Type" className="w-full grid grid-cols-2 gap-4">
           {types.map((type) => (
             <Radio
@@ -45,9 +43,7 @@ function SubscriptionType({ setSubscriptionObject }: { setSubscriptionObject: Di
               </div>
             </Radio>
           ))}
-        </RadioGroup>
-      </div>
-    </div>
+    </RadioGroup>
   )
 }
 

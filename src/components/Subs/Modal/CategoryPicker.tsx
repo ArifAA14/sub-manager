@@ -30,6 +30,7 @@ export default function CategoryPicker({
   const [selected, setSelected] = useState<TypeOptionsI | null>(
     typeOptions.find((opt) => opt.name === value) || null
   );
+  const [placeholder, setPlaceholder] = useState('Select a category or create new..');
 
   // const filtered =
   //   query === ''
@@ -48,26 +49,34 @@ export default function CategoryPicker({
   };
 
   const handleInputFocus = () => {
-    if (!selected) {
-      setQuery(' '); 
-    }
+    setPlaceholder('');
   };
+
+  const handleInputBlur = () => {
+    if (!selected && query === '') {
+      setPlaceholder('Select a category or create new..');
+    }
+  }
 
   return (
     <Select immediate value={selected} onChange={handleChange} onClose={() => setQuery('')}>
       <div className="relative h-full w-full">
         <SelectInput
           displayValue={(option: TypeOptionsI | null) =>
-            option?.name || (query ? query : 'Select a category or create..')
+            option?.name || (query ? query : '')
           }
           onFocus={handleInputFocus}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full placeholder:text-gray-400 text-base"
+          onBlur={handleInputBlur}
+          className="w-full placeholder:text-gray-400 text-base z-[10]"
         />
+        <p className='group absolute select-none z-[0] pointer-events-none inset-y-0 left-0 text-sm/6 text-gray-500 font-sans py-2.5 px-4'>
+          {placeholder}
+        </p>
         <SelectIcon />
       </div>
 
-      <SelectOptions className="absolute mt-1 max-h-60 w-full overflow-auto border rounded bg-white shadow-lg">
+      <SelectOptions className="absolute mt-2 max-h-60 w-full overflow-auto border rounded bg-white shadow-lg">
         {query.length > 3 && (
           <SelectOption
             value={{ name: query }}
