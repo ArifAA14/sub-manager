@@ -16,3 +16,8 @@ input[type=date]::-webkit-datetime-edit {
 }
 
 
+.rdp-root {
+  --rdp-accent-color: black !important; /* Change the accent color to indigo. */
+  position: absolute !important;
+  z-index: 1000 !important;
+}

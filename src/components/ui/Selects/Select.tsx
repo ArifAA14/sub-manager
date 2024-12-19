@@ -47,7 +47,7 @@ const SelectOptions = React.forwardRef<HTMLUListElement, React.ComponentProps<ty
         anchor="bottom"
         transition
         className={clsx(
-          'w-[var(--input-width)] border rounded-xl bg-white/60 mt-2  ml-0 backdrop-blur  [--anchor-gap:var(--spacing-1)] empty:invisible',
+          'w-[var(--input-width)] border rounded-lg bg-white/60 mt-2  ml-0 backdrop-blur  [--anchor-gap:var(--spacing-1)] empty:invisible',
           'transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0'
         )}
       >
@@ -64,7 +64,7 @@ const SelectOption = React.forwardRef<HTMLLIElement, React.ComponentProps<typeof
     return (
       <ComboboxOption ref={ref} {...props}
         className="group flex cursor-default items-center gap-2  py-1.5 px-3 select-none
-                   data-[focus]:bg-black data-[focus]:cursor-pointer data-[focus]:text-white text-black "
+                   data-[focus]:bg-neutral-300 data-[focus]:cursor-pointer data-[focus]:text-black text-black "
       >
         {children}
       </ComboboxOption>

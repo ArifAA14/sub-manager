@@ -27,7 +27,7 @@ function SubscriptionItems() {
     setIsOpen(false)
   }
   return (
-    <div className="grid lg:grid-cols-3 mt-6 grid-cols-1 gap-6 w-full">
+    <div className="grid lg:grid-cols-2 mb-6 mt-6 grid-cols-1 gap-6 w-full">
       {
         subscriptions.map((subscription, index) => (
           <SubscriptionItem key={index} {...subscription} />

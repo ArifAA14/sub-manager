@@ -64,8 +64,8 @@ export default function CurrencyPicker({
           onFocus={handleInputFocus}
           onChange={(e) => setQuery(e.target.value)}
           onBlur={handleInputBlur}
-          className='w-full border font-sans bg-white  rounded-lg px-4  font-medium border-r flex items-center  shadow-sm pr-6  lg:text-sm
-      focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25 text-base z-[10] lg:py-3.5 py-3'
+          className='w-full  font-sans bg-neutral-50  rounded-lg px-4  font-medium flex items-center   pr-6  lg:text-sm
+      focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25 text-base z-[10] py-3'
         />
         <p className='group absolute select-none z-[0] pointer-events-none inset-y-0 left-0 text-xs lg:text-sm/6 text-gray-500 font-sans py-4 lg:py-3 px-4'>
           {

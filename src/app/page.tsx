@@ -4,8 +4,8 @@ import { Logout } from "@/components/Guest/Logout/Logout";
 import SubscriptionItems from "@/components/Subs/SubscriptionItems";
 import PillFilter from "@/components/Dashboard/Pills/PillFilter";
 import { auth } from "../../auth";
-import { Input } from "@/components/ui/Inputs/Input";
 import { SearchIcon } from "lucide-react";
+import { Input } from "@headlessui/react";
 
 
 export default async function Home() {
@@ -15,11 +15,11 @@ export default async function Home() {
   }
 
   return (
-    <div className="w-full h-full bg-white min-h-screen   flex flex-col">
+    <div className="w-full h-full bg-white min-h-screen   flex flex-col lg:max-w-[75%] mx-auto">
 
       <div className="w-full h-full ">
 
-        <div className="w-full h-full flex items-center  mt-4 rounded-xl  lg:max-w-[80%] mx-auto px-4 lg:px-2 py-4  justify-between">
+        <div className="w-full h-full flex items-center  mt-4 rounded-xl   px-4 lg:px-2 py-4  justify-between">
           <h2 className="lg:text-lg text-base font-medium font-serif tracking-tight text-black">
             Hello {session?.user?.id}!
         </h2>
@@ -34,7 +34,7 @@ export default async function Home() {
 
       </div>
 
-      <div className="w-full h-full lg:max-w-[80%] mx-auto border-l-0 border-r-0 lg:px-0 px-4">
+      <div className="w-full h-full  border-l-0 border-r-0 lg:px-0 px-4">
 
         <div className="w-full h-full grid lg:grid-cols-3 lg:border-b-0 gap-6  mt-10">
         <Card amount={'£100.22'} trend={1.2} text="This Month" />
@@ -47,7 +47,7 @@ export default async function Home() {
           <PillFilter />
           <div className="w-full max-w-[200px] flex items-center justify-end gap-0 px-0 relative">
             <SearchIcon className="absolute left-2 text-gray-400" size={14} />
-            <Input type="text" placeholder="Search" className="w-full max-w-[200px] !py-2 px-7 " />
+            <Input type="text" placeholder="Search" className="w-full max-w-[200px] !py-2 px-7 bg-neutral-50 rounded-lg" />
         </div>
       </div>
 
