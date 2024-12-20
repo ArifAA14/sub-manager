@@ -7,8 +7,14 @@ import SubscriptionModelFields from './SubscriptionModelFields';
 import { update } from '@/app/actions/SubscriptionService';
 
 
-function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: { isOpen: boolean, close: () => void, subscription: SubscriptionI, categories: string[] }) {
+interface SubscriptionItemEditModalProps {
+    isOpen: boolean;
+    close: () => void;
+    subscription: SubscriptionI;
+    categories: string[];
+}
 
+function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: SubscriptionItemEditModalProps) {
     const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
         id: subscription.id,
         title: subscription.title,
@@ -20,7 +26,6 @@ function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: 
         user_id: subscription.user_id,
         currency: subscription.currency
     })
-
     async function handleSave() {
         try {
             await addSubscriptionSchema.parseAsync(subscriptionObject)
