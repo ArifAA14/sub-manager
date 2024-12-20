@@ -24,7 +24,7 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
 
 
   return (
-    <div className="w-full h-full rounded-lg shadow-sm  flex  bg-neutral-50  px-6  group cursor-pointer py-6 justify-between"
+    <div className="w-full h-full rounded-lg  flex  bg-white border border-dashed  px-6  group cursor-pointer py-6 justify-between"
       key={subscription.id}
     >
       <div className="flex flex-col w-full items-baseline gap-1"
@@ -49,7 +49,7 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
 
       <div className="flex flex-col items-end justify-between h-full gap-0   ">
         <ItemControls id={subscription.id} />
-        <div className='w-fit  px-4 py-1 rounded-lg bg-neutral-200/40 text-gray-600 font-sans text-sm font-medium tracking-tight'>
+        <div className='w-fit  px-4 py-1 rounded-lg bg-neutral-50 border border-dashed text-gray-600 font-sans text-sm font-medium tracking-tight'>
           {subscription.category}
         </div>
       </div>

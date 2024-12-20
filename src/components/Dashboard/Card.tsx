@@ -8,7 +8,7 @@ function Card({ amount, text, trend }: {
 }
 ) {
     return (
-        <div className={`w-full h-full  rounded-lg  border  px-0  bg-white  flex flex-col gap-0 relative justify-between`}
+        <div className={`w-full h-full  rounded-lg border border-dashed  px-0  bg-white  flex flex-col gap-0 relative justify-between`}
             key={text}
         >
             <h1 className={`text-4xl font-medium font-sans h-full w-full tracking-tight text-black  px-6 py-8 `}>
