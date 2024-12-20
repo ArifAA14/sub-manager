@@ -55,10 +55,8 @@ export default async function Home() {
         </div>
       </div>
 
-        <SubscriptionItems />
+        <SubscriptionItems session={session} />
       </div>
-
-
     </div>
   );
 }

@@ -1,7 +1,6 @@
 export interface SubscriptionI {
   id: string;
   title: string;
-  description: string;
   subscription_type: string;
   category: string;
   start_date: string;

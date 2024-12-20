@@ -6,14 +6,14 @@ import { addSubscriptionSchema } from '../../../lib/zod/schema'
 import NewFormFields from './NewFormFields'
 import { create } from '@/app/actions/SubscriptionService'
 import { useRouter } from 'next/navigation'
+import { useQueryClient } from '@tanstack/react-query'
 
 function NewSubForm({ userId }: { userId: string }) {
   const router = useRouter()
-
+  const queryClient = useQueryClient();
   const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
     id: '',
     title: '',
-    description: '',
     subscription_type: '',
     category: '',
     start_date: '',
@@ -28,6 +28,7 @@ function NewSubForm({ userId }: { userId: string }) {
     try {
       await addSubscriptionSchema.parseAsync(subscriptionObject)
       await create(subscriptionObject);
+      queryClient.invalidateQueries({ queryKey: ['subscriptions'] });
       router.push(`/`)
       router.refresh()
     } catch (error: unknown) {

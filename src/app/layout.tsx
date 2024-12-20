@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Geist, Playfair } from 'next/font/google'
+import Providers from "./providers";
 
 
 export const metadata: Metadata = {
@@ -30,10 +31,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` antialiased ${geist.variable} ${playfair.variable}`}
-      >
-
-        {children}
+        className={` font-sans  antialiased ${geist.variable} ${playfair.variable}`}>
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

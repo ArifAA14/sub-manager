@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 function Page() {
   return (
-    <div className='w-full h-full min-h-screen lg:max-w-[60%] mx-auto grid lg:border-r lg:border-l  overflow-hidden   '>
+    <div className='w-full h-full min-h-screen lg:max-w-[60%] mx-auto grid   overflow-hidden   '>
       <div className='w-full h-full relative'>
         <motion.div className='flex flex-col px-0 py-0 w-full h-full justify-between'
           initial={{ opacity: 0, y: 50 }}
@@ -17,13 +17,13 @@ function Page() {
             damping: 10,
             bounce: 0.4
           }}
-          key={'register'}
+          key={'login'}
         >
           <div className='flex flex-col gap-1 px-8 py-6'>
-            <h1 className='text-black font-medium text-3xl font-serif'>
+            <h1 className='text-black font-medium text-3xl font-sans'>
               Login
             </h1>
-            <p className='text-gray-400 font-medium text-md'>
+            <p className='text-gray-400 font-medium font-sans text-md'>
               Login to your account to continue where you left off.
             </p>
           </div>
@@ -31,7 +31,7 @@ function Page() {
             <LoginForm />
           </div>
           <div className='flex flex-col w-full items-center justify-center'>
-            <Link className='font-medium text-base text-center px-6 py-6 w-full text-gray-400
+            <Link className='font-medium font-sans text-base text-center px-6 py-6 w-full text-gray-400
           transition-all ease-linear duration-200 hover:text-black cursor-pointer hover:underline'
               href='/register'
             >

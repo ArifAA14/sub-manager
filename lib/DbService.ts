@@ -88,6 +88,35 @@ class DbService {
     }
     return { success: true, message: "Subscription created successfully." };
   }
+
+  public async getSubscriptions(user_id: string): Promise<SubscriptionI[] | null> {
+    const result = await turso.execute({
+      sql: `SELECT * FROM subscriptions WHERE user_id = ?;`,
+      args: [user_id],
+    });
+
+    if (result.rows.length === 0) {
+      return null;
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const subs = result.rows.map((row: any) => {
+      return {
+        id: row.id,
+        title: row.title,
+        subscription_type: row.subscription_type,
+        category: row.category,
+        start_date: row.start_date,
+        end_date: row.end_date,
+        amount: row.amount,
+        user_id: row.user_id,
+        currency: row.currency,
+      };
+    });
+
+    return subs;
+
+  }
 }
 
 export default DbService;

@@ -3,11 +3,13 @@ import React, { useState } from 'react'
 import { CalendarClock } from 'lucide-react'
 import ItemControls from './ItemControls'
 import SubscriptionItemModal from './Modal/SubscriptionItemModal'
+import { SubscriptionI } from '../../../lib/types'
+import getCurrencySymbol from '../../../utils/currencySymbol'
 
 
 
 
-function SubscriptionItem({ title, amount, type, category }: { title: string, amount: string, type: string, category: string }) {
+function SubscriptionItem({ subscription }: { subscription: SubscriptionI }) {
   const [isOpen, setIsOpen] = useState(false)
 
   function open() {
@@ -18,20 +20,22 @@ function SubscriptionItem({ title, amount, type, category }: { title: string, am
     setIsOpen(false)
   }
 
+
+
   return (
     <div className="w-full h-full  shadow-sm rounded-xl border flex px-6  group cursor-pointer py-5 justify-between"
-      key={title}>
+      key={subscription.id}>
       <div className="flex flex-col w-full items-baseline gap-0.5"
         onClick={() => open()}>
 
         <h2 className="text-lg font-medium font-serif tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
-          {title}
+          {subscription.title}
         </h2>
         <h1 className="text-sm mt-2 font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
-          {category}
+          {subscription.category}
         </h1>
         <h1 className="text-sm font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
-          {amount} / {type}
+          {getCurrencySymbol(subscription.currency)}{subscription.amount} / {subscription.subscription_type}
         </h1>
 
         <h1 className="text-sm font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
@@ -48,7 +52,7 @@ function SubscriptionItem({ title, amount, type, category }: { title: string, am
       </div>
 
 
-      <SubscriptionItemModal isOpen={isOpen} close={close}  key={title}/>
+      <SubscriptionItemModal isOpen={isOpen} close={close} />
     </div>
   )
 }

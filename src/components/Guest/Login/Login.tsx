@@ -41,7 +41,7 @@ function LoginForm() {
   return (
     <form action={handleSubmit} className=' w-full flex flex-col gap-6 h-full'>
       <div className='flex flex-col gap-1 '>
-        <label htmlFor='email' className='px-2 font-light text-gray-500 text-sm lowercase'>
+        <label htmlFor='email' className='px-2 font-sans font-light text-gray-500 text-sm lowercase'>
           Email
         </label>
         <Input
@@ -56,7 +56,7 @@ function LoginForm() {
       </div>
 
       <div className='flex flex-col gap-1 '>
-        <label htmlFor='name' className='px-2 font-light text-gray-500 text-sm lowercase'>
+        <label htmlFor='name' className='px-2 font-sans font-light text-gray-500 text-sm lowercase'>
           Password
         </label>
         <Input
@@ -76,8 +76,8 @@ function LoginForm() {
 
 
 
-      <button type="submit" className='font-medium flex items-center text-lg mt-0 px-6 py-2 w-full bg-black 
-       text-white rounded-lg  shadow-sm disabled:opacity-50 overflow-clip h-[40px]'
+      <button type="submit" className='font-medium font-sans flex items-center text-lg mt-0 px-6 py-2 w-full bg-black 
+       text-white rounded-lg   shadow-sm disabled:opacity-50 overflow-clip h-[40px]'
       >
         <AnimatePresence initial={false} mode='wait'>
           {optimisticMessages.length > 0 ? <motion.div

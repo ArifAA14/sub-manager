@@ -14,3 +14,15 @@ export async function create(subscriptionObject: SubscriptionI): Promise<{ succe
     return { success: false, message: "Failed to add subscription" };
   }
 }
+
+
+export async function getAll(userId: string): Promise<SubscriptionI[] | null> {
+  try {
+    const db = DbService.getInstance();
+    return await db.getSubscriptions(userId);
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+

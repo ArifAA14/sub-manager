@@ -1,23 +1,30 @@
 'use client'
-import React, { useState } from 'react'
-import SubscriptionItem from './SubscriptionItem';
+import { getAll } from '@/app/actions/SubscriptionService';
+import { useQuery } from '@tanstack/react-query';
 import { PlusIcon } from 'lucide-react';
+import { Session } from 'next-auth';
+import { useState } from 'react';
 import SubscriptionItemModal from './Modal/SubscriptionItemModal';
-
-const subscriptions = [
-  { title: 'Azure', amount: '£5000', type: 'Yearly', category: 'Cloud' },
-  { title: 'Google Analytics', amount: '£3650', type: 'Yearly', category: 'Analytics' },
-  { title: 'Google Ads', amount: '£3650', type: 'Yearly', category: 'Marketing' },
-  { title: 'Dynamics 365', amount: '£1400.99', type: 'Yearly', category: 'ERP' },
-  { title: 'Open AI', amount: '£28.99', type: 'Monthly', category: 'APIs' },
-];
+import SubscriptionItem from './SubscriptionItem';
+import { Loader } from '../ui/Icons/Loader';
 
 
 
-
-function SubscriptionItems() {
-
+function SubscriptionItems({ session }: { session: Session }) {
   const [isOpen, setIsOpen] = useState(false)
+  const userId = session?.user?.id;
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['subscriptions'],
+    queryFn: () => getAll(userId as string),
+    enabled: !!userId,
+  });
+
+
+  if (isLoading) return <Loader width={26} height={26} />;
+  if (error) return <div>Error: {error.message}</div>;
+  if (!data) return <Loader width={26} height={26} />;
+
+
 
   function open() {
     setIsOpen(true)
@@ -29,8 +36,10 @@ function SubscriptionItems() {
   return (
     <div className="grid lg:grid-cols-2 mb-6 mt-6 grid-cols-1 gap-6 w-full">
       {
-        subscriptions.map((subscription, index) => (
-          <SubscriptionItem key={index} {...subscription} />
+        data.map((subscription) => (
+          <SubscriptionItem key={subscription.id}
+            subscription={subscription}
+          />
         ))
       }
       <div className="w-full h-full group col-span-fill cursor-pointer flex-col gap-2 p-6 border-b 
