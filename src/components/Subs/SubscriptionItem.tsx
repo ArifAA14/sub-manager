@@ -24,33 +24,34 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
 
 
   return (
-    <div className="w-full h-full   rounded-xl  flex  bg-neutral-50 px-6  group cursor-pointer py-5 justify-between"
+    <div className="w-full h-full   rounded-xl  flex  bg-neutral-50  px-6  group cursor-pointer py-6 justify-between"
       key={subscription.id}
     >
       <div className="flex flex-col w-full items-baseline gap-0.5"
         onClick={() => open()}>
 
-        <h2 className="text-lg font-medium font-serif tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
+        <h2 className="text-lg font-medium  font-serif tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
           {subscription.title}
         </h2>
-        <h1 className="text-base mt-2 font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
-          {subscription.category}
-        </h1>
-        <h1 className="text-base font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
+
+        <h1 className="text-base font-normal mt-2 font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
           {getCurrencySymbol(subscription.currency)}{subscription.amount} / {subscription.subscription_type}
         </h1>
 
         <h1 className="text-base font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
           From {format(parse(subscription.start_date, 'dd/MM/yyyy', new Date()), 'do MMMM yyyy')}
         </h1>
-      </div>
-
-      <div className="flex items-center h-fit gap-4   ">
         <SubscriptionRenewalIndicator start_date={subscription.start_date}
           renewaltype={subscription.subscription_type}
           end_date={subscription.end_date}
         />
+      </div>
+
+      <div className="flex flex-col items-end justify-between h-full gap-0   ">
         <ItemControls id={subscription.id} />
+        <div className='w-fit  px-4 py-1 rounded-lg bg-neutral-200/40 text-gray-600 font-sans text-sm font-medium tracking-tight'>
+          {subscription.category}
+        </div>
       </div>
 
 

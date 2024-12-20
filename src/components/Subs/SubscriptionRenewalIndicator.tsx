@@ -22,7 +22,7 @@ function SubscriptionRenewalIndicator({
 
   if (!renewalDate || isNaN(renewalDate.getTime())) {
     return (
-      <h1 className="font-sans font-medium tracking-tight text-xs lg:text-sm  rounded-lg px-4 py-1.5 text-gray-500 whitespace-nowrap group-hover:text-gray-600 transition-all ease-linear duration-300">
+      <h1 className="text-base font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
         Invalid renewal information
       </h1>
     );
@@ -31,7 +31,7 @@ function SubscriptionRenewalIndicator({
   const renewalIn = formatDistance(renewalDate, new Date());
 
   return (
-    <h1 className="font-sans font-medium tracking-tight text-xs lg:text-sm  rounded-lg px-4 py-1.5 text-gray-500 whitespace-nowrap group-hover:text-gray-600 transition-all ease-linear duration-300">
+    <h1 className="text-base font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
       Renews In {renewalIn}
     </h1>
   );
