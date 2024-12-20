@@ -11,7 +11,6 @@ function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () =
     const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
         id: '',
         title: '',
-        description: '',
         subscription_type: '',
         category: '',
         start_date: '',

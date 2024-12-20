@@ -115,7 +115,18 @@ class DbService {
     });
 
     return subs;
+  }
 
+  public async deleteTask(subId: string): Promise<{ success: boolean; message?: string }> {
+    const result = await turso.execute({
+      sql: `DELETE FROM subscriptions WHERE id = ?;`,
+      args: [subId],
+    });
+
+    if (result.rowsAffected === 0) {
+      return { success: false, message: "Failed to subscription." };
+    }
+    return { success: true, message: "Subscription deleted." };
   }
 }
 

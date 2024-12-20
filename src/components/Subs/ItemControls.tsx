@@ -1,13 +1,25 @@
 'use client'
+import { remove } from '@/app/actions/SubscriptionService';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Ellipsis, PencilIcon, TrashIcon } from 'lucide-react'
 
-export default function ItemControls() {
+export default function ItemControls({ id }: { id: string }) {
+
+
+    async function handleDelete() {
+        if (!id) return null;
+        const res = await remove(id);
+        if (res.success) {
+            console.log('Deleted')
+        }
+    }
 
     return (
-        <Menu>
+        <Menu
+            key={id + 'controls'}
+        >
             <MenuButton className="inline-flex items-center text-sm/6 
-        font-semibold text-white focus:outline-none  ">
+        font-semibold text-white focus:outline-none ">
 
                 <Ellipsis className="text-gray-400 hover:text-black transition-all ease-in-out duration-300" size={19} />
             </MenuButton>
@@ -33,7 +45,9 @@ export default function ItemControls() {
 
                 <MenuItem>
                     <button className="group relative flex font-normal font-sans hover:bg-black z-[100] transition-all ease-in-out duration-300
-             w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-red-600 hover:text-red-500 ">
+             w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-red-600 hover:text-red-500"
+                        onClick={handleDelete}
+                    >
 
                         <TrashIcon className="size-4 text-red-600" size={12} />
                         Delete

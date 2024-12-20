@@ -1,12 +1,10 @@
 import Card from "@/components/Dashboard/Card";
 import Landing from "@/components/Guest/Landing";
 import { Logout } from "@/components/Guest/Logout/Logout";
-import SubscriptionItems from "@/components/Subs/SubscriptionItems";
-import PillFilter from "@/components/Dashboard/Pills/PillFilter";
-import { auth } from "../../auth";
-import { SearchIcon } from "lucide-react";
-import { Input } from "@headlessui/react";
+import Subscriptions from "@/components/Subs/Subscriptions";
 import Link from "next/link";
+import { auth } from "../../auth";
+import { getAll } from "./actions/SubscriptionService";
 
 
 export default async function Home() {
@@ -14,6 +12,12 @@ export default async function Home() {
   if (!session) {
     return <Landing />
   }
+  const userId = session?.user?.id;
+  const subscriptions = await getAll(userId as string)
+
+
+
+
 
   return (
     <div className="w-full h-full bg-white min-h-screen   flex flex-col lg:max-w-[75%] mx-auto">
@@ -47,15 +51,7 @@ export default async function Home() {
       </div>
 
 
-        <div className="flex items-center justify-between w-full h-full py-0 mt-10 border-t-0 gap-4  px-0">
-          <PillFilter />
-          <div className="w-full max-w-[200px] flex items-center justify-end gap-0 px-0 relative">
-            <SearchIcon className="absolute left-2 text-gray-400" size={14} />
-            <Input type="text" placeholder="Search" className="w-full max-w-[200px] !py-2 px-7 bg-neutral-50 rounded-lg" />
-        </div>
-      </div>
-
-        <SubscriptionItems session={session} />
+        <Subscriptions subscriptions={subscriptions} />
       </div>
     </div>
   );

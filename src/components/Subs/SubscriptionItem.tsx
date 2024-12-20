@@ -39,7 +39,7 @@ function SubscriptionItem({ subscription }: { subscription: SubscriptionI }) {
         </h1>
 
         <h1 className="text-sm font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
-          Subscribed since 22 days
+          {subscription.start_date} - {subscription.end_date}
         </h1>
       </div>
 
@@ -48,11 +48,11 @@ function SubscriptionItem({ subscription }: { subscription: SubscriptionI }) {
         font-normal gap-2 focus:outline-none text-green-600">
           <CalendarClock className='text-green-600 ' size={19} />
         </div>
-        <ItemControls />
+        <ItemControls id={subscription.id} />
       </div>
 
 
-      <SubscriptionItemModal isOpen={isOpen} close={close} />
+      <SubscriptionItemModal isOpen={isOpen} close={close} key={subscription.id + 'modal'} />
     </div>
   )
 }

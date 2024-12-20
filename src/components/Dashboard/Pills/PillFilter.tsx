@@ -23,6 +23,8 @@ export default function PillFilter() {
                 return person.name.toLowerCase().includes(query.toLowerCase())
             })
 
+
+
     return (
         <Select value={selected} onChange={(value) => setSelected(value)} onClose={() => setQuery('')}>
             <div className="relative h-full w-fit ">

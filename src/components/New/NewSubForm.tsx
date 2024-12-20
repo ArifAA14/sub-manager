@@ -1,16 +1,14 @@
 'use client'
+import { create } from '@/app/actions/SubscriptionService'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { ZodError } from 'zod'
 import { SubscriptionI } from '../../../lib/types'
 import { addSubscriptionSchema } from '../../../lib/zod/schema'
 import NewFormFields from './NewFormFields'
-import { create } from '@/app/actions/SubscriptionService'
-import { useRouter } from 'next/navigation'
-import { useQueryClient } from '@tanstack/react-query'
 
 function NewSubForm({ userId }: { userId: string }) {
   const router = useRouter()
-  const queryClient = useQueryClient();
   const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
     id: '',
     title: '',
@@ -28,7 +26,6 @@ function NewSubForm({ userId }: { userId: string }) {
     try {
       await addSubscriptionSchema.parseAsync(subscriptionObject)
       await create(subscriptionObject);
-      queryClient.invalidateQueries({ queryKey: ['subscriptions'] });
       router.push(`/`)
       router.refresh()
     } catch (error: unknown) {
