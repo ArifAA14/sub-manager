@@ -1,15 +1,15 @@
 'use client'
-import React, { useState } from 'react'
 import { CalendarClock } from 'lucide-react'
-import ItemControls from './ItemControls'
-import SubscriptionItemModal from './Modal/SubscriptionItemModal'
+import { useState } from 'react'
 import { SubscriptionI } from '../../../lib/types'
 import getCurrencySymbol from '../../../utils/currencySymbol'
+import ItemControls from './ItemControls'
+import SubscriptionItemEditModal from './Modal/SubscriptionItemModal'
 
 
 
 
-function SubscriptionItem({ subscription }: { subscription: SubscriptionI }) {
+function SubscriptionItem({ subscription, categories }: { subscription: SubscriptionI, categories: string[] }) {
   const [isOpen, setIsOpen] = useState(false)
 
   function open() {
@@ -52,11 +52,12 @@ function SubscriptionItem({ subscription }: { subscription: SubscriptionI }) {
       </div>
 
 
-      <SubscriptionItemModal
+      <SubscriptionItemEditModal
         key={subscription.id + 'modal'}
         isOpen={isOpen}
         close={close}
         subscription={subscription}
+        categories={categories}
       />
     </div>
   )

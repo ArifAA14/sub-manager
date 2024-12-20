@@ -2,12 +2,18 @@ import NewSubForm from '@/components/New/NewSubForm'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { auth } from '../../../auth'
+import { getAll } from '../actions/SubscriptionService'
 
 async function Page() {
   const user = await auth()
   if (!user) return
   const userId = user.user?.id
   if (!userId) return
+  const subscriptions = await getAll(userId as string)
+  if (!subscriptions) return
+  const uniqueCategories = [...new Set(subscriptions.map((sub) => sub.category))]
+
+
   return (
     <div className="w-full h-full bg-white min-h-screen px-6 lg:px-2 py-4   flex flex-col lg:max-w-[75%] mx-auto">
 
@@ -24,7 +30,7 @@ async function Page() {
         </div>
 
       </div>
-      <NewSubForm userId={userId} />
+      <NewSubForm userId={userId} categories={uniqueCategories} />
     </div>
   )
 }

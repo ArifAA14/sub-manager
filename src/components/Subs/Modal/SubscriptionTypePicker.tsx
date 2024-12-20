@@ -4,40 +4,36 @@ import { CheckIcon } from 'lucide-react'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { SubscriptionI } from '../../../../lib/types'
 
-interface TypeOptionsI {
-  name: string;
-}
 
 
 const types = [
-  { name: 'Monthly', },
-  { name: 'Yearly' },
+  'Monthly',
+  'Yearly',
 ]
 
-function SubscriptionTypePicker({ setSubscriptionObject }: { setSubscriptionObject: Dispatch<SetStateAction<SubscriptionI>> }) {
-  const [selected, setSelected] = useState<TypeOptionsI>(types[0])
+function SubscriptionTypePicker({ setSubscriptionObject, value }: { setSubscriptionObject: Dispatch<SetStateAction<SubscriptionI>>, value?: string }) {
+  const [selected, setSelected] = useState<string>(value ? value : '');
 
-
-  const handleChange = (newValue: TypeOptionsI) => {
+  const handleChange = (newValue: string) => {
     setSelected(newValue);
     setSubscriptionObject((prev) => ({
       ...prev,
-      subscription_type: newValue.name,
+      subscription_type: newValue,
     }));
   };
 
   return (
-    <RadioGroup by="name" value={selected} onChange={handleChange} aria-label="Subscription Type" className="w-full grid grid-cols-2 gap-4">
+    <RadioGroup value={selected} onChange={handleChange} aria-label="Subscription Type" className="w-full grid grid-cols-2 gap-4">
       {types.map((type) => (
         <Radio
-          key={type.name}
+          key={type}
           value={type}
           className="group relative flex cursor-pointer rounded-lg bg-neutral-50  py-3 px-4  transition text-gray-400
               focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white  data-[checked]:text-gray-600"
         >
           <div className="flex w-full items-center justify-between">
             <div className="text-sm/6">
-              <p className="font-medium tracking-tight ">{type.name}</p>
+              <p className="font-medium tracking-tight ">{type}</p>
             </div>
             <CheckIcon className=" opacity-0 transition ease-linear group-data-[checked]:opacity-100" size={16} />
           </div>

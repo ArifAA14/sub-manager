@@ -7,7 +7,7 @@ import { SubscriptionI } from '../../../lib/types'
 import { addSubscriptionSchema } from '../../../lib/zod/schema'
 import NewFormFields from './NewFormFields'
 
-function NewSubForm({ userId }: { userId: string }) {
+function NewSubForm({ userId, categories }: { userId: string, categories: string[] }) {
   const router = useRouter()
   const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
     id: '',
@@ -39,6 +39,7 @@ function NewSubForm({ userId }: { userId: string }) {
     <div className='flex flex-col w-full h-full px-1 gap-6 mt-10 '>
       <NewFormFields subscriptionObject={subscriptionObject}
         setSubscriptionObject={setSubscriptionObject}
+        categories={categories}
       />
 
       <button className='w-full mt-4 bg-black flex font-medium tracking-tight items-center justify-center px-4 py-3 rounded-lg text-white'

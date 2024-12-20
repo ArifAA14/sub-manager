@@ -4,47 +4,30 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { SubscriptionI } from '../../../../lib/types';
 import { Select, SelectIcon, SelectInput, SelectOption, SelectOptions } from '../../ui/Selects/Select';
 
-interface TypeOptionsI {
-  name: string;
-}
 
-const typeOptions = [
-  { name: 'Cloud' },
-  { name: 'Marketing' },
-  { name: 'Sales Tools' },
-  { name: 'Databases' },
-  { name: 'Analytics' },
-  { name: 'CRM' },
-  { name: 'Emails' },
-  { name: 'ORMs' },
-];
+
+
 
 export default function CategoryPicker({
   value,
   setSubscriptionObject,
+  categories,
 }: {
   value: string;
-  setSubscriptionObject: Dispatch<SetStateAction<SubscriptionI>>;
+    setSubscriptionObject: Dispatch<SetStateAction<SubscriptionI>>;
+    categories: string[];
 }) {
   const [query, setQuery] = useState('');
-  const [selected, setSelected] = useState<TypeOptionsI | null>(
-    typeOptions.find((opt) => opt.name === value) || null
+  const [selected, setSelected] = useState<string>(
+    categories.find((category) => category === value) ? value : ''
   );
   const [placeholder, setPlaceholder] = useState('Select a category or create new..');
-
-  // const filtered =
-  //   query === ''
-  //     ? typeOptions
-  //     : typeOptions.filter((option) =>
-  //       option.name.toLowerCase().includes(query.toLowerCase())
-  //     );
-
-  const handleChange = (newValue: TypeOptionsI) => {
+  const handleChange = (newValue: string) => {
     setSelected(newValue);
     setQuery('');
     setSubscriptionObject((prev) => ({
       ...prev,
-      category: newValue && newValue.name,
+      category: newValue && newValue
     }));
   };
 
@@ -62,8 +45,8 @@ export default function CategoryPicker({
     <Select immediate value={selected} onChange={handleChange} onClose={() => setQuery('')}>
       <div className="relative h-full w-full">
         <SelectInput
-          displayValue={(option: TypeOptionsI | null) =>
-            option?.name || (query ? query : '')
+          displayValue={(value: string | null) =>
+            value || (query ? query : '')
           }
           onFocus={handleInputFocus}
           onChange={(e) => setQuery(e.target.value)}
@@ -82,7 +65,7 @@ export default function CategoryPicker({
       <SelectOptions className="absolute mt-2 max-h-60 w-full overflow-auto border rounded bg-white shadow-lg">
         {query.length > 3 && (
           <SelectOption
-            value={{ name: query }}
+            value={query}
             className="group flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-gray-100"
           >
             <CheckIcon className="invisible size-4 group-data-[selected]:visible" />
@@ -90,14 +73,14 @@ export default function CategoryPicker({
           </SelectOption>
         )}
 
-        {typeOptions.map((f) => (
+        {categories.map((category) => (
           <SelectOption
-            key={f.name}
-            value={f}
+            key={category}
+            value={category}
             className="group flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-gray-100"
           >
             <CheckIcon className="invisible size-4 group-data-[selected]:visible" />
-            <div className="text-sm">{f.name}</div>
+            <div className="text-sm">{category}</div>
           </SelectOption>
         ))}
       </SelectOptions>

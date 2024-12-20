@@ -10,9 +10,11 @@ import SubscriptionTypePicker from '../Subs/Modal/SubscriptionTypePicker';
 function NewFormFields({
   subscriptionObject,
   setSubscriptionObject,
+  categories
 }: {
   subscriptionObject: SubscriptionI;
-  setSubscriptionObject: React.Dispatch<React.SetStateAction<SubscriptionI>>;
+    setSubscriptionObject: React.Dispatch<React.SetStateAction<SubscriptionI>>;
+    categories: string[];
 }) {
   const handleChange = (key: keyof SubscriptionI) => (value: string | number) => {
     setSubscriptionObject((prev) => ({ ...prev, [key]: value }));
@@ -104,6 +106,7 @@ function NewFormFields({
         <CategoryPicker
           value={subscriptionObject.category}
           setSubscriptionObject={setSubscriptionObject}
+          categories={categories}
 
         />
       </div>

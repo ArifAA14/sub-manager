@@ -10,12 +10,14 @@ function SubscriptionModelFields({
   subscriptionObject,
   setSubscriptionObject,
   close,
-  handleSave
+  handleSave,
+  categories
 }: {
   subscriptionObject: SubscriptionI;
   setSubscriptionObject: React.Dispatch<React.SetStateAction<SubscriptionI>>;
     close: () => void;
     handleSave: () => void;
+    categories: string[];
 }) {
   const handleChange = (key: keyof SubscriptionI) => (value: string | number) => {
     setSubscriptionObject((prev) => ({ ...prev, [key]: value }));
@@ -24,6 +26,23 @@ function SubscriptionModelFields({
   return (
     <div className="flex flex-col w-full h-full justify-between mt-4 py-2">
       <div className="flex flex-col gap-4">
+
+        <div className='flex flex-col gap-2'>
+          <label className='text-gray-400 text-sm font-sans font-medium tracking-tight'>
+            Title
+          </label>
+
+          <Input className='w-full h-full bg-neutral-50 text-black placeholder:text-sm placeholder:text-gray-400 rounded-lg px-4 py-3 
+          outline-none font-sans font-medium font-base tracking-tight'
+            placeholder=''
+            key={'subscription-amount'}
+            id='subscription-amount'
+            value={subscriptionObject.title}
+            onChange={(e) => handleChange('title')(e.target.value)}
+          />
+        </div>
+
+
         <div className='flex flex-col gap-2'>
           <label className='text-gray-400 text-sm font-sans font-medium tracking-tight'>
             Subscription Amount
@@ -88,6 +107,7 @@ function SubscriptionModelFields({
           <CategoryPicker
             value={subscriptionObject.category}
             setSubscriptionObject={setSubscriptionObject}
+            categories={categories}
 
           />
         </div>
@@ -99,6 +119,7 @@ function SubscriptionModelFields({
 
           <SubscriptionTypePicker
             setSubscriptionObject={setSubscriptionObject}
+            value={subscriptionObject.subscription_type}
           />
         </div>
       </div>

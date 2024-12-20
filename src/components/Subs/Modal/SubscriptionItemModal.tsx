@@ -6,7 +6,7 @@ import { addSubscriptionSchema } from '../../../../lib/zod/schema';
 import SubscriptionModelFields from './SubscriptionModelFields';
 
 
-function SubscriptionItemModal({ isOpen, close, subscription }: { isOpen: boolean, close: () => void, subscription: SubscriptionI }) {
+function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: { isOpen: boolean, close: () => void, subscription: SubscriptionI, categories: string[] }) {
 
     const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
         id: subscription.id,
@@ -39,7 +39,7 @@ function SubscriptionItemModal({ isOpen, close, subscription }: { isOpen: boolea
                         data-[state=open]:animate-contentShow  shadow-sm"
                     >
                         <DialogTitle as="h2" className="text-lg font-medium flex text-gray-400 font-sans w-full h-full items-center justify-between">
-                            New Subscription
+                            Edit Subscription
                         </DialogTitle>
 
                         <SubscriptionModelFields
@@ -47,6 +47,7 @@ function SubscriptionItemModal({ isOpen, close, subscription }: { isOpen: boolea
                             setSubscriptionObject={setSubscriptionObject}
                             close={close}
                             handleSave={handleSave}
+                            categories={categories}
                         />
 
                     </DialogPanel>
@@ -56,4 +57,4 @@ function SubscriptionItemModal({ isOpen, close, subscription }: { isOpen: boolea
     )
 }
 
-export default SubscriptionItemModal
+export default SubscriptionItemEditModal

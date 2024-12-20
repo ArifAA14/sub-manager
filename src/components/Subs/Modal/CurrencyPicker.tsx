@@ -28,13 +28,6 @@ export default function CurrencyPicker({
   );
   const [placeholder, setPlaceholder] = useState('GBP');
 
-  // const filtered =
-  //   query === ''
-  //     ? typeOptions
-  //     : typeOptions.filter((option) =>
-  //       option.name.toLowerCase().includes(query.toLowerCase())
-  //     );
-
   const handleChange = (newValue: TypeOptionsI) => {
     setSelected(newValue);
     setQuery('');
