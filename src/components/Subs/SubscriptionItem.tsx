@@ -24,7 +24,7 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
 
 
   return (
-    <div className="w-full h-full  shadow-sm rounded-xl border flex px-6  group cursor-pointer py-5 justify-between"
+    <div className="w-full h-full   rounded-xl  flex  bg-neutral-50 px-6  group cursor-pointer py-5 justify-between"
       key={subscription.id}
     >
       <div className="flex flex-col w-full items-baseline gap-0.5"
