@@ -7,7 +7,7 @@ import {
   ComboboxOptions,
 } from '@headlessui/react';
 import clsx from 'clsx'
-import { ChevronDownIcon } from 'lucide-react';
+import { ChevronDownIcon, XIcon } from 'lucide-react';
 
 
 // Select Wrapper
@@ -36,8 +36,30 @@ const SelectIcon = React.forwardRef<HTMLButtonElement, React.ComponentProps<type
     );
   }
 );
-
 SelectIcon.displayName = 'SelectIcon';
+
+
+
+
+const SelectCloseIcon = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof ComboboxButton>>(
+  (props, ref) => {
+    return (
+      <ComboboxButton
+        ref={ref}
+        className="group absolute inset-y-0 right-6 px-1.5"
+        {...props}
+        key={'close'}
+      >
+        <XIcon className="size-4 text-red-600 group-hover:text-red-700" />
+      </ComboboxButton>
+    );
+  }
+);
+SelectCloseIcon.displayName = 'SelectCloseIcon';
+
+
+
+
 
 // SelectOptions Wrapper
 const SelectOptions = React.forwardRef<HTMLUListElement, React.ComponentProps<typeof ComboboxOptions>>(
@@ -73,4 +95,4 @@ const SelectOption = React.forwardRef<HTMLLIElement, React.ComponentProps<typeof
 );
 SelectOption.displayName = 'SelectOption';
 
-export { Select, SelectInput, SelectOptions, SelectOption, SelectIcon };
+export { Select, SelectInput, SelectOptions, SelectOption, SelectIcon, SelectCloseIcon };

@@ -7,8 +7,12 @@ import "react-day-picker/style.css";
 export function HeadlessDate({ value, onChange, min }: { value: string, onChange: (value: string) => void, min?: string }) {
   const inputId = useId();
   const defaultClassNames = getDefaultClassNames();
-  const [month, setMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+  const [month, setMonth] = useState(
+    value ? parse(value, "dd/MM/yyyy", new Date()) : new Date()
+  );
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(
+    value ? parse(value, "dd/MM/yyyy", new Date()) : undefined
+  );
   const [hidden, setHidden] = useState(true);
   const [inputValue, setInputValue] = useState("");
 
@@ -63,6 +67,7 @@ export function HeadlessDate({ value, onChange, min }: { value: string, onChange
           chevron: `${defaultClassNames.chevron} `,
           caption_label: `font-medium`,
           month_caption: `font-medium px-2 py-2`,
+          selected: `${defaultClassNames.selected} bg-primary-500 text-black`,
         }}
         month={month}
         onMonthChange={setMonth}
@@ -76,7 +81,6 @@ export function HeadlessDate({ value, onChange, min }: { value: string, onChange
         disabled={min ? { before: calculateMin() } : undefined}
         excludeDisabled
         required
-
       />
     </>
   );

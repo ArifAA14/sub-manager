@@ -13,13 +13,7 @@ export default async function Home() {
     return <Landing />
   }
   const userId = session?.user?.id;
-  const subscriptions = await getAll(userId as string)
-
-
-
-
-
-
+  const subscriptions = await getAll(userId as string);
   return (
     <div className="w-full h-full bg-white min-h-screen   flex flex-col lg:max-w-[75%] mx-auto">
 

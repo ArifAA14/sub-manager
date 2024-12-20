@@ -5,8 +5,10 @@ import { SubscriptionI } from '../../../lib/types';
 import PillFilter from '../Dashboard/Pills/PillFilter';
 import SubscriptionEmpty from './SubscriptionEmpty';
 import SubscriptionItems from './SubscriptionItems';
+import { useState } from 'react';
 
 function Subscriptions({ subscriptions }: { subscriptions: SubscriptionI[] | null }) {
+  const [categoryFilter, setCategoryFilter] = useState<string>('All');
   if (!subscriptions) return <SubscriptionEmpty />
   const categories = subscriptions.map((sub) => sub.category);
   const uniqueCategories = [...new Set(categories)];
@@ -16,13 +18,21 @@ function Subscriptions({ subscriptions }: { subscriptions: SubscriptionI[] | nul
   return (
     <div className="flex flex-col w-full h-full">
       <div className="flex items-center justify-between w-full h-full py-0 mt-10 border-t-0 gap-4  px-0">
-        <PillFilter categories={uniqueCategories} />
+        <PillFilter
+          categories={uniqueCategories}
+          categoryFilter={categoryFilter}
+          setCategoryFilter={setCategoryFilter}
+        />
         <div className="w-full max-w-[200px] flex items-center justify-end gap-0 px-0 relative">
           <SearchIcon className="absolute left-2 text-gray-400" size={14} />
           <Input type="text" placeholder="Search" className="w-full max-w-[200px] placeholder:text-sm !py-2 px-7 bg-neutral-50 rounded-lg outline-none" />
         </div>
       </div>
-      <SubscriptionItems subscriptions={subscriptions} categories={uniqueCategories} />
+      <SubscriptionItems subscriptions={
+        categoryFilter === 'All'
+          ? subscriptions
+          : subscriptions.filter((sub) => sub.category === categoryFilter)
+      } categories={uniqueCategories} />
     </div>
   )
 }
