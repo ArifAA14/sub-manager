@@ -22,7 +22,6 @@ function Subscriptions({ subscriptions }: { subscriptions: SubscriptionI[] | nul
           <Input type="text" placeholder="Search" className="w-full max-w-[200px] placeholder:text-sm !py-2 px-7 bg-neutral-50 rounded-lg outline-none" />
         </div>
       </div>
-
       <SubscriptionItems subscriptions={subscriptions} categories={uniqueCategories} />
     </div>
   )
