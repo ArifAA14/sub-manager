@@ -24,21 +24,21 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
 
 
   return (
-    <div className="w-full h-full   rounded-xl  flex  bg-neutral-50  px-6  group cursor-pointer py-6 justify-between"
+    <div className="w-full h-full rounded-lg shadow-sm  flex  bg-neutral-50  px-6  group cursor-pointer py-6 justify-between"
       key={subscription.id}
     >
-      <div className="flex flex-col w-full items-baseline gap-0.5"
+      <div className="flex flex-col w-full items-baseline gap-1"
         onClick={() => open()}>
 
         <h2 className="text-lg font-medium  font-serif tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
           {subscription.title}
         </h2>
 
-        <h1 className="text-base font-normal mt-2 font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
+        <h1 className="text-sm lg:text-base font-normal mt-1.5 font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
           {getCurrencySymbol(subscription.currency)}{subscription.amount} / {subscription.subscription_type}
         </h1>
 
-        <h1 className="text-base font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
+        <h1 className="text-sm lg:text-base font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
           From {format(parse(subscription.start_date, 'dd/MM/yyyy', new Date()), 'do MMMM yyyy')}
         </h1>
         <SubscriptionRenewalIndicator start_date={subscription.start_date}

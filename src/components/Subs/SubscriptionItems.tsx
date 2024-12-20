@@ -20,8 +20,7 @@ function SubscriptionItems({ subscriptions, categories }: { subscriptions: Subsc
       }
 
       <Link href={'/new'}>
-      <div className="w-full h-full group col-span-fill cursor-pointer flex-col gap-2 p-6 border-b 
-      border rounded-xl flex items-center justify-center">
+        <div className="w-full h-full group col-span-fill cursor-pointer flex-col gap-2 p-6  flex items-center justify-center">
         <PlusIcon className="text-gray-400  cursor-pointer group-hover:text-black 
         transition-all ease-linear duration-300" size={20} />
         <h1 className="text-lg font-medium font-sans tracking-tight text-gray-400 group-hover:text-black 
