@@ -39,3 +39,14 @@ export async function remove(subId: string): Promise<{ success: boolean; message
     return { success: false, message: "Failed to delete subscription" };
   }
 }
+
+export async function update(subscriptionObject: SubscriptionI): Promise<{ success: boolean; message?: string }> {
+  try {
+    const db = DbService.getInstance();
+    revalidatePath("/");
+    return await db.updateSubscription(subscriptionObject);
+  } catch (error) {
+    console.error(error);
+    return { success: false, message: "Failed to update subscription" };
+  }
+}

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { SubscriptionI } from '../../../../lib/types';
 import { addSubscriptionSchema } from '../../../../lib/zod/schema';
 import SubscriptionModelFields from './SubscriptionModelFields';
+import { update } from '@/app/actions/SubscriptionService';
 
 
 function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: { isOpen: boolean, close: () => void, subscription: SubscriptionI, categories: string[] }) {
@@ -23,6 +24,10 @@ function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: 
     async function handleSave() {
         try {
             await addSubscriptionSchema.parseAsync(subscriptionObject)
+            const result = await update(subscriptionObject)
+            if (result.success) {
+                close()
+            }
         } catch (error) {
             console.log(error)
         }

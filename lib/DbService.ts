@@ -128,6 +128,27 @@ class DbService {
     }
     return { success: true, message: "Subscription deleted." };
   }
+
+  public async updateSubscription(subscription: SubscriptionI): Promise<{ success: boolean; message?: string }> {
+    const result = await turso.execute({
+      sql: `UPDATE subscriptions SET title = ?, subscription_type = ?, category = ?, start_date = ?, end_date = ?, amount = ?, currency = ? WHERE id = ?;`,
+      args: [
+        subscription.title,
+        subscription.subscription_type,
+        subscription.category,
+        subscription.start_date,
+        subscription.end_date,
+        subscription.amount,
+        subscription.currency,
+        subscription.id,
+      ],
+    });
+
+    if (result.rowsAffected === 0) {
+      return { success: false, message: "Failed to update subscription." };
+    }
+    return { success: true, message: "Subscription updated" };
+  }
 }
 
 export default DbService;
