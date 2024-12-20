@@ -29,7 +29,7 @@ export default function PillFilter({ categories, categoryFilter, setCategoryFilt
 
     return (
         <Select value={selected} onChange={(value: string) => setSelected(value)} onClose={() => setQuery('')}>
-            <div className="relative h-full w-fit ">
+            <div className="relative h-full w-full lg:w-fit ">
                 <SelectInput
                     displayValue={(category: string) => category}
                     onChange={(event) => setQuery(event.target.value)}

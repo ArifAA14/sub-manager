@@ -48,8 +48,6 @@ function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: 
                         className="max-h-[85vh] lg:max-h-[96vh] h-full w-[90vw] max-w-[480px] lg:max-w-[650px] p-6 pt-2 border rounded-md bg-white backdrop-blur 
                         data-[state=open]:animate-contentShow  shadow-sm   lg:overflow-y-visible overflow-y-auto"
                     >
-
-
                         <SubscriptionModelFields
                             subscriptionObject={subscriptionObject}
                             setSubscriptionObject={setSubscriptionObject}

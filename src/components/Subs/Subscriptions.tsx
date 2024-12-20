@@ -9,30 +9,39 @@ import { useState } from 'react';
 
 function Subscriptions({ subscriptions }: { subscriptions: SubscriptionI[] | null }) {
   const [categoryFilter, setCategoryFilter] = useState<string>('All');
+  const [searchInput, setSearchInput] = useState<string>(''); 
   if (!subscriptions) return <SubscriptionEmpty />
   const categories = subscriptions.map((sub) => sub.category);
   const uniqueCategories = [...new Set(categories)];
 
 
+  const filteredSubscriptions = subscriptions.filter((sub) => {
+    const matchesCategory =
+      categoryFilter === 'All' || sub.category === categoryFilter;
+    const matchesSearch =
+      searchInput === '' || sub.title.toLowerCase().includes(searchInput.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
 
   return (
     <div className="flex flex-col w-full h-full">
-      <div className="flex items-center justify-between w-full h-full py-0 mt-10 border-t-0 gap-4  px-0">
+      <div className="flex lg:items-center lg:flex-row flex-col justify-between w-full h-full py-0 mt-10 border-t-0 gap-4  px-0">
         <PillFilter
           categories={uniqueCategories}
           categoryFilter={categoryFilter}
           setCategoryFilter={setCategoryFilter}
         />
-        <div className="w-full max-w-[200px] flex items-center justify-end gap-0 px-0 relative">
+        <div className="w-full lg:max-w-[200px] flex items-center justify-end gap-0 px-0 relative">
           <SearchIcon className="absolute left-2 text-gray-400" size={14} />
-          <Input type="text" placeholder="Search" className="w-full max-w-[200px] placeholder:text-sm !py-2 px-7 bg-neutral-50 rounded-lg outline-none" />
+          <Input type="text" placeholder="Search by title.." className="w-full lg:max-w-[200px] placeholder:text-sm !py-2 px-7 border border-dashed bg-neutral-50 rounded-lg outline-none"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
         </div>
       </div>
-      <SubscriptionItems subscriptions={
-        categoryFilter === 'All'
-          ? subscriptions
-          : subscriptions.filter((sub) => sub.category === categoryFilter)
-      } categories={uniqueCategories} />
+      <SubscriptionItems subscriptions={filteredSubscriptions} categories={uniqueCategories} />
+
     </div>
   )
 }
