@@ -52,7 +52,12 @@ function SubscriptionItem({ subscription }: { subscription: SubscriptionI }) {
       </div>
 
 
-      <SubscriptionItemModal isOpen={isOpen} close={close} key={subscription.id + 'modal'} />
+      <SubscriptionItemModal
+        key={subscription.id + 'modal'}
+        isOpen={isOpen}
+        close={close}
+        subscription={subscription}
+      />
     </div>
   )
 }

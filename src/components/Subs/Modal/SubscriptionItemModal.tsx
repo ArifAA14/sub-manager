@@ -6,18 +6,18 @@ import { addSubscriptionSchema } from '../../../../lib/zod/schema';
 import SubscriptionModelFields from './SubscriptionModelFields';
 
 
-function SubscriptionItemModal({ isOpen, close }: { isOpen: boolean, close: () => void }) {
+function SubscriptionItemModal({ isOpen, close, subscription }: { isOpen: boolean, close: () => void, subscription: SubscriptionI }) {
 
     const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
-        id: '',
-        title: '',
-        subscription_type: '',
-        category: '',
-        start_date: '',
-        end_date: '',
-        amount: 0,
-        user_id: '',
-        currency: '',
+        id: subscription.id,
+        title: subscription.title,
+        subscription_type: subscription.subscription_type,
+        category: subscription.category,
+        start_date: subscription.start_date,
+        end_date: subscription.end_date,
+        amount: subscription.amount,
+        user_id: subscription.user_id,
+        currency: subscription.currency
     })
 
     async function handleSave() {
