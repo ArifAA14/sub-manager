@@ -62,12 +62,15 @@ export function HeadlessDate({ value, onChange, min }: { value: string, onChange
       />
       <DayPicker
         classNames={{
-          root: `${defaultClassNames.root} ${hidden ? 'hidden' : ''} border p-2 w-fit
-           absolute lg:left-10 mt-4 bg-neutral-50 rounded-lg`,
+          root: `${defaultClassNames.root} ${hidden ? 'hidden' : ''} border lg:p-2 p-0.5 w-fit
+           absolute lg:left-10 mt-4 bg-neutral-50 rounded-lg -left-2 z-[100]`,
           chevron: `${defaultClassNames.chevron} `,
           caption_label: `font-medium`,
           month_caption: `font-medium px-2 py-2`,
           selected: `${defaultClassNames.selected} bg-primary-500 text-black`,
+          day: `${defaultClassNames.day} text-xs lg:text-lg`,
+          month_grid: `${defaultClassNames.month_grid} text-xs lg:text-lg`,
+
         }}
         month={month}
         onMonthChange={setMonth}
