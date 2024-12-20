@@ -7,7 +7,7 @@ function Page() {
   return (
     <div className='w-full h-full min-h-screen lg:max-w-[60%] mx-auto grid   overflow-hidden   '>
       <div className='w-full h-full relative'>
-        <motion.div className='flex flex-col px-0 py-0 w-full h-full justify-between'
+        <motion.div className='flex flex-col px-0 py-4 w-full h-full justify-between'
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 1, y: -50 }}

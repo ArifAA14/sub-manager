@@ -17,7 +17,7 @@ function Subscriptions({ subscriptions }: { subscriptions: SubscriptionI[] | nul
 
   const filteredSubscriptions = subscriptions.filter((sub) => {
     const matchesCategory =
-      categoryFilter === 'All' || sub.category === categoryFilter;
+      categoryFilter === 'All Categories' || sub.category === categoryFilter;
     const matchesSearch =
       searchInput === '' || sub.title.toLowerCase().includes(searchInput.toLowerCase());
     return matchesCategory && matchesSearch;
@@ -34,7 +34,7 @@ function Subscriptions({ subscriptions }: { subscriptions: SubscriptionI[] | nul
         />
         <div className="w-full lg:max-w-[200px] flex items-center justify-end gap-0 px-0 relative">
           <SearchIcon className="absolute left-2 text-gray-400" size={14} />
-          <Input type="text" placeholder="Search by title.." className="w-full lg:max-w-[200px] placeholder:text-sm !py-2 px-7 border border-dashed bg-neutral-50 rounded-lg outline-none"
+          <Input type="text" placeholder="Search by title.." className="w-full lg:max-w-[200px] placeholder:text-sm !py-2 px-7 border border-dashed bg-white rounded-lg outline-none"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />

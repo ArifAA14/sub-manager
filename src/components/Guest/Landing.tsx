@@ -11,7 +11,7 @@ function Landing() {
         <h1 className='lg:text-6xl text-3xl font-serif text-center tracking-tighter font-normal text-gray-400 '>
           Azure, OpenAI, Oracle, Adobe
         </h1>
-        <h1 className='lg:text-6xl text-center text-3xl italic font-serif tracking-normal font-medium text-black '>
+        <h1 className='lg:text-6xl text-center text-3xl  font-serif tracking-tighter font-medium text-black '>
           We organize your subscriptions
         </h1>
 
@@ -19,14 +19,15 @@ function Landing() {
 
         <div className='w-full flex items-center gap-4 justify-center mt-6'>
           <Link href='/register'>
-          <button className='text-white flex items-center gap-2 rounded-xl bg-black 
-          hover:bg-black/80 transition-all ease-linear duration-150 font-medium  font-sans text-base  tracking-tight px-5 py-1.5'>
+            <button className='text-black flex items-center gap-2 rounded-xl bg-white border border-dashed 
+           transition-all ease-linear duration-150 font-medium  font-sans text-base  tracking-tight px-5 py-2'>
             Join Now <ArrowRight size={17} />
             </button>
           </Link>
           <Link href='/login'>
-          <button className='text-gray-400 font-medium  font-sans text-base  tracking-tight '>
-            Dashboard
+            <button className='text-black flex items-center gap-2 rounded-xl bg-neutral-50  border border-neutral-50
+           transition-all ease-linear duration-150 font-medium  font-sans text-base  tracking-tight px-5 py-2'>
+              Login
             </button>
           </Link>
         </div>

@@ -12,7 +12,7 @@ interface PillFilterProps {
 export default function PillFilter({ categories, categoryFilter, setCategoryFilter }: PillFilterProps) {
     const [query, setQuery] = useState('')
     const [selected, setSelected] = useState(
-        query === '' ? 'All' : categories.find((category) => category.toLowerCase().includes(query.toLowerCase())) || 'All'
+        query === '' ? 'All Categories' : categories.find((category) => category.toLowerCase().includes(query.toLowerCase())) || 'All Categories'
     )
 
     const filtered =
@@ -37,8 +37,8 @@ export default function PillFilter({ categories, categoryFilter, setCategoryFilt
       focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-black text-base z-[10] py-3'
                 />
                 <SelectIcon />
-                {categoryFilter !== 'All' && (
-                    <SelectCloseIcon onClick={() => setSelected('All')} />)
+                {categoryFilter !== 'All Categories' && (
+                    <SelectCloseIcon onClick={() => setSelected('All Categories')} />)
                 }
             </div>
 

@@ -76,8 +76,8 @@ function LoginForm() {
 
 
 
-      <button type="submit" className='font-medium font-sans flex items-center text-lg mt-0 px-6 py-2 w-full bg-black 
-       text-white rounded-lg   shadow-sm disabled:opacity-50 overflow-clip h-[40px]'
+      <button type="submit" className='font-medium font-sans flex items-center text-lg mt-0 px-6 py-2 w-full bg-neutral-50 
+       text-gray-500 rounded-lg   shadow-sm disabled:opacity-50 overflow-clip h-[40px] border border-dashed'
       >
         <AnimatePresence initial={false} mode='wait'>
           {optimisticMessages.length > 0 ? <motion.div
@@ -91,7 +91,7 @@ function LoginForm() {
             }}
             className='flex items-center justify-center w-full gap-1'
           >
-            <LoaderCircle width={16} height={16} className='text-white animate-spin' />
+            <LoaderCircle width={16} height={16} className='text-gray-500 animate-spin' />
           </motion.div> :
             <motion.div className=' w-full text-center'
               key={'add'}
