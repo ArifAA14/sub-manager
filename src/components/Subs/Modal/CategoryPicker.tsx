@@ -41,6 +41,8 @@ export default function CategoryPicker({
     }
   }
 
+  console.log(selected)
+
   return (
     <Select immediate value={selected} onChange={handleChange} onClose={() => setQuery('')}>
       <div className="relative h-full w-full">
@@ -63,7 +65,7 @@ export default function CategoryPicker({
       </div>
 
       <SelectOptions className="absolute mt-2 max-h-60 w-full overflow-auto border rounded bg-white shadow-lg">
-        {query.length > 3 && (
+        {query.length > 1 && (
           <SelectOption
             value={query}
             className="group flex cursor-pointer items-center gap-2 px-4 py-2 hover:bg-gray-100"

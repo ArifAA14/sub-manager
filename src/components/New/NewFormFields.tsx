@@ -42,7 +42,7 @@ function NewFormFields({
 
       <div className='flex flex-col gap-2'>
         <label className='text-gray-400 text-sm font-sans font-medium tracking-tight'>
-          Subscription Amount
+          Subscription Amount (required)
         </label>
 
         <Input className='w-full h-full bg-neutral-50 text-black placeholder:text-sm placeholder:text-gray-400 rounded-lg px-4 py-3 
@@ -59,7 +59,7 @@ function NewFormFields({
 
       <div className='flex flex-col gap-2'>
         <label className='text-gray-400 text-sm font-sans font-medium tracking-tight'>
-          Currency
+          Currency (required)
         </label>
 
         <CurrencyPicker setSubscriptionObject={setSubscriptionObject} value={subscriptionObject.currency}
@@ -69,7 +69,7 @@ function NewFormFields({
       <div className=' grid lg:grid-cols-2 gap-4'>
         <div className='flex flex-col gap-2'>
           <label className='text-gray-400 text-sm font-sans font-medium tracking-tight'>
-            Start Date
+            Start Date (required)
           </label>
 
           <div className='w-full h-full relative'>
@@ -83,7 +83,7 @@ function NewFormFields({
 
         <div className='flex flex-col gap-2'>
           <label className='text-gray-400 text-sm font-sans font-medium tracking-tight'>
-            End Date
+            End Date (optional)
           </label>
 
           <div className='w-full h-full relative'>
@@ -100,7 +100,7 @@ function NewFormFields({
 
       <div className='flex flex-col gap-2'>
         <label className='text-gray-400 text-sm font-sans font-medium tracking-tight'>
-          Category
+          Category (required)
         </label>
 
         <CategoryPicker
@@ -113,7 +113,7 @@ function NewFormFields({
 
       <div className='flex flex-col gap-2'>
         <label className='text-gray-400 text-sm font-sans font-medium tracking-tight'>
-          Subscription Type
+          Subscription Type (required)
         </label>
 
         <SubscriptionTypePicker
