@@ -6,7 +6,7 @@ import PillFilter from '../Dashboard/Pills/PillFilter';
 import SubscriptionEmpty from './SubscriptionEmpty';
 import SubscriptionItems from './SubscriptionItems';
 import { useState } from 'react';
-import Export from '../Filters/Export';
+import Export from '../Filters/Export/Export';
 
 function Subscriptions({ subscriptions }: { subscriptions: SubscriptionI[] | null }) {
   const [categoryFilter, setCategoryFilter] = useState<string>('All');

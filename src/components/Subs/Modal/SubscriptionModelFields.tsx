@@ -131,10 +131,12 @@ function SubscriptionModelFields({
         </div>
       </div>
       <div className="flex items-center justify-end gap-4 mt-6">
-        <button className="text-gray-600 font-medium font-sans " onClick={close}>
+        <button className='text-gray-400 font-medium flex items-center gap-2 
+                font-sans text-sm tracking-tighter' onClick={close}>
           Cancel
         </button>
-        <button className="bg-black text-white h-[36px] font-normal px-5 py-1.5 hover:bg-black/90 transition-all ease-in-out duration-300 rounded-lg shadow-sm"
+        <button className='text-gray-400 font-medium flex items-center gap-2 bg-neutral-50 rounded-lg 
+                font-sans text-sm tracking-tighter px-4 py-2 border border-dashed'
           onClick={handleSave}
         >
           {
