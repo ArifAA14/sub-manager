@@ -50,7 +50,7 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
 
       <div className="flex flex-col items-end justify-between h-full gap-0   w-full ">
         <ItemControls id={subscription.id} />
-        <div className='w-fit  px-4 py-1 rounded-lg border border-dashed'>
+        <div className='w-fit py-2'>
           <SubscriptionRenewalIndicator start_date={subscription.start_date}
             renewaltype={subscription.subscription_type}
             end_date={subscription.end_date}

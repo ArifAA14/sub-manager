@@ -1,6 +1,6 @@
 import { SubscriptionI } from '../../../lib/types';
 import getCurrencySymbol from '../../../utils/currencySymbol';
-import { getMonthlyTrends } from '../../../utils/trends';
+import { getMonthlyTrends, getYearlyTrends } from '../../../utils/trends';
 import { TrendingUpIcon } from '../ui/Icons/TrendingUpIcon';
 
 
@@ -17,7 +17,7 @@ function Card({ text, subscriptions }: {
 
 
     const monthlyTrends = getMonthlyTrends(subscriptions);
-    console.log(monthlyTrends)
+    const yearlyTrends = getYearlyTrends(subscriptions);
 
     function getAmount(text: string) {
         if (text === 'Yearly') {
@@ -26,7 +26,7 @@ function Card({ text, subscriptions }: {
             return monthlyTotal
         } else {
             return subscriptions.length
-        }
+        } 
     }
 
 
@@ -35,15 +35,24 @@ function Card({ text, subscriptions }: {
             return (
                 monthlyTrends > 0 ? (
                     <div className='flex items-center text-sm font-medium gap-2 text-red-600'>
-                        <TrendingUpIcon />   {monthlyTrends}
+                        <TrendingUpIcon /> {monthlyTrends}
                     </div>
                 ) : <div className='flex items-center gap-2 text-green-600 text-sm font-medium'>
                     {monthlyTrends}
                 </div>
 
             )
+        } else if (text === 'Yearly') {
+            return (
+                yearlyTrends > 0 ? (
+                    <div className='flex items-center text-sm font-medium gap-2 text-red-600'>
+                        <TrendingUpIcon /> {yearlyTrends}
+                    </div>
+                ) : <div className='flex items-center gap-2 text-green-600 text-sm font-medium'>
+                    {yearlyTrends}
+                </div>
+            )
         }
-
     }
 
 
