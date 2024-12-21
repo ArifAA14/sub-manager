@@ -35,20 +35,18 @@ function SubscriptionRenewalIndicator({
   const renewalIn = formatDistance(renewalDate, new Date());
   const renewalInDays = differenceInDays(renewalDate, new Date());
 
-  console.log(renewalInDays)
-
   function renewalInDaysColor() {
-    if (renewalInDays <= 20 && renewalInDays > 0) {
-      return "text-red-600"; // Very close to renewal
+    if (renewalInDays <= 10 && renewalInDays > 0) {
+      return "text-red-600";
     } else {
-      return "text-gray-500"; // Past renewal date
+      return "text-gray-500";
     }
   }
 
 
 
   return (
-    <h1 className={`text-sm lg:text-md font-normal font-sans tracking-tight
+    <h1 className={`text-sm lg:text-md font-normal font-sans tracking-tight whitespace-nowrap
      ${renewalInDaysColor()} group-hover:text-gray-600 transition-all ease-linear duration-300`}>
       Renews In {renewalIn}
     </h1>

@@ -23,11 +23,13 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
 
 
 
+
+
   return (
     <div className="w-full h-full rounded-lg  flex  bg-white border border-dashed  px-6  group cursor-pointer py-6 justify-between"
       key={subscription.id}
     >
-      <div className="flex flex-col w-full items-baseline gap-1"
+      <div className="flex flex-col w-full  items-baseline gap-1"
         onClick={() => open()}>
 
         <h2 className="text-lg font-medium  font-serif tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
@@ -48,9 +50,11 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
 
       </div>
 
-      <div className="flex flex-col items-end justify-between h-full gap-0   w-full ">
-        <ItemControls id={subscription.id} />
-        <div className='w-fit py-2'>
+      <div className="flex flex-col items-end justify-between h-full gap-0 ">
+        <ItemControls id={subscription.id} open={open}
+          subscription={subscription}
+        />
+        <div className='w-full py-2'>
           <SubscriptionRenewalIndicator start_date={subscription.start_date}
             renewaltype={subscription.subscription_type}
             end_date={subscription.end_date}

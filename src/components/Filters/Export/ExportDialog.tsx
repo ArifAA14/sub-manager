@@ -3,7 +3,7 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle, Radio, RadioGroup } f
 import { CheckIcon } from 'lucide-react';
 import { useState } from 'react';
 import { SubscriptionI } from '../../../../lib/types';
-import exportFile from '../../../../utils/handleExport';
+import { exportFiles } from '../../../../utils/handleExport';
 
 function ExportDialog({ isOpen, close, subscriptions }: { isOpen: boolean, close: () => void, subscriptions: SubscriptionI[] }) {
 
@@ -67,7 +67,7 @@ function ExportDialog({ isOpen, close, subscriptions }: { isOpen: boolean, close
                 </button>
                 <button className='text-gray-400 font-medium flex items-center gap-2 bg-neutral-50 rounded-lg 
                 font-sans text-sm tracking-tighter px-4 py-2 border border-dashed hover:text-black transition-all ease-in-out duration-300'
-                  onClick={() => exportFile(subscriptions, selected)}
+                  onClick={() => exportFiles(subscriptions, selected)}
                 >
                   Export
                 </button>

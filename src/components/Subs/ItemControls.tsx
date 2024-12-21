@@ -1,10 +1,12 @@
 'use client'
 import { remove } from '@/app/actions/SubscriptionService';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Ellipsis, PencilIcon, TrashIcon } from 'lucide-react'
+import { DownloadIcon, Ellipsis, PencilIcon, TrashIcon } from 'lucide-react'
 import { toast } from 'sonner';
+import { SubscriptionI } from '../../../lib/types';
+import { exportFile } from '../../../utils/handleExport';
 
-export default function ItemControls({ id }: { id: string }) {
+export default function ItemControls({ id, open, subscription }: { id: string, open: () => void, subscription: SubscriptionI }) {
 
 
     async function handleDelete() {
@@ -37,12 +39,30 @@ export default function ItemControls({ id }: { id: string }) {
 
                 <MenuItem >
                     <button className="group relative flex font-normal font-sans hover:bg-black z-[100] transition-all ease-in-out duration-300
-             w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-black hover:text-white ">
+             w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-black hover:text-white "
+                        onClick={open}
+                    >
                         <PencilIcon className="size-4 fill-white/30" size={12} />
                         Edit
                         <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
                     </button>
                 </MenuItem>
+
+
+
+                <MenuItem >
+                    <button className="group relative flex font-normal font-sans hover:bg-black z-[100] transition-all ease-in-out duration-300
+             w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-black hover:text-white "
+                        onClick={() => exportFile(subscription)}
+                    >
+                        <DownloadIcon className="size-4 fill-white/30" size={12} />
+                        Download (PDF)
+                        <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
+                    </button>
+                </MenuItem>
+
+
+
 
 
                 <MenuItem>
