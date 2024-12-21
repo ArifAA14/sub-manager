@@ -5,6 +5,7 @@ import Subscriptions from "@/components/Subs/Subscriptions";
 import Link from "next/link";
 import { auth } from "../../auth";
 import { getAll } from "./actions/SubscriptionService";
+import SubscriptionEmpty from "@/components/Subs/SubscriptionEmpty";
 
 
 export default async function Home() {
@@ -14,6 +15,13 @@ export default async function Home() {
   }
   const userId = session?.user?.id;
   const subscriptions = await getAll(userId as string);
+  if (!subscriptions) return <SubscriptionEmpty />
+  const monthlyData = subscriptions.filter((sub) => sub.subscription_type === "Monthly")
+  const monthlyTotal = monthlyData.reduce((acc, curr) => acc + curr.amount, 0)
+  const yearlyData = subscriptions.filter((sub) => sub.subscription_type === "Yearly")
+  const yearlyTotal = yearlyData.reduce((acc, curr) => acc + curr.amount, 0)
+
+
   return (
     <div className="w-full h-full bg-white min-h-screen   flex flex-col lg:max-w-[75%] mx-auto">
 
@@ -40,9 +48,16 @@ export default async function Home() {
       <div className="w-full h-full  border-l-0 border-r-0 lg:px-0 px-4">
 
         <div className="w-full h-full grid lg:grid-cols-3 lg:border-b-0 gap-6  mt-10">
-        <Card amount={'£100.22'} trend={1.2} text="This Month" />
-        <Card amount={"£2422"} trend={-4.4} text="This Year" />
-        <Card amount={16} trend={-1} text="# Subscriptions" />
+          <Card amount={monthlyTotal}
+            text="Monthly"
+            subscriptions={subscriptions}
+          />
+          <Card amount={yearlyTotal} text="Yearly"
+            subscriptions={subscriptions}
+          />
+          <Card amount={subscriptions.length} text="Total Subscriptions"
+            subscriptions={subscriptions}
+          />
       </div>
 
 
