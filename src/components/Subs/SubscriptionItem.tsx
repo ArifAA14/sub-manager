@@ -35,22 +35,26 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
         </h2>
 
         <h1 className="text-sm lg:text-base font-normal mt-1.5 font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
+          {subscription.category}
+        </h1>
+
+        <h1 className="text-sm lg:text-base font-normal  font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
           {getCurrencySymbol(subscription.currency)}{subscription.amount} / {subscription.subscription_type}
         </h1>
 
         <h1 className="text-sm lg:text-base font-normal font-sans tracking-tight text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
           From {format(parse(subscription.start_date, 'dd/MM/yyyy', new Date()), 'do MMMM yyyy')}
         </h1>
-        <SubscriptionRenewalIndicator start_date={subscription.start_date}
-          renewaltype={subscription.subscription_type}
-          end_date={subscription.end_date}
-        />
+
       </div>
 
-      <div className="flex flex-col items-end justify-between h-full gap-0   ">
+      <div className="flex flex-col items-end justify-between h-full gap-0   w-full ">
         <ItemControls id={subscription.id} />
-        <div className='w-fit  px-4 py-1 rounded-lg bg-neutral-50 border border-dashed text-gray-600 font-sans text-sm font-medium tracking-tight'>
-          {subscription.category}
+        <div className='w-fit  px-4 py-1 rounded-lg border border-dashed'>
+          <SubscriptionRenewalIndicator start_date={subscription.start_date}
+            renewaltype={subscription.subscription_type}
+            end_date={subscription.end_date}
+          />
         </div>
       </div>
 

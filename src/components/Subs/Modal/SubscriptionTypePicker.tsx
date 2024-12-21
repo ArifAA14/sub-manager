@@ -29,7 +29,7 @@ function SubscriptionTypePicker({ setSubscriptionObject, value }: { setSubscript
           key={type}
           value={type}
           className="group relative flex cursor-pointer rounded-lg bg-neutral-50  py-3 px-4  transition text-gray-400
-              focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white  data-[checked]:text-gray-600"
+              focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white  data-[checked]:text-black"
         >
           <div className="flex w-full items-center justify-between">
             <div className="text-sm/6">
