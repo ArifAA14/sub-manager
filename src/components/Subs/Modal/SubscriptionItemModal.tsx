@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { SubscriptionI } from '../../../../lib/types';
 import { addSubscriptionSchema } from '../../../../lib/zod/schema';
 import SubscriptionModelFields from './SubscriptionModelFields';
+import { toast } from 'sonner';
 
 
 interface SubscriptionItemEditModalProps {
@@ -26,14 +27,19 @@ function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: 
         user_id: subscription.user_id,
         currency: subscription.currency
     })
+    const [loading, setLoading] = useState(false);
     async function handleSave() {
+        setLoading(true);
         try {
             await addSubscriptionSchema.parseAsync(subscriptionObject)
             const result = await update(subscriptionObject)
             if (result.success) {
                 close()
+                setLoading(false);
+                toast.success('Subscription updated successfully!')
             }
         } catch (error) {
+            setLoading(false);
             console.log(error)
         }
     }
@@ -54,6 +60,7 @@ function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: 
                             close={close}
                             handleSave={handleSave}
                             categories={categories}
+                            loading={loading}
                         />
 
                     </DialogPanel>

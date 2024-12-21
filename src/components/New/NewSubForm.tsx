@@ -6,6 +6,8 @@ import { ZodError } from 'zod'
 import { SubscriptionI } from '../../../lib/types'
 import { addSubscriptionSchema } from '../../../lib/zod/schema'
 import NewFormFields from './NewFormFields'
+import { LoaderCircle } from 'lucide-react'
+import { toast } from 'sonner'
 
 function NewSubForm({ userId, categories }: { userId: string, categories: string[] }) {
   const router = useRouter()
@@ -19,16 +21,22 @@ function NewSubForm({ userId, categories }: { userId: string, categories: string
     amount: 0,
     user_id: userId,
     currency: '',
-  })
+  });
+  const [loading, setLoading] = useState(false);
 
 
   async function handleSave() {
+    setLoading(true);
     try {
       await addSubscriptionSchema.parseAsync(subscriptionObject)
       await create(subscriptionObject);
+      toast.success('Subscription created successfully!')
       router.push(`/`)
       router.refresh()
+      setLoading(false);
     } catch (error: unknown) {
+      setLoading(false);
+      toast.error('Invalid submission, please try again!')
       if (error instanceof ZodError) {
         console.log(error.format())
       }
@@ -42,10 +50,15 @@ function NewSubForm({ userId, categories }: { userId: string, categories: string
         categories={categories}
       />
 
-      <button className='w-full mt-4 bg-black flex font-medium tracking-tight items-center justify-center px-4 py-3 rounded-lg text-white'
+      <button className='w-full mt-4 bg-neutral-50 flex font-medium tracking-tight items-center 
+      justify-center px-4 py-3 rounded-lg text-gray-500 border border-dashed h-[46px]'
         onClick={handleSave}
       >
-        Continue
+        {
+          loading ?
+            <LoaderCircle width={16} height={16} className='text-gray-500 animate-spin' /> :
+            'Create'
+        }
       </button>
 
     </div>

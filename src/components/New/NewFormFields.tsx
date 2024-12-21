@@ -10,7 +10,7 @@ import SubscriptionTypePicker from '../Subs/Modal/SubscriptionTypePicker';
 function NewFormFields({
   subscriptionObject,
   setSubscriptionObject,
-  categories
+  categories,
 }: {
   subscriptionObject: SubscriptionI;
     setSubscriptionObject: React.Dispatch<React.SetStateAction<SubscriptionI>>;

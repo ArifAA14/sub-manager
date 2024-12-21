@@ -2,6 +2,7 @@
 import { remove } from '@/app/actions/SubscriptionService';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Ellipsis, PencilIcon, TrashIcon } from 'lucide-react'
+import { toast } from 'sonner';
 
 export default function ItemControls({ id }: { id: string }) {
 
@@ -11,6 +12,7 @@ export default function ItemControls({ id }: { id: string }) {
         const res = await remove(id);
         if (res.success) {
             console.log('Deleted')
+            toast.success('Subscription deleted successfully!')
         }
     }
 

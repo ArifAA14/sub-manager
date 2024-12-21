@@ -5,27 +5,34 @@ import SubscriptionTypePicker from './SubscriptionTypePicker';
 import CurrencyPicker from './CurrencyPicker';
 import { Input } from '@headlessui/react';
 import { HeadlessDate } from '@/components/ui/Selects/Date';
+import { LoaderCircle } from 'lucide-react';
+
+
+interface SubscriptionModelFieldsProps {
+  subscriptionObject: SubscriptionI;
+  setSubscriptionObject: React.Dispatch<React.SetStateAction<SubscriptionI>>;
+  close: () => void;
+  handleSave: () => void;
+  categories: string[];
+  loading: boolean;
+}
 
 function SubscriptionModelFields({
   subscriptionObject,
   setSubscriptionObject,
   close,
   handleSave,
-  categories
-}: {
-  subscriptionObject: SubscriptionI;
-  setSubscriptionObject: React.Dispatch<React.SetStateAction<SubscriptionI>>;
-    close: () => void;
-    handleSave: () => void;
-    categories: string[];
-}) {
+  categories,
+  loading,
+}: SubscriptionModelFieldsProps) {
+
   const handleChange = (key: keyof SubscriptionI) => (value: string | number) => {
     setSubscriptionObject((prev) => ({ ...prev, [key]: value }));
   };
 
   return (
     <div className="flex flex-col w-full h-full justify-between mt-4 py-2">
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col lg:gap-6 gap-4">
 
         <div className='flex flex-col gap-2'>
           <label className='text-gray-400 text-sm font-sans font-medium tracking-tight'>
@@ -123,14 +130,18 @@ function SubscriptionModelFields({
           />
         </div>
       </div>
-      <div className="flex items-center justify-end gap-2 mt-6">
-        <button className="border text-gray-600 font-normal px-3.5 py-1.5 rounded-lg font-sans  " onClick={close}>
+      <div className="flex items-center justify-end gap-4 mt-6">
+        <button className="text-gray-600 font-medium font-sans " onClick={close}>
           Cancel
         </button>
-        <button className="bg-black text-white font-normal px-3.5 py-1.5 hover:bg-black/90 transition-all ease-in-out duration-300 rounded-lg shadow-sm"
+        <button className="bg-black text-white h-[36px] font-normal px-5 py-1.5 hover:bg-black/90 transition-all ease-in-out duration-300 rounded-lg shadow-sm"
           onClick={handleSave}
         >
-          Save
+          {
+            loading ?
+              <LoaderCircle width={16} height={16} className='text-white animate-spin' /> :
+              'Save'
+          }
         </button>
       </div>
     </div>
