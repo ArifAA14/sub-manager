@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { auth } from "../../auth";
 import Content from "./Content/Content";
 import FullSkeleton from "@/components/ui/Skeleton/FullSkeleton";
+import { BotIcon } from "lucide-react";
 
 
 export default async function Home() {
@@ -25,13 +26,17 @@ export default async function Home() {
             Hello {session?.user?.name}!
         </h2>
 
-          <div className="flex items-center gap-6 ">
+          <div className="flex items-center gap-6">
+            <Link href={'/Chat'} className="border rounded-lg p-2 border-dashed">
+              <BotIcon className=" text-orange-600" size={24} strokeWidth={1} />
+            </Link>
             <Link href={'/new'}>
               <h2 className="lg:text-lg text-base font-medium font-sans tracking-tight text-gray-400 hover:text-black
               transition duration-200 ease-in-out">
-              Add
+                Add
               </h2>
             </Link>
+
             <Logout />
           </div>
         </div>
