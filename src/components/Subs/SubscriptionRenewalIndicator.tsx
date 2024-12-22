@@ -1,4 +1,3 @@
-'use client'
 import React from "react";
 import { formatDistance, parse, addMonths, addYears, differenceInDays } from "date-fns";
 
@@ -13,13 +12,26 @@ function SubscriptionRenewalIndicator({
 }) {
   const parsedStartDate = parse(start_date, "dd/MM/yyyy", new Date());
 
-  const renewalDate = end_date
-    ? parse(end_date, "dd/MM/yyyy", new Date())
-    : renewaltype === "Monthly"
-      ? addMonths(parsedStartDate, 1)
-      : renewaltype === "Yearly"
-        ? addYears(parsedStartDate, 1)
-        : null;
+  const calculateRenewalDate = () => {
+    if (renewaltype === "Monthly") {
+      let renewalDate = parsedStartDate;
+      while (renewalDate < new Date()) {
+        renewalDate = addMonths(renewalDate, 1);
+      }
+      return renewalDate;
+    } else if (renewaltype === "Yearly") {
+      let renewalDate = parsedStartDate;
+      while (renewalDate < new Date()) {
+        renewalDate = addYears(renewalDate, 1);
+      }
+      return renewalDate;
+    } else if (end_date) {
+      return parse(end_date, "dd/MM/yyyy", new Date());
+    }
+    return null;
+  };
+
+  const renewalDate = calculateRenewalDate();
 
   if (!renewalDate || isNaN(renewalDate.getTime())) {
     return (
@@ -29,8 +41,6 @@ function SubscriptionRenewalIndicator({
       </h1>
     );
   }
-
-
 
   const renewalIn = formatDistance(renewalDate, new Date());
   const renewalInDays = differenceInDays(renewalDate, new Date());
@@ -42,8 +52,6 @@ function SubscriptionRenewalIndicator({
       return "text-gray-500";
     }
   }
-
-
 
   return (
     <h1 className={`text-sm lg:text-md font-normal font-sans tracking-tight whitespace-nowrap
