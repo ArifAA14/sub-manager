@@ -43,8 +43,6 @@ function SubscriptionItemEditModal({ isOpen, close, subscription, categories }: 
             console.log(error)
         }
     }
-    console.log('hi')
-
     return (
         <Dialog open={isOpen} as="div" className="relative z-10 focus:outline-none" onClose={close}>
             <div className="fixed inset-0 z-0 w-screen overflow-y-clip">

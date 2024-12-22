@@ -1,11 +1,10 @@
-import Card from "@/components/Dashboard/Card";
 import Landing from "@/components/Guest/Landing";
 import { Logout } from "@/components/Guest/Logout/Logout";
-import Subscriptions from "@/components/Subs/Subscriptions";
 import Link from "next/link";
+import { Suspense } from "react";
 import { auth } from "../../auth";
-import { getAll } from "./actions/SubscriptionService";
-import SubscriptionEmpty from "@/components/Subs/SubscriptionEmpty";
+import Content from "./Content/Content";
+import FullSkeleton from "@/components/ui/Skeleton/FullSkeleton";
 
 
 export default async function Home() {
@@ -14,9 +13,6 @@ export default async function Home() {
     return <Landing />
   }
   const userId = session?.user?.id;
-  const subscriptions = await getAll(userId as string);
-  if (!subscriptions) return <SubscriptionEmpty />
-
 
 
   return (
@@ -42,26 +38,9 @@ export default async function Home() {
 
       </div>
 
-      <div className="w-full h-full  border-l-0 border-r-0 lg:px-0 px-4">
-
-        <div className="w-full h-full grid lg:grid-cols-3 lg:border-b-0 gap-6  mt-10">
-          <Card 
-            text="Monthly"
-            subscriptions={subscriptions}
-          />
-          <Card
-            text="Yearly"
-            subscriptions={subscriptions}
-          />
-          <Card
-            text="Total Subscriptions"
-            subscriptions={subscriptions}
-          />
-      </div>
-
-
-        <Subscriptions subscriptions={subscriptions} />
-      </div>
+      <Suspense fallback={<FullSkeleton />}>
+        <Content userId={userId as string} />
+      </Suspense>
     </div>
   );
 }

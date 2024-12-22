@@ -6,9 +6,13 @@ import { TrendingUpIcon } from '../ui/Icons/TrendingUpIcon';
 
 function Card({ text, subscriptions }: {
     text: string,
-    subscriptions: SubscriptionI[]
+    subscriptions: SubscriptionI[] | null
 }
 ) {
+
+    if (!subscriptions) return (
+        <div></div>
+    )
 
     const monthlyData = subscriptions.filter((sub) => sub.subscription_type === "Monthly")
     const monthlyTotal = monthlyData.reduce((acc, curr) => acc + curr.amount, 0)
@@ -20,6 +24,7 @@ function Card({ text, subscriptions }: {
     const yearlyTrends = getYearlyTrends(subscriptions);
 
     function getAmount(text: string) {
+        if (!subscriptions) return 0
         if (text === 'Yearly') {
             return yearlyTotal
         } else if (text === 'Monthly') {
