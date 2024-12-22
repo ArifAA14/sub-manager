@@ -20,7 +20,8 @@ function ChatClient({ subscriptions }: { subscriptions: SubscriptionI[] }) {
     }
   });
   return (
-    <div className="flex flex-col w-full lg:max-w-[60%] lg:px-0 p-4 overflow-x-clip  gap-10 py-8 mx-auto justify-between relative h-full min-h-screen">
+    <div className="flex flex-col w-full lg:max-w-[60%] lg:px-0 p-4 overflow-x-clip  gap-10 py-0 mx-auto 
+    overflow-hidden justify-between relative h-full min-h-screen">
       <div className='absolute top-0 mt-6 left-6 lg:left-0 flex items-center gap-4'>
         <Link href={'/'}>
           <h2 className="lg:text-base text-base font-medium font-sans flex items-center gap-2 tracking-tight text-gray-400">
@@ -33,11 +34,11 @@ function ChatClient({ subscriptions }: { subscriptions: SubscriptionI[] }) {
           size={90}
           strokeWidth={1}
         />
-        <h1 className="text-xl font-normal font-sans text-gray-400">I am your personalized AI assistant.
+        <h1 className="text-xl font-normal text-center font-sans text-gray-400">I am your personalized AI assistant.
           Ask me anything about your subscriptions.</h1>
       </div> : null}
 
-      <div className=' w-full pr-10 mt-6 h-full flex flex-col gap-4 max-h-[700px] overflow-y-auto'>
+      <div className=' w-full pr-10 mt-16 h-full flex flex-col gap-4 max-h-[700px] overflow-y-auto'>
         {messages.map(m => (
           <div key={m.id} className={`flex  gap-6 w-full h-full ${m.role === 'user' ? 'flex-row-reverse' : 'flex-row'} `}>
             {m.role === 'user' ? '' :
