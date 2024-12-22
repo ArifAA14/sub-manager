@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/google": "^1.0.12",
     "@headlessui/react": "^2.2.0",
     "@libsql/client": "^0.14.0",
     "@vercel/speed-insights": "^1.1.0",
+    "ai": "^4.0.22",
     "bcrypt": "^5.1.1",
     "jspdf": "^2.5.2",
     "jspdf-autotable": "^3.8.4",
