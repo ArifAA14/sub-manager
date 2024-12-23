@@ -1,5 +1,5 @@
+import ChatSkeleton from '@/components/Chat/ChatSkeleton';
 import ChatWrapper from '@/components/Chat/ChatWrapper';
-import FullSkeleton from '@/components/ui/Skeleton/FullSkeleton';
 import { redirect } from 'next/navigation';
 import { Suspense } from 'react';
 import { auth } from '../../../auth';
@@ -16,7 +16,7 @@ export default async function Chat() {
 
 
   return (
-    <Suspense fallback={<FullSkeleton />}>
+    <Suspense fallback={<ChatSkeleton />}>
       <ChatWrapper userId={userId as string} />
     </Suspense>
   );

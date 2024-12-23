@@ -136,12 +136,12 @@ function SubscriptionModelFields({
           Cancel
         </button>
         <button className='text-gray-400 font-medium flex items-center gap-2 bg-neutral-50 rounded-lg 
-                font-sans text-sm tracking-tighter px-4 py-2 border border-dashed'
+                font-sans text-sm tracking-tighter px-4 py-2 border border-dashed h-[40px]'
           onClick={handleSave}
         >
           {
             loading ?
-              <LoaderCircle width={16} height={16} className='text-white animate-spin' /> :
+              <LoaderCircle width={16} height={16} className='text-black animate-spin' /> :
               'Save'
           }
         </button>
