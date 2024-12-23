@@ -15,11 +15,11 @@ export default function CategoryPicker({
 }: {
   value: string;
     setSubscriptionObject: Dispatch<SetStateAction<SubscriptionI>>;
-    categories: string[];
+    categories: string[] | null;
 }) {
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<string>(
-    categories.find((category) => category === value) ? value : ''
+    categories && categories.find((category) => category === value) ? value : ''
   );
   const [placeholder, setPlaceholder] = useState('Select a category or create new..');
   const handleChange = (newValue: string) => {
@@ -75,7 +75,7 @@ export default function CategoryPicker({
           </SelectOption>
         )}
 
-        {categories.map((category) => (
+        {categories && categories.map((category) => (
           <SelectOption
             key={category}
             value={category}

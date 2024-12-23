@@ -10,8 +10,7 @@ async function Page() {
   const userId = user.user?.id
   if (!userId) return
   const subscriptions = await getAll(userId as string)
-  if (!subscriptions) return
-  const uniqueCategories = [...new Set(subscriptions.map((sub) => sub.category))]
+  const uniqueCategories = subscriptions && [...new Set(subscriptions.map((sub) => sub.category))]
 
 
   return (

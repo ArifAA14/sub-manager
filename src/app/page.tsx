@@ -1,21 +1,18 @@
 import Landing from "@/components/Guest/Landing";
-import dynamic from "next/dynamic";
-import { auth } from "../../auth";
+import { Logout } from "@/components/Guest/Logout/Logout";
+import { BotIcon } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
-import { BotIcon } from "lucide-react";
-import { Logout } from "@/components/Guest/Logout/Logout";
+import { auth } from "../../auth";
+import FullSkeleton from "@/components/ui/Skeleton/FullSkeleton";
+import Content from "./Content/Content";
 
-// Lazy load components
-const FullSkeleton = dynamic(() => import("@/components/ui/Skeleton/FullSkeleton"));
-const Content = dynamic(() => import("./Content/Content"));
 
 export default async function Home() {
   const session = await auth();
   if (!session) {
     return <Landing />;
   }
-
   const userId = session?.user?.id;
 
   return (

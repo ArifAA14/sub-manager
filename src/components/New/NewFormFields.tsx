@@ -14,7 +14,7 @@ function NewFormFields({
 }: {
   subscriptionObject: SubscriptionI;
     setSubscriptionObject: React.Dispatch<React.SetStateAction<SubscriptionI>>;
-    categories: string[];
+    categories: string[] | null
 }) {
   const handleChange = (key: keyof SubscriptionI) => (value: string | number) => {
     setSubscriptionObject((prev) => ({ ...prev, [key]: value }));

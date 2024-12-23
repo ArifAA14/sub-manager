@@ -9,7 +9,7 @@ import NewFormFields from './NewFormFields'
 import { LoaderCircle } from 'lucide-react'
 import { toast } from 'sonner'
 
-function NewSubForm({ userId, categories }: { userId: string, categories: string[] }) {
+function NewSubForm({ userId, categories }: { userId: string, categories: string[] | null }) {
   const router = useRouter()
   const [subscriptionObject, setSubscriptionObject] = useState<SubscriptionI>({
     id: '',
