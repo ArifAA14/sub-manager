@@ -4,6 +4,8 @@ import { google } from '@ai-sdk/google';
 export async function POST(req: Request) {
   const { messages, subs } = await req.json();
 
+  const today = new Date();
+
 
   const result = streamText({
     model: google('gemini-1.5-flash'),
@@ -17,6 +19,8 @@ export async function POST(req: Request) {
     - End Date (optional)
     - Amount
     - Currency
+
+    Todays date is ${today.toLocaleDateString()}, keep that in your memory to perform calculations.
 
     Your task is to:
     1. Answer only questions strictly related to the provided subscription data, but you can answer questions related to subscriptions such as what is this subscription for? what does it do and more.

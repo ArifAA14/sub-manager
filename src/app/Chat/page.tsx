@@ -1,7 +1,8 @@
-import ChatClient from '@/components/Chat/ChatClient';
+import ChatWrapper from '@/components/Chat/ChatWrapper';
+import FullSkeleton from '@/components/ui/Skeleton/FullSkeleton';
 import { redirect } from 'next/navigation';
+import { Suspense } from 'react';
 import { auth } from '../../../auth';
-import { getAll } from '../actions/SubscriptionService';
 
 export default async function Chat() {
   const session = await auth()
@@ -12,12 +13,11 @@ export default async function Chat() {
   if (!userId) {
     return null
   }
-  const subscriptions = await getAll(userId as string);
-  if (!subscriptions) {
-    return null
-  }
+
 
   return (
-    <ChatClient subscriptions={subscriptions} />
+    <Suspense fallback={<FullSkeleton />}>
+      <ChatWrapper userId={userId as string} />
+    </Suspense>
   );
 }
