@@ -150,6 +150,19 @@ class DbService {
     }
     return { success: true, message: "Subscription updated" };
   }
+
+
+  // public async upload(subscriptionId: string, file: Blob) {
+  //   const result = await turso.execute({
+  //     sql: `INSERT INTO invoices (subscription_id, file) VALUES (?, ?);`,
+  //     args: [subscriptionId, file as string],
+  //   });
+
+  //   if (result.rowsAffected === 0) {
+  //     return { success: false, message: "Failed to upload invoice." };
+  //   }
+  //   return { success: true, message: "Invoice uploaded successfully." };
+  // }
 }
 
 export default DbService;

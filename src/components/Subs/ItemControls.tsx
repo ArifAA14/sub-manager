@@ -1,13 +1,15 @@
 'use client'
 import { remove } from '@/app/actions/SubscriptionService';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { DownloadIcon, Ellipsis, PencilIcon, TrashIcon } from 'lucide-react'
+import { DownloadIcon, Ellipsis, File, PencilIcon, TrashIcon, UploadCloud } from 'lucide-react'
 import { toast } from 'sonner';
 import { SubscriptionI } from '../../../lib/types';
 import { exportFile } from '../../../utils/handleExport';
+import { useState } from 'react';
+import UploadDialog from './Upload/UploadDialog';
 
 export default function ItemControls({ id, open, subscription }: { id: string, open: () => void, subscription: SubscriptionI }) {
-
+    const [uploadModal, setUploadModal] = useState(false);
 
     async function handleDelete() {
         if (!id) return null;
@@ -46,11 +48,42 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
              w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-black hover:text-white "
                         onClick={open}
                     >
-                        <PencilIcon className="size-4 fill-white/30" size={12} />
+                        <PencilIcon className="size-4 text-gray-600 group-hover:text-white" size={12} />
                         Edit
                         <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
                     </button>
                 </MenuItem>
+
+
+
+
+
+                <MenuItem >
+                    <button className="group relative flex font-normal font-sans hover:bg-black z-[100] transition-all ease-in-out duration-300
+             w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-black hover:text-white "
+                        onClick={open}
+                    >
+                        <File className="size-4 text-orange-600" size={12} />
+                        View Uploads
+                        <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
+                    </button>
+                </MenuItem>
+
+
+                <MenuItem >
+                    <button className="group relative flex font-normal font-sans hover:bg-black z-[100] transition-all ease-in-out duration-300
+             w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-black hover:text-white "
+                        onClick={() => setUploadModal(true)}
+                    >
+                        <UploadCloud className="size-4 text-blue-600 group-hover:text-blue-400" size={12} />
+                        Add Invoice
+                        <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
+                    </button>
+                </MenuItem>
+
+
+
+
 
 
 
@@ -59,7 +92,7 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
              w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-black hover:text-white "
                         onClick={() => exportFile(subscription)}
                     >
-                        <DownloadIcon className="size-4 fill-white/30" size={12} />
+                        <DownloadIcon className="size-4 text-green-600" size={12} />
                         Download (PDF)
                         <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
                     </button>
@@ -81,6 +114,11 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
                     </button>
                 </MenuItem>
             </MenuItems>
+
+            <UploadDialog isOpen={uploadModal} close={() => setUploadModal(false)}
+                key={id + 'upload-modal'}
+                subscription={subscription}
+            />
         </Menu>
     )
 }
