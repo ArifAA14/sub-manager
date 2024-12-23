@@ -30,6 +30,7 @@ const SelectIcon = React.forwardRef<HTMLButtonElement, React.ComponentProps<type
         ref={ref}
         className="group absolute inset-y-0 right-0 px-2.5"
         {...props} // Pass through all props
+        id="drop-down" aria-label="Dropdown Button"
       >
         <ChevronDownIcon className="size-4 text-gray-600 group-hover:text-black" />
       </ComboboxButton>
@@ -49,6 +50,8 @@ const SelectCloseIcon = React.forwardRef<HTMLButtonElement, React.ComponentProps
         className="group absolute inset-y-0 right-6 px-1.5"
         {...props}
         key={'close'}
+        id="clear-but" aria-label="Clear Filter"
+
       >
         <XIcon className="size-4 text-red-600 group-hover:text-red-700" />
       </ComboboxButton>

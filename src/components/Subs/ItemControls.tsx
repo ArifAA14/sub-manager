@@ -23,7 +23,11 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
             key={id + 'controls'}
         >
             <MenuButton className="inline-flex items-center text-sm/6 
-        font-semibold text-white focus:outline-none ">
+        font-semibold text-white focus:outline-none "
+                id={id + 'button'}
+                aria-label='More Options'
+
+            >
 
                 <Ellipsis className="text-gray-400 hover:text-black transition-all ease-in-out duration-300" size={19} />
             </MenuButton>

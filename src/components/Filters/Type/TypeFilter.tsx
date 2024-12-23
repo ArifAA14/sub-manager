@@ -33,6 +33,8 @@ export default function TypeFilter({ types, typeFilter, setTypeFilter }: TypeFil
         <SelectInput
           displayValue={(category: string) => category}
           onChange={(event) => setQuery(event.target.value)}
+          id={'Type input'}
+          aria-label='Filter by Type'
           className='w-full  font-sans bg-neutral-50  rounded-lg px-4  font-medium flex items-center   pr-6  lg:text-sm
       focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-black text-base z-[10] py-3'
         />
