@@ -58,7 +58,6 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
                     >
                         <PencilIcon className="size-4 text-gray-600 group-hover:text-white" size={12} />
                         Edit
-                        <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
                     </button>
                 </MenuItem>
 
@@ -73,7 +72,6 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
                     >
                         <File className="size-4 text-orange-600" size={12} />
                         View Invoice
-                        <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
                     </button>
                 </MenuItem>
 
@@ -85,7 +83,6 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
                     >
                         <UploadCloud className="size-4 text-blue-600 group-hover:text-blue-400" size={12} />
                         Add Invoice
-                        <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
                     </button>
                 </MenuItem>
 
@@ -102,7 +99,6 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
                     >
                         <DownloadIcon className="size-4 text-green-600" size={12} />
                         Download (PDF)
-                        <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
                     </button>
                 </MenuItem>
 
@@ -118,7 +114,6 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
 
                         <TrashIcon className="size-4 text-red-600" size={12} />
                         Delete
-                        <kbd className="ml-auto hidden font-sans text-xs text-red-400 group-data-[focus]:inline">⌘D</kbd>
                     </button>
                 </MenuItem>
             </MenuItems>
