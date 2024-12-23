@@ -1,0 +1,21 @@
+{
+  "name": "workers",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev --test-scheduled",
+    "start": "wrangler dev --test-scheduled",
+    "cf-typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241218.0",
+    "@types/nodemailer": "^6.4.17",
+    "typescript": "^5.5.2",
+    "wrangler": "^3.60.3"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "resend": "^4.0.1"
+  }
+}

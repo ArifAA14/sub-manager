@@ -6,7 +6,8 @@ import Link from 'next/link';
 
 
 
-function SubscriptionItems({ subscriptions, categories }: { subscriptions: SubscriptionI[], categories: string[] }) {
+function SubscriptionItems({ subscriptions, categories }:
+  { subscriptions: SubscriptionI[], categories: string[] }) {
 
   return (
     <div className="grid lg:grid-cols-2 mb-6 mt-6 grid-cols-1 gap-6 w-full">

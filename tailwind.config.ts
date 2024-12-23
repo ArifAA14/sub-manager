@@ -13,7 +13,6 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        serif: ['var(--font-playfair)'],
         sans: ['var(--font-geist)'],
       },
     },
