@@ -32,7 +32,7 @@ function SubscriptionItem({ subscription, categories }: { subscription: Subscrip
       <div className="flex flex-col w-full  items-baseline gap-1"
         onClick={() => open()}>
 
-        <h2 className="text-lg font-medium  font-serif tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
+        <h2 className="text-lg font-medium  font-sans tracking-tight text-black group-hover:underline transition-all ease-linear duration-300">
           {subscription.title}
         </h2>
 
