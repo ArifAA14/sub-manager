@@ -2,13 +2,20 @@
 import { uploadURL } from '@/app/actions/SubscriptionService';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { upload } from '@vercel/blob/client';
-import { FormEvent, useRef } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import { toast } from 'sonner';
 import { SubscriptionI } from '../../../../lib/types';
+import { FileUp } from 'lucide-react';
 
 function UploadDialog({ isOpen, close, subscription }: { isOpen: boolean, close: () => void, subscription: SubscriptionI }) {
   const inputFileRef = useRef<HTMLInputElement>(null);
+  const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
 
+  const handleFileChange = () => {
+    if (inputFileRef.current?.files?.[0]) {
+      setSelectedFileName(inputFileRef.current.files[0].name);
+    }
+  };
   async function handleUpload(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     toast.loading('Uploading...');
@@ -70,18 +77,40 @@ function UploadDialog({ isOpen, close, subscription }: { isOpen: boolean, close:
             <div className='w-full h-full flex flex-col gap-4 mt-6 mb-0 '
 
             >
-
-              <>
-                <h1>Upload Your Avatar</h1>
-
                 <form
-                  onSubmit={(event) => handleUpload(event)}
+                onSubmit={(event) => handleUpload(event)}
+                className='flex flex-col gap-4 w-full h-full'
+              >
+                <div className='w-full h-full flex flex-col items-center justify-center
+                 gap-4 mt-6 full py-10 px-4 border border-dashed rounded-lg mb-4 text-gray-400'
+                  onClick={() => document.getElementById("fileUpload")?.click()}
                 >
-                  <input name="file" ref={inputFileRef} type="file" required />
-                  <button type="submit">Upload</button>
-                </form>
-              </>
-
+                  <input name="file" ref={inputFileRef} type="file" required
+                    hidden
+                    id="fileUpload"
+                    onChange={handleFileChange}
+                    className='w-full  border border-dashed rounded-lg mb-4 text-gray-400'
+                  />
+                  {!selectedFileName ? (
+                    <div className='p-10 flex flex-col gap-4 items-center justify-center w-full'>
+                      <FileUp size={40} className='text-gray-600 animate-bounce' strokeWidth={1} />
+                      <p className='text-sm font-normal text-gray-400 tracking-tight'>
+                        Click to upload a file (only PDFs are allowed)
+                      </p>
+                    </div>
+                  ) : (<p className='text-sm font-normal text-gray-400 tracking-tight'>
+                    {selectedFileName}
+                  </p>)}
+                </div>
+                <div className='w-full flex items-center justify-end gap-6'>
+                  <h2 className='text-gray-400 font-medium flex items-center gap-2 
+                font-sans text-sm tracking-tighter' onClick={close}>
+                    Cancel
+                  </h2>
+                  <button className='text-gray-400 font-medium flex items-center gap-2 bg-neutral-50 rounded-lg 
+                font-sans text-sm tracking-tighter px-4 py-2 border border-dashed h-[40px]' type="submit">Upload</button>
+                </div>
+              </form>
             </div>
 
           </DialogPanel>

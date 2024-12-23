@@ -112,6 +112,7 @@ class DbService {
         amount: row.amount,
         user_id: row.user_id,
         currency: row.currency,
+        invoice_url: row.invoice_url,
       };
     });
 

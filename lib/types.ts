@@ -8,4 +8,5 @@ export interface SubscriptionI {
   amount: number;
   user_id: string;
   currency: string;
+  invoice_url?: URL;
 }

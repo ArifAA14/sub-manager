@@ -20,6 +20,14 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
         }
     }
 
+    function handleViewInvoice() {
+        if (!subscription.invoice_url) {
+            toast.error('No invoice found');
+            return;
+        }
+        window.open(subscription.invoice_url, '_blank');
+    }
+
     return (
         <Menu
             key={id + 'controls'}
@@ -61,10 +69,10 @@ export default function ItemControls({ id, open, subscription }: { id: string, o
                 <MenuItem >
                     <button className="group relative flex font-normal font-sans hover:bg-black z-[100] transition-all ease-in-out duration-300
              w-full items-center gap-3  py-1.5 px-3 data-[focus]:bg-red/10 text-black hover:text-white "
-                        onClick={open}
+                        onClick={handleViewInvoice}
                     >
                         <File className="size-4 text-orange-600" size={12} />
-                        View Uploads
+                        View Invoice
                         <kbd className="ml-auto hidden font-sans text-xs text-neutral-400 group-data-[focus]:inline">⌘E</kbd>
                     </button>
                 </MenuItem>
