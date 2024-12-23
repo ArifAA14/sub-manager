@@ -154,8 +154,8 @@ class DbService {
 
   public async upload(subscriptionId: string, url: string) {
     const result = await turso.execute({
-      sql: `INSERT INTO subscriptions (id, invoice_url) VALUES (?, ?);`,
-      args: [subscriptionId, url],
+      sql: `UPDATE subscriptions SET invoice_url = ? WHERE id = ?;`,
+      args: [url, subscriptionId],
     });
 
     if (result.rowsAffected === 0) {

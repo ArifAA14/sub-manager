@@ -1,15 +1,13 @@
 'use client';
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
-import { type PutBlobResult } from '@vercel/blob';
-import { upload } from '@vercel/blob/client';
-import { FormEvent, useRef, useState } from 'react';
-import { SubscriptionI } from '../../../../lib/types';
-import { toast } from 'sonner';
 import { uploadURL } from '@/app/actions/SubscriptionService';
+import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
+import { upload } from '@vercel/blob/client';
+import { FormEvent, useRef } from 'react';
+import { toast } from 'sonner';
+import { SubscriptionI } from '../../../../lib/types';
 
 function UploadDialog({ isOpen, close, subscription }: { isOpen: boolean, close: () => void, subscription: SubscriptionI }) {
   const inputFileRef = useRef<HTMLInputElement>(null);
-  const [blob, setBlob] = useState<PutBlobResult | null>(null);
 
   async function handleUpload(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -40,9 +38,10 @@ function UploadDialog({ isOpen, close, subscription }: { isOpen: boolean, close:
       toast.error('Failed to upload file');
       return;
     }
-    toast.success('File uploaded successfully');
+    toast.dismiss();
     await uploadURL(subscription.id, newBlob.url);
-    setBlob(newBlob);
+    toast.success('File uploaded successfully');
+    close();
   }
 
 
@@ -81,11 +80,6 @@ function UploadDialog({ isOpen, close, subscription }: { isOpen: boolean, close:
                   <input name="file" ref={inputFileRef} type="file" required />
                   <button type="submit">Upload</button>
                 </form>
-                {blob && (
-                  <div>
-                    Blob url: <a href={blob.url}>{blob.url}</a>
-                  </div>
-                )}
               </>
 
             </div>
