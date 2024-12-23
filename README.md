@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Subscription Manager
 
-## Getting Started
+A comprehensive Full Stack Web Application designed to streamline the management of all your subscriptions in one centralized platform. Featuring a built-in AI Assistant, it is equipped to handle everything from upcoming renewal reminders to advanced subscription data analysis with ease.
 
-First, run the development server:
+## Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Secure Authentication**\
+  Robust and reliable user authentication to ensure the safety and privacy of your data.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Comprehensive Subscription Management**\
+  Add, update, and delete subscriptions effortlessly with no limits.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Advanced Filtering and Search Capabilities**\
+  Locate subscriptions quickly by name, category, or subscription type using intuitive search and filtering tools.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **AI Assistant at Your Service**\
+  A powerful AI assistant trained to answer any subscription-related questions, including renewal schedules, cost analysis, and trends.
 
-## Learn More
+- **Modern and Intuitive UI/UX**\
+  A sleek and seamless user interface designed for an exceptional user experience.
 
-To learn more about Next.js, take a look at the following resources:
+- **Data Export Options**\
+  Download your subscription data as PDF, XLSX, or CSV files for further analysis or record-keeping.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Individual Subscription Export**\
+  Export detailed information and cost analysis for individual subscriptions in multiple formats, including PDF, CSV, and XLSX.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Interactive Dashboard with Actionable Metrics**\
+  Gain insights with dynamic dashboards featuring key metrics, such as:
 
-## Deploy on Vercel
+  - Monthly and yearly costs.
+  - Trends like Month-over-Month (MoM) and Year-over-Year (YoY) changes.
+  - Upcoming renewal reminders and actionable insights.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Renewal Notifications**\
+  Automated email reminders for subscriptions nearing their renewal date to ensure you never miss a deadline.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Multi-Format Support**\
+  Handle diverse subscription types (e.g., monthly, yearly) with precision, including prorated calculations for accurate cost tracking.
+
+This professional-grade Subscription Manager empowers users to take control of their subscriptions with precision, simplicity, and cutting-edge technology.
