@@ -1,6 +1,7 @@
+import 'server-only'
 import { User } from "next-auth";
-import { turso } from "./client";
-import { SubscriptionI } from "./types";
+import { turso } from "../../../lib/client";
+import { SubscriptionI } from "../../../lib/types";
 import { v4 as uuidv4 } from 'uuid';
 
 interface UserType extends User {

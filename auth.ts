@@ -1,6 +1,6 @@
 import NextAuth, { AuthError } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import DbService from "./lib/DbService";
+import DbService from "./src/app/data/DbService";
 import { verifyPassword } from "./utils/password";
 
 

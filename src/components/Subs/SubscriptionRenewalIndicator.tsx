@@ -13,6 +13,15 @@ function SubscriptionRenewalIndicator({
   const parsedStartDate = parse(start_date, "dd/MM/yyyy", new Date());
 
   const calculateRenewalDate = () => {
+    if (end_date) {
+      const parsedEndDate = parse(end_date, "dd/MM/yyyy", new Date());
+      if (parsedEndDate > new Date()) {
+        return parsedEndDate;
+      } else {
+        return null;
+      }
+    }
+
     if (renewaltype === "Monthly") {
       let renewalDate = parsedStartDate;
       while (renewalDate < new Date()) {
@@ -25,11 +34,11 @@ function SubscriptionRenewalIndicator({
         renewalDate = addYears(renewalDate, 1);
       }
       return renewalDate;
-    } else if (end_date) {
-      return parse(end_date, "dd/MM/yyyy", new Date());
     }
+
     return null;
   };
+
 
   const renewalDate = calculateRenewalDate();
 
@@ -56,7 +65,7 @@ function SubscriptionRenewalIndicator({
   return (
     <h1 className={`text-sm lg:text-md font-normal font-sans tracking-tight whitespace-nowrap
      ${renewalInDaysColor()} group-hover:text-gray-600 transition-all ease-linear duration-300`}>
-      Renews In {renewalIn}
+      {end_date ? 'Expires' : 'Renews'} In {renewalIn}
     </h1>
   );
 }

@@ -2,7 +2,7 @@
 import { redirect } from "next/navigation";
 import { signIn } from "../../../auth";
 import { saltAndHashPassword } from "../../../utils/password";
-import DbService from "../../../lib/DbService";
+import DbService from "../data/DbService";
 
 export async function registerUser(formData: FormData) {
   const name = formData.get("name") as string;

@@ -15,6 +15,7 @@ function ChatClient({ subscriptions }: { subscriptions: SubscriptionI[] }) {
           startDate: s.start_date,
           category: s.category,
           currency: s.currency,
+          endDate: s.end_date,
         })),
       }),
     }

@@ -1,6 +1,6 @@
 'use server';
 import { revalidatePath } from "next/cache";
-import DbService from "../../../lib/DbService";
+import DbService from "../data/DbService";
 import { SubscriptionI } from "../../../lib/types";
 
 
