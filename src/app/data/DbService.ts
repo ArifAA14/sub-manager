@@ -152,17 +152,17 @@ class DbService {
   }
 
 
-  // public async upload(subscriptionId: string, file: Blob) {
-  //   const result = await turso.execute({
-  //     sql: `INSERT INTO invoices (subscription_id, file) VALUES (?, ?);`,
-  //     args: [subscriptionId, file as string],
-  //   });
+  public async upload(subscriptionId: string, url: string) {
+    const result = await turso.execute({
+      sql: `INSERT INTO subscriptions (id, invoice_url) VALUES (?, ?);`,
+      args: [subscriptionId, url],
+    });
 
-  //   if (result.rowsAffected === 0) {
-  //     return { success: false, message: "Failed to upload invoice." };
-  //   }
-  //   return { success: true, message: "Invoice uploaded successfully." };
-  // }
+    if (result.rowsAffected === 0) {
+      return { success: false, message: "Failed to upload invoice." };
+    }
+    return { success: true, message: "Invoice uploaded successfully." };
+  }
 }
 
 export default DbService;

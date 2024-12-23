@@ -49,3 +49,14 @@ export async function update(subscriptionObject: SubscriptionI): Promise<{ succe
     return { success: false, message: "Failed to update subscription" };
   }
 }
+
+export async function uploadURL(subscriptionId: string, url: string): Promise<{ success: boolean; message?: string }> {
+  try {
+    const db = DbService.getInstance();
+    revalidatePath("/");
+    return await db.upload(subscriptionId, url);
+  } catch (error) {
+    console.error(error);
+    return { success: false, message: "Failed to upload invoice" };
+  }
+}

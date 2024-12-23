@@ -2,14 +2,51 @@
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { type PutBlobResult } from '@vercel/blob';
 import { upload } from '@vercel/blob/client';
-import { useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import { SubscriptionI } from '../../../../lib/types';
+import { toast } from 'sonner';
+import { uploadURL } from '@/app/actions/SubscriptionService';
 
 function UploadDialog({ isOpen, close, subscription }: { isOpen: boolean, close: () => void, subscription: SubscriptionI }) {
-
-  console.log(subscription)
   const inputFileRef = useRef<HTMLInputElement>(null);
   const [blob, setBlob] = useState<PutBlobResult | null>(null);
+
+  async function handleUpload(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    toast.loading('Uploading...');
+
+    if (!inputFileRef.current?.files) {
+      toast.error('No File Selected');
+      return;
+    }
+    if (!inputFileRef.current.files[0].type.startsWith('application/pdf')) {
+      toast.error('Only PDF files are allowed');
+      return;
+    }
+    if (inputFileRef.current.files[0].size > 1000000) {
+      toast.error('File size cannot exceed 1MB');
+      return;
+    }
+
+    const file = inputFileRef.current.files[0];
+
+    const newBlob = await upload(
+      `${subscription.user_id}/${subscription.id}`,
+      file, {
+      access: 'public',
+      handleUploadUrl: '/api/upload',
+    });
+    if (!newBlob) {
+      toast.error('Failed to upload file');
+      return;
+    }
+    toast.success('File uploaded successfully');
+    await uploadURL(subscription.id, newBlob.url);
+    setBlob(newBlob);
+  }
+
+
+
   return (
     <Dialog open={isOpen} as="div" className="relative z-10 focus:outline-none" onClose={close}>
       <div className="fixed inset-0 z-0 w-screen overflow-y-clip">
@@ -39,24 +76,7 @@ function UploadDialog({ isOpen, close, subscription }: { isOpen: boolean, close:
                 <h1>Upload Your Avatar</h1>
 
                 <form
-                  onSubmit={async (event) => {
-                    event.preventDefault();
-
-                    if (!inputFileRef.current?.files) {
-                      throw new Error('No file selected');
-                    }
-
-                    const file = inputFileRef.current.files[0];
-
-                    const newBlob = await upload(
-                      `${subscription.user_id}/${subscription.id}`,
-                      file, {
-                      access: 'public',
-                      handleUploadUrl: '/api/upload',
-                    });
-
-                    setBlob(newBlob);
-                  }}
+                  onSubmit={(event) => handleUpload(event)}
                 >
                   <input name="file" ref={inputFileRef} type="file" required />
                   <button type="submit">Upload</button>
