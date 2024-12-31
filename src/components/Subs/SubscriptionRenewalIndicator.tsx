@@ -15,11 +15,10 @@ function SubscriptionRenewalIndicator({
   const calculateRenewalDate = () => {
     if (end_date) {
       const parsedEndDate = parse(end_date, "dd/MM/yyyy", new Date());
-      if (parsedEndDate > new Date()) {
+      if (parsedEndDate >= new Date()) {
         return parsedEndDate;
-      } else {
-        return null;
       }
+      return null;
     }
 
     if (renewaltype === "Monthly") {
@@ -40,16 +39,20 @@ function SubscriptionRenewalIndicator({
   };
 
 
+
+
   const renewalDate = calculateRenewalDate();
 
   if (!renewalDate || isNaN(renewalDate.getTime())) {
+
     return (
       <h1 className="text-xs lg:text-base font-normal font-sans tracking-tight
-       text-gray-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
-        Invalid renewal information
+       text-red-500 group-hover:text-gray-600 transition-all ease-linear duration-300">
+        Expired
       </h1>
     );
   }
+
 
   const renewalIn = formatDistance(renewalDate, new Date());
   const renewalInDays = differenceInDays(renewalDate, new Date());
