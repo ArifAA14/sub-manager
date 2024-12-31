@@ -17,6 +17,7 @@ export function getMonthlyTrends(subscriptions: SubscriptionI[]): number {
   const thisMonthTotal = thisMonthData.reduce((acc, curr) => acc + curr.amount, 0);
   const lastMonthTotal = lastMonthData.reduce((acc, curr) => acc + curr.amount, 0);
 
+  console.log(thisMonthTotal, lastMonthTotal);
   if (lastMonthTotal === 0 && thisMonthTotal === 0) {
     return 0; 
   }
@@ -50,7 +51,7 @@ export function getYearlyTrends(subscriptions: SubscriptionI[]): number {
     return 0;
   }
   if (lastYearTotal === 0) {
-    return 0;
+    return 100; 
   }
   if (thisYearTotal === 0) {
     return -100;
